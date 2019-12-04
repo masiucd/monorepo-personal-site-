@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable prefer-const */
 const isAnagram = (str1, str2) => {
   if (str1.length !== str2.length) return false;
@@ -16,6 +17,21 @@ const isAnagram = (str1, str2) => {
     if (!map[letter]) {
       return false;
     }
+    map[letter] -= 1;
+  }
+  return true;
+};
+
+// vs 2
+const anagram = (str1, str2) => {
+  if (str1.length !== str2.length) return false;
+
+  const map = {};
+  for (const letter of str1) {
+    map[letter] ? (map[letter] += 1) : (map[letter] = 1);
+  }
+  for (const letter of str2) {
+    if (!map[letter]) return false;
     map[letter] -= 1;
   }
   return true;
