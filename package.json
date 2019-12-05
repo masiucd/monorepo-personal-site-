@@ -1,0 +1,15 @@
+{
+  "name": "Js-Algos",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/masiuciszek/Js-Algos.git",
+  "author": "Masiu <ciszekmarcell@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
+}
