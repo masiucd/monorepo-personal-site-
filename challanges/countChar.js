@@ -1,0 +1,25 @@
+/* eslint-disable prefer-const */
+const countChar = string => {
+  let input = string.toLowerCase();
+  let charMap = {};
+  let charStr = '';
+  let charCount = 0;
+  for (const str of input) {
+    if (charMap[str]) {
+      charMap[str] += 1;
+    } else {
+      charMap[str] = 1;
+    }
+  }
+  for (let str in charMap) {
+    if (charMap[str] > charCount) {
+      charCount = charMap[str];
+      charStr = str;
+    }
+  }
+
+  return charStr;
+};
+
+const print = countChar('hello Marcell');
+console.log(print);
