@@ -1,7 +1,8 @@
-/* eslint-disable prefer-const */
+// @ts-nocheck
+/* eslint-disable no-restricted-syntax */
 const countChar = string => {
-  let input = string.toLowerCase();
-  let charMap = {};
+  const input = string.toLowerCase();
+  const charMap = {};
   let charStr = '';
   let charCount = 0;
   for (const str of input) {
@@ -11,7 +12,7 @@ const countChar = string => {
       charMap[str] = 1;
     }
   }
-  for (let str in charMap) {
+  for (const str in charMap) {
     if (charMap[str] > charCount) {
       charCount = charMap[str];
       charStr = str;
