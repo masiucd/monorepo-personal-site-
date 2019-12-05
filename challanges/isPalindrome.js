@@ -16,4 +16,8 @@ console.log(print1);
 console.log(print2);
 console.log(print3);
 
-module.exports = isPalindrome;
+// module.exports = {
+//   isPalindrome,
+// };
+
+export { isPalindrome };
