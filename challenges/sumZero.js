@@ -1,5 +1,5 @@
 // Naive version
-export const sumZero = arr => {
+const sumZero = arr => {
   for (let i = 0; i < arr.length; i += 1) {
     for (let j = 0; j < arr.length; j += 1) {
       if (arr[i] + arr[j] === 0) {
@@ -11,7 +11,7 @@ export const sumZero = arr => {
 
 const sum = sumZero([-3, -2, -1, 0, 1, 2, 3]);
 
-export const sumZero2 = arr => {
+const sumZero2 = arr => {
   let left = 0;
   let right = arr.length - 1;
   while (left < right) {
@@ -30,7 +30,7 @@ export const sumZero2 = arr => {
 const sum2 = sumZero2([-4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6]);
 
 console.log(sum2);
-// module.exports = {
-//   sumZero,
-//   sumZero2,
-// };
+module.exports = {
+  sumZero,
+  sumZero2,
+};

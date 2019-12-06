@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { sumZero, sumZero2 } from '../challanges/sumZero';
+const { sumZero, sumZero2 } = require('../challenges/sumZero');
 
 test('to be 0', () => {
   const arr = [-3, -2, -1, 0, 1, 2, 3];

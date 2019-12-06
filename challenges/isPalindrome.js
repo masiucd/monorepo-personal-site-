@@ -20,4 +20,6 @@ console.log(print3);
 //   isPalindrome,
 // };
 
-export { isPalindrome };
+module.exports = {
+  isPalindrome,
+};

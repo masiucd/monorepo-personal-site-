@@ -12,5 +12,9 @@ const fizzBuzz = n => {
   }
 };
 
-const print = fizzBuzz(50);
+const print = fizzBuzz(10);
 console.log(print);
+
+module.exports = {
+  fizzBuzz,
+};
