@@ -1,6 +1,20 @@
 // @ts-nocheck
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable prefer-const */
+
+const reduceToObj = num =>
+  num
+    .toString()
+    .split('')
+    .reduce((obj, key) => {
+      if (!obj[key]) {
+        obj[key] = 1;
+      } else {
+        obj[key] += 1;
+      }
+      return obj;
+    }, {});
+
 const sameFrequency = (n1, n2) => {
   const n1Str = n1.toString();
   const n2Str = n2.toString();
@@ -57,5 +71,16 @@ const sameFrequency2 = (n1, n2) => {
   return true;
 };
 
-console.log(sameFrequency2(1223, 3221));
-console.log(sameFrequency2(123, 391));
+const sameFrequency3 = (n1, n2) => {
+  const strMap1 = reduceToObj(n1);
+
+  const strMap2 = reduceToObj(n2);
+
+  for (let key in strMap1) {
+    if (strMap1[key] !== strMap2[key]) return false;
+  }
+  return true;
+};
+
+console.log(sameFrequency3(1223, 3221));
+console.log(sameFrequency3(123, 391));
