@@ -14,7 +14,22 @@ const areThereDublicates = (...args) => {
 const areThereDublicates2 = (...args) =>
   [...new Set(args)].length === args.length;
 
-console.log(areThereDublicates2(1, 2, 3));
-console.log(areThereDublicates2(1, 2, 2, 2, 3));
-console.log(areThereDublicates2('a', 'b', 'c'));
-console.log(areThereDublicates2('a', 'b', 'c', 'a'));
+const areThereDublicates3 = (...args) => {
+  const argsCount = args.reduce((obj, arg) => {
+    if (obj[arg]) {
+      obj[arg] += 1;
+    } else {
+      obj[arg] = 1;
+    }
+    return obj;
+  }, {});
+
+  for (const val in argsCount) {
+    if (argsCount[val] > 1) return false;
+  }
+  return true;
+};
+console.log(areThereDublicates3(1, 2, 3));
+console.log(areThereDublicates3(3, 2, 1, 2));
+console.log(areThereDublicates3('a', 'b', 'c'));
+console.log(areThereDublicates3('a', 'b', 'c', 'a'));
