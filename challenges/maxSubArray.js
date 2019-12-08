@@ -32,3 +32,4 @@ const maxSubArray2 = (arr, num) => {
 
 // console.log(maxSubArray2([1, 2, 3, 4, 3, 2, 2, 1, 2], 3));
 console.log(maxSubArray2([1, 2, 10, 3, 1, 20], 2));
+console.log(maxSubArray2([1, 2, 10, 3, 1, 20], 3));
