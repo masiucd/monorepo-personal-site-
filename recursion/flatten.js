@@ -1,4 +1,3 @@
-/* eslint-disable prefer-const */
 /**
  *
  * @param {(number | number[] | number[][] | number[][][] )[]} arr
@@ -7,7 +6,7 @@
 
 const flatten = arr => {
   let resArr = [];
-  for (let val of arr) {
+  for (const val of arr) {
     if (Array.isArray(val)) {
       resArr = resArr.concat(flatten(val));
     } else {
@@ -17,9 +16,9 @@ const flatten = arr => {
   return resArr;
 };
 
-let res = flatten([1, 2, 3, [4, 5]]); // [1, 2, 3, 4, 5]
+const res = flatten([1, 2, 3, [4, 5]]); // [1, 2, 3, 4, 5]
 
-let res2 = flatten([[1], [2], [3]]); // [1,2,3]
+const res2 = flatten([[1], [2], [3]]); // [1,2,3]
 
-console.log(res);
-console.log(res2);
+// console.log(res);
+// console.log(res2);
