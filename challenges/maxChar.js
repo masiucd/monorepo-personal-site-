@@ -7,7 +7,8 @@
  */
 function maxChar(str) {
   if (str.length === 0) return '';
-  const strLower = str.toLowerCase().trim();
+
+  const strLower = str.toLowerCase().replace(/\s*/g, '');
   const map = {};
   let max = 0;
   let word = '';
@@ -22,8 +23,10 @@ function maxChar(str) {
       word = key;
     }
   }
+  console.log(map);
   return word;
 }
 
-// console.log(maxChar('apa'))
+console.log(maxChar('apa'));
 console.log(maxChar('marcell'));
+console.log(maxChar('Marcell CiszEk William Jerzy Mikolaj'));
