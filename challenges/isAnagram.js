@@ -1,5 +1,13 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable prefer-const */
+
+/**
+ *
+ * @param {string} str1
+ * @param {string} str2
+ * @returns {boolean}
+ */
+
 const isAnagram = (str1, str2) => {
   if (str1.length !== str2.length) return false;
   const map = {};
