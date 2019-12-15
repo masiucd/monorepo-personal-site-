@@ -5,14 +5,15 @@
  */
 const countUniqueValues = arr => {
   if (arr.length === 0) return 0;
-  let i = 0;
-  for (let j = 1; j < arr.length; j += 1) {
-    if (arr[i] !== arr[j]) {
-      i += 1;
-      arr[i] = arr[j];
+  let leftHand = 0;
+
+  for (let rightHand = 1; rightHand < arr.length; rightHand += 1) {
+    if (arr[leftHand] !== arr[rightHand]) {
+      leftHand += 1;
+      arr[rightHand] = arr[leftHand];
     }
   }
-  return i + 1;
+  return leftHand + 1;
 };
 
 console.log(countUniqueValues([-2, -1, -1, 0, 1]));
