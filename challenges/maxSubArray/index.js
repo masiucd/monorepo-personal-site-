@@ -1,4 +1,10 @@
 /* eslint-disable prefer-const */
+/**
+ *
+ * @param {number[]} arr
+ * @param {number} num
+ * @returns {number}
+ */
 const maxSubArray = (arr, num) => {
   if (arr.length < num) return 0;
   let max = 0;
@@ -14,7 +20,12 @@ const maxSubArray = (arr, num) => {
   }
   return max;
 };
-
+/**
+ *
+ * @param {number[]} arr
+ * @param {number} num
+ * @returns {number}
+ */
 const maxSubArray2 = (arr, num) => {
   let maxSum = 0;
   let tempSum = 0;
@@ -31,5 +42,5 @@ const maxSubArray2 = (arr, num) => {
 };
 
 // console.log(maxSubArray2([1, 2, 3, 4, 3, 2, 2, 1, 2], 3));
-console.log(maxSubArray2([1, 2, 10, 3, 1, 20], 2));
-console.log(maxSubArray2([1, 2, 10, 3, 1, 20], 3));
+// console.log(maxSubArray2([1, 2, 10, 3, 1, 20], 2));
+// console.log(maxSubArray2([1, 2, 10, 3, 1, 20], 3));
