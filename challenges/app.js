@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 /**
  * @param {string} str1
  * @param {string} str2
@@ -28,14 +29,21 @@ const app = (str1, str2) => {
  * @returns {number[]}
  */
 
-const app2 = arr => {
-  for (let i = 0; i < arr.length; i += 1) {
-    for (let j = 0; j < arr.length; j += 1) {
-      if (arr[i] + arr[j] === 0) {
-        return [arr[i], arr[j]];
-      }
+const app3 = arr => {
+  const sortedArray = arr.sort();
+  let left = 0;
+  let right = sortedArray.length - 1;
+  while (left < right) {
+    let sum = sortedArray[left] + sortedArray[right];
+    if (sum === 0) {
+      return [sortedArray[left], sortedArray[right]];
+    }
+    if (sum > 0) {
+      right -= 1;
+    } else {
+      left += 1;
     }
   }
 };
 
-console.log(app2([-4, -3, -2, -1, 0, 1, 2, 3, 4]));
+console.log(app3([1, 2, 3, 5, -5, -4, 6, 4, -3, -2, -1]));
