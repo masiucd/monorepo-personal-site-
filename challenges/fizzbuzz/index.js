@@ -2,20 +2,20 @@
  * @param {number} n
  * @returns {number}
  */
-const fizzBuzz = n => {
-  for (let i = 0; i < n; i += 1) {
-    if (i % 5 === 0 && i % 3 === 0) {
-      console.log('FizzBuzz');
-    } else if (i % 5 === 0) {
-      console.log('Fizz');
+function fizzBuzz(n) {
+  for (let i = 1; i <= n; i += 1) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      console.log('fizzbuzz');
     } else if (i % 3 === 0) {
-      console.log('Buzz');
+      console.log('fizz');
+    } else if (i % 5 === 0) {
+      console.log('buzz');
     } else {
       console.log(i);
-      return i;
     }
   }
-};
+}
+
 const fizzBuzz2 = n => {
   const arr = [];
   for (let i = 0; i < n; i += 1) {
@@ -32,9 +32,4 @@ const fizzBuzz2 = n => {
   return arr;
 };
 
-const print = fizzBuzz2(10);
-console.log(print);
-
-module.exports = {
-  fizzBuzz,
-};
+module.exports = fizzBuzz;
