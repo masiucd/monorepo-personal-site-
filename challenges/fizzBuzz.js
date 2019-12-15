@@ -1,3 +1,7 @@
+/**
+ * @param {number} n
+ * @returns {number}
+ */
 const fizzBuzz = n => {
   for (let i = 0; i < n; i += 1) {
     if (i % 5 === 0 && i % 3 === 0) {
@@ -8,6 +12,7 @@ const fizzBuzz = n => {
       console.log('Buzz');
     } else {
       console.log(i);
+      return i;
     }
   }
 };
