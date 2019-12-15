@@ -45,3 +45,26 @@ const app3 = arr => {
     }
   }
 };
+
+/**
+ *
+ * @param {number[]} arr
+ * @param {number} num
+ * @returns {number}
+ */
+const app4 = (arr, num) => {
+  let maxSum = 0;
+  let tempSum = 0;
+  if (arr.length < num) return null;
+  for (let i = 0; i < num; i += 1) {
+    maxSum += arr[i];
+  }
+  tempSum = maxSum;
+  for (let i = num; i < arr.length; i += 1) {
+    tempSum = tempSum - arr[i - num] + arr[i];
+    maxSum = Math.max(maxSum, tempSum);
+  }
+  return maxSum;
+};
+
+console.log(app4([1, 2, 3, 4, 3, 2, 2, 1, 2], 3));
