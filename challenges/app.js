@@ -99,5 +99,64 @@ function maxSubarraySum(arr, num) {
   return maxCurrentSum;
 }
 
-console.log(maxSubarraySum([200, 300, 100, 500], 2));
-console.log(maxSubarraySum([100, 200, 300, 400], 2));
+// console.log(maxSubarraySum([200, 300, 100, 500], 2));
+// console.log(maxSubarraySum([100, 200, 300, 400], 2));
+
+/**
+ *
+ * @param {number[]} arr
+ * @returns {number[]}
+ */
+const sumZero = arr => {
+  for (let i = 0; i < arr.length; i += 1) {
+    for (let j = 0; j < arr.length; j += 1) {
+      if (arr[i] + arr[j] === 0) {
+        return [arr[i], arr[j]];
+      }
+    }
+  }
+};
+
+// console.log(sumZero([-2, -1, 0, 1, 2, 3]));
+
+/**
+ *
+ * @param {number[]} arr
+ * @returns {number[]}
+ */
+function sumZero2(arr) {
+  let left = 0;
+  let right = arr.length - 1;
+
+  while (left < right) {
+    let sum = arr[left] + arr[right];
+    if (sum === 0) {
+      return [arr[left], arr[right]];
+    }
+    if (sum > 0) {
+      right -= 1;
+    } else {
+      left += 1;
+    }
+  }
+}
+// console.log(sumZero2([-2, -1, 0, 1, 2, 3]));
+
+/**
+ *
+ * @param {number[]} arr
+ * @returns {number}
+ */
+function countUniqueValues(arr) {
+  if (arr.length === 0) return 0;
+  let leftHand = 0;
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[leftHand] !== arr[i]) {
+      leftHand += 1;
+      arr[leftHand] = arr[i];
+    }
+  }
+  return leftHand + 1;
+}
+
+console.log(countUniqueValues([1, 1, 1, 1, 1, 1, 2]));
