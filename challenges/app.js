@@ -58,19 +58,41 @@ function areThereDuplicates(...args) {
  * @returns {number}
  */
 
-function maxSubarraySum(arr, num) {
-  if (arr.length < num) return null;
+function maxSubarraySumX(arr, num) {
+  if (num > arr.length) return 0;
 
-  let total = 0;
-  for (let i = 0; i < num; i += 1) {
-    total += arr[i];
+  let max = 0;
+  for (let i = 0; i < arr.length - num + 1; i++) {
+    let temp = 0;
+    for (let j = 0; j < num; j++) {
+      temp += arr[i + j];
+      if (temp > max) {
+        max = temp;
+      }
+    }
   }
-  let acc = total;
-  for (let i = num; i < arr.length; i += 1) {
-    acc += arr[i] - arr[i - num];
-    total = Math.max(total, acc);
+  return max;
+}
+
+/**
+ *
+ * @param {number[]} arr
+ * @param {number} num
+ * @returns {number}
+ */
+function maxSubarraySum(arr, num) {
+  if (arr.length < num) return 0;
+  let leftHand = 0;
+  let maxCurrentSum = 0;
+  for (let i = 0; i < num; i++) {
+    maxCurrentSum += arr[i];
   }
-  return total;
+  leftHand = maxCurrentSum;
+  for (let i = num; i < arr.length; i++) {
+    leftHand = leftHand - arr[i - num] + arr[i];
+    maxCurrentSum = Math.max(maxCurrentSum, leftHand);
+  }
+  return maxCurrentSum;
 }
 
 console.log(maxSubarraySum([200, 300, 100, 500], 2));
