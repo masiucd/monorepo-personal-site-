@@ -89,9 +89,13 @@ function maxSubarraySum(arr, num) {
   }
   leftHand = maxCurrentSum;
   for (let i = num; i < arr.length; i++) {
+    // Here comes the sliding window
     leftHand = leftHand - arr[i - num] + arr[i];
-    maxCurrentSum = Math.max(maxCurrentSum, leftHand);
+    if (leftHand > maxCurrentSum) {
+      maxCurrentSum = leftHand;
+    }
   }
+
   return maxCurrentSum;
 }
 
