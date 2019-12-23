@@ -5,7 +5,6 @@
  */
 function countPrimes(n) {
   const nums = [...Array(n).keys()];
-
   for (let i = 2; i * i < n; i++) {
     if (nums[i]) {
       for (let j = i * i; j < n; j += i) {
