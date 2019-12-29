@@ -18,11 +18,12 @@ class LinkedList {
     if (!this.head) {
       this.head = newNode;
       this.tail = this.head;
-      this.length += 1;
     } else {
       this.tail.next = newNode;
       this.tail = newNode;
     }
+    this.length += 1;
+    return this;
   }
 }
 
