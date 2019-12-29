@@ -151,6 +151,10 @@ LinkedList2.prototype.remove = function(index) {
   return removed;
 };
 
+LinkedList2.prototype.reverse = function() {
+  //
+};
+
 ll.insertAtEnd('C');
 ll.insertAtEnd('b');
 ll.insertAtEnd('a');

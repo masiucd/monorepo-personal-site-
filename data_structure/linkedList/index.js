@@ -163,6 +163,38 @@ class LinkedList {
     this.size -= 1;
     return removed;
   }
+
+  /**
+   * @returns {string[]}
+   */
+  get print() {
+    let arr = [];
+    let current = this.head;
+    while (current) {
+      arr.push(current.data);
+      current = current.next;
+    }
+    return arr;
+  }
+
+  /**
+   * @returns {this}
+   */
+  reverse() {
+    let node = this.head;
+    // SWAP
+    this.head = this.tail;
+    this.tail = node;
+    let next;
+    let prev = null;
+    for (let i = 0; i < this.size; i++) {
+      next = node.next;
+      node.next = prev;
+      prev = node;
+      node = next;
+    }
+    return this;
+  }
 }
 
 const ll = new LinkedList();
@@ -172,8 +204,6 @@ ll.insertAtEnd('keep it real');
 ll.set(0, '!!!');
 ll.insertInto(1, 'masiu');
 ll.insertInto(2, 'Karol');
-ll.remove(2);
-ll.remove(2);
-ll.remove(2);
-ll.remove(1);
 console.log(ll);
+ll.reverse();
+console.log(ll.print);
