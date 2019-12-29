@@ -85,7 +85,7 @@ class LinkedList {
    * @param {string} data
    * @returns {this}
    */
-  addToStart(data) {
+  insertStart(data) {
     const newNode = new Node(data);
     if (!this.head) {
       this.head = newNode;
@@ -127,6 +127,26 @@ class LinkedList {
     }
     return false;
   }
+
+  /**
+   *
+   * @param {number} index
+   * @param {string} data
+   * @returns {boolean}
+   */
+  insertInto(index, data) {
+    if (index < 0 || index > this.size) return false;
+    if (index === this.size) return !!this.insertAtEnd(data);
+    if (index === 0) return !!this.insertStart(data);
+
+    let newNode = new Node(data);
+    let prev = this.get(index - 1);
+    let pointer = prev.next;
+    prev.next = newNode;
+    newNode.next = pointer;
+    this.size += 1;
+    return true;
+  }
 }
 
 const ll = new LinkedList();
@@ -134,4 +154,7 @@ ll.insertAtEnd('hello');
 ll.insertAtEnd('I like bananas');
 ll.insertAtEnd('keep it real');
 ll.set(0, '!!!');
+ll.insertInto(1, 'masiu');
+ll.insertInto(2, 'Karol');
+
 console.log(ll);

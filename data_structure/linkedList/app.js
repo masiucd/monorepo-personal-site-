@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 /**
  *
  * @param {string} data
@@ -109,8 +110,34 @@ LinkedList2.prototype.setNewNode = function(index, data) {
   return false;
 };
 
+/**
+ *
+ * @param {number} index
+ * @param {string} data
+ * @returns {boolean}
+ */
+LinkedList2.prototype.insertInto = function(index, data) {
+  if (index < 0 || index > this.size) return false;
+  if (index === 0) {
+    this.insertAtStart(data);
+    return true;
+  }
+  if (index === this.size) {
+    this.insertAtEnd(data);
+    return true;
+  }
+  let newNode = new Node(data);
+  let previous = this.getAt(index - 1);
+  let pointer = previous.next;
+  previous.next = newNode;
+  newNode.next = pointer;
+  this.size += 1;
+  return true;
+};
+
 ll.insertAtEnd('C');
 ll.insertAtEnd('b');
 ll.insertAtEnd('a');
-ll.setNewNode(0, '*********!!!!');
+
+ll.insertInto(2, 'Boris');
 console.log(ll);
