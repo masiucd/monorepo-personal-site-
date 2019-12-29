@@ -3,7 +3,7 @@
 class Node {
   /**
    *
-   * @param {number} data
+   * @param {string} data
    */
   constructor(data) {
     this.data = data;
@@ -18,7 +18,7 @@ class LinkedList {
 
   /**
    *
-   * @param {number} data
+   * @param {string} data
    * @returns {this}
    */
   insertAtEnd(data) {
@@ -81,7 +81,7 @@ class LinkedList {
 
   /**
    *
-   * @param {number} data
+   * @param {string} data
    * @returns {this}
    */
   addToStart(data) {
@@ -95,13 +95,27 @@ class LinkedList {
     this.size += 1;
     return this;
   }
+
+  /**
+   *
+   * @param {number} index
+   * @returns {this}
+   */
+  get(index) {
+    if (index >= this.size || index < 0) return null;
+    let counter = 0;
+    let node = this.head;
+    while (counter !== index) {
+      node = node.next;
+      counter += 1;
+    }
+    return node;
+  }
 }
 
 const ll = new LinkedList();
-ll.insertAtEnd(5);
-ll.insertAtEnd(2);
-ll.insertAtEnd(3);
-// ll.removeFromStart();
-// ll.removeFromStart();
-// ll.insertAtEnd(12);
+ll.insertAtEnd('hello');
+ll.insertAtEnd('I like bananas');
+ll.insertAtEnd('keep it real');
+
 console.log(ll);

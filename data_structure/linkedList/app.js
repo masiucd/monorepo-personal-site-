@@ -1,26 +1,26 @@
 /**
  *
- * @param {number} data
+ * @param {string} data
  */
 function Node(data) {
   this.data = data;
   this.next = null;
 }
 
-function LL() {
+function LinkedList2() {
   this.head = null;
   this.tail = null;
   this.size = 0;
 }
 
-const ll = new LL();
+const ll = new LinkedList2();
 
 /**
- * @param {number} data
+ * @param {string} data
  * @returns {this}
  */
 
-LL.prototype.insertAtEnd = function(data) {
+LinkedList2.prototype.insertAtEnd = function(data) {
   const node = new Node(data);
   if (!this.head) {
     this.head = node;
@@ -33,7 +33,7 @@ LL.prototype.insertAtEnd = function(data) {
   return this;
 };
 
-LL.prototype.deleteAtEnd = function() {
+LinkedList2.prototype.deleteAtEnd = function() {
   if (!this.head) return undefined;
   let curr = this.head;
   let newTail = curr;
@@ -53,7 +53,7 @@ LL.prototype.deleteAtEnd = function() {
 /**
  * @returns {this}
  */
-LL.prototype.deleteAtStart = function() {
+LinkedList2.prototype.deleteAtStart = function() {
   if (this.size === 0 || !this.head) return undefined;
   const currentHead = this.head;
   this.head = currentHead.next;
@@ -61,10 +61,42 @@ LL.prototype.deleteAtStart = function() {
   return currentHead;
 };
 
-ll.insertAtEnd(6);
-ll.insertAtEnd(1);
-ll.insertAtEnd(2);
+/**
+ *
+ * @param {string} data
+ * @returns {this}
+ */
+LinkedList2.prototype.insertAtStart = function(data) {
+  const node = new Node(data);
+  if (!this.head) {
+    this.head = node;
+    this.tail = this.head;
+  }
+  node.next = this.head;
+  this.head = node;
+  this.size += 1;
+  return this;
+};
+
+/**
+ *
+ * @param {number} index
+ * @returns {Node}
+ */
+LinkedList2.prototype.getAt = function(index) {
+  if (index >= this.size || index < 0) return null;
+  let current = this.head;
+  let counter = 0;
+  while (index !== counter) {
+    current = current.next;
+    counter += 1;
+  }
+  return current;
+};
+
+ll.insertAtEnd('C');
+ll.insertAtEnd('b');
+ll.insertAtEnd('a');
 // ll.deleteAtStart();
 // ll.deleteAtStart();
 // ll.insertAtEnd(1);
-console.log(ll);
