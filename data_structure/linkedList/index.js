@@ -78,6 +78,23 @@ class LinkedList {
     this.size -= 1;
     return current;
   }
+
+  /**
+   *
+   * @param {number} data
+   * @returns {this}
+   */
+  addToStart(data) {
+    const newNode = new Node(data);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = this.head;
+    }
+    newNode.next = this.head;
+    this.head = newNode;
+    this.size += 1;
+    return this;
+  }
 }
 
 const ll = new LinkedList();
