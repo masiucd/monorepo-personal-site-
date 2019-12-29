@@ -6,10 +6,15 @@ function Node(data) {
 function LL() {
   this.head = null;
   this.tail = null;
-  this.length = 0;
+  this.size = 0;
 }
 
 const ll = new LL();
+
+/**
+ * @param {number} data
+ * @returns {this}
+ */
 
 LL.prototype.insertAtEnd = function(data) {
   const node = new Node(data);
@@ -20,10 +25,29 @@ LL.prototype.insertAtEnd = function(data) {
     this.tail.next = node;
     this.tail = node;
   }
-  this.length += 1;
+  this.size += 1;
   return this;
 };
 
+LL.prototype.deleteAtEnd = function() {
+  if (!this.head) return undefined;
+  let curr = this.head;
+  let newTail = curr;
+  while (curr.next) {
+    newTail = curr;
+    curr = curr.next;
+  }
+  this.tail = newTail;
+  this.tail.next = null;
+  this.size -= 1;
+  if (this.size === 0) {
+    this.head = null;
+    this.tail = null;
+  }
+};
+
 ll.insertAtEnd(6);
+ll.insertAtEnd(1);
+ll.insertAtEnd(2);
 
 console.log(ll);
