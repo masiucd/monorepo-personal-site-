@@ -94,9 +94,23 @@ LinkedList2.prototype.getAt = function(index) {
   return current;
 };
 
+/**
+ *
+ * @param {number} index
+ * @param {string} data
+ * @returns {boolean}
+ */
+LinkedList2.prototype.setNewNode = function(index, data) {
+  const targetNode = this.getAt(index);
+  if (targetNode) {
+    targetNode.data = data;
+    return true;
+  }
+  return false;
+};
+
 ll.insertAtEnd('C');
 ll.insertAtEnd('b');
 ll.insertAtEnd('a');
-// ll.deleteAtStart();
-// ll.deleteAtStart();
-// ll.insertAtEnd(1);
+ll.setNewNode(0, '*********!!!!');
+console.log(ll);

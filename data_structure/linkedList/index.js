@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-sequences */
 class Node {
@@ -111,11 +112,26 @@ class LinkedList {
     }
     return node;
   }
+
+  /**
+   *
+   * @param {number} index
+   * @param {string} data
+   * @returns {boolean}
+   */
+  set(index, data) {
+    let targetNode = this.get(index);
+    if (targetNode) {
+      targetNode.data = data;
+      return true;
+    }
+    return false;
+  }
 }
 
 const ll = new LinkedList();
 ll.insertAtEnd('hello');
 ll.insertAtEnd('I like bananas');
 ll.insertAtEnd('keep it real');
-
+ll.set(0, '!!!');
 console.log(ll);
