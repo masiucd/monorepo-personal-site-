@@ -135,9 +135,26 @@ LinkedList2.prototype.insertInto = function(index, data) {
   return true;
 };
 
+/**
+ *
+ * @param {number} index
+ * @returns {this}
+ */
+LinkedList2.prototype.remove = function(index) {
+  if (index < 0 || index > this.size) return undefined;
+  if (index === this.size) this.deleteAtEnd();
+  if (index === 0) this.deleteAtStart();
+  let prev = this.getAt(index - 1);
+  let removed = prev.next;
+  prev.next = removed.next;
+  this.size -= 1;
+  return removed;
+};
+
 ll.insertAtEnd('C');
 ll.insertAtEnd('b');
 ll.insertAtEnd('a');
 
 ll.insertInto(2, 'Boris');
+
 console.log(ll);

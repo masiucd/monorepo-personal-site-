@@ -147,6 +147,22 @@ class LinkedList {
     this.size += 1;
     return true;
   }
+
+  /**
+   *
+   * @param {number} index
+   * @returns {this}
+   */
+  remove(index) {
+    if (index < 0 || index > this.size) return undefined;
+    if (index === this.size - 1) this.removeAtEnd();
+    if (index === 0) this.removeFromStart();
+    let prev = this.get(index - 1);
+    let removed = prev.next;
+    prev.next = removed.next;
+    this.size -= 1;
+    return removed;
+  }
 }
 
 const ll = new LinkedList();
@@ -156,5 +172,8 @@ ll.insertAtEnd('keep it real');
 ll.set(0, '!!!');
 ll.insertInto(1, 'masiu');
 ll.insertInto(2, 'Karol');
-
+ll.remove(2);
+ll.remove(2);
+ll.remove(2);
+ll.remove(1);
 console.log(ll);
