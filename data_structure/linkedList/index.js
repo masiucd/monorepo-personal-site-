@@ -13,7 +13,7 @@ class Node {
 
 class LinkedList {
   constructor() {
-    (this.head = null), (this.tail = null), (this.length = 0);
+    (this.head = null), (this.tail = null), (this.size = 0);
   }
 
   /**
@@ -30,7 +30,7 @@ class LinkedList {
       this.tail.next = newNode;
       this.tail = newNode;
     }
-    this.length += 1;
+    this.size += 1;
     return this;
   }
 
@@ -60,11 +60,22 @@ class LinkedList {
     }
     this.tail = newTail;
     this.tail.next = null;
-    this.length -= 1;
-    if (this.length === 0) {
+    this.size -= 1;
+    if (this.size === 0) {
       this.head = null;
       this.tail = null;
     }
+    return current;
+  }
+
+  /**
+   * @returns {this}
+   */
+  removeFromStart() {
+    if (!this.head) return undefined;
+    const current = this.head;
+    this.head = current.next;
+    this.size -= 1;
     return current;
   }
 }
@@ -73,5 +84,7 @@ const ll = new LinkedList();
 ll.insertAtEnd(5);
 ll.insertAtEnd(2);
 ll.insertAtEnd(3);
-
+// ll.removeFromStart();
+// ll.removeFromStart();
+// ll.insertAtEnd(12);
 console.log(ll);

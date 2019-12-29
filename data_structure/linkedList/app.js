@@ -1,3 +1,7 @@
+/**
+ *
+ * @param {number} data
+ */
 function Node(data) {
   this.data = data;
   this.next = null;
@@ -46,8 +50,21 @@ LL.prototype.deleteAtEnd = function() {
   }
 };
 
+/**
+ * @returns {this}
+ */
+LL.prototype.deleteAtStart = function() {
+  if (this.size === 0 || !this.head) return undefined;
+  const currentHead = this.head;
+  this.head = currentHead.next;
+  this.size -= 1;
+  return currentHead;
+};
+
 ll.insertAtEnd(6);
 ll.insertAtEnd(1);
 ll.insertAtEnd(2);
-
+// ll.deleteAtStart();
+// ll.deleteAtStart();
+// ll.insertAtEnd(1);
 console.log(ll);
