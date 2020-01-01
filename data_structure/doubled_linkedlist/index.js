@@ -24,6 +24,7 @@ class LinkedList {
       this.head = newNode;
       this.tail = this.head;
     } else {
+      // set the tai; right before the previous
       this.tail.next = newNode;
       newNode.prev = this.tail;
       this.tail = newNode;
