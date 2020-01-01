@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 class Node {
   constructor(data) {
     this.data = data;
@@ -50,11 +51,33 @@ class LinkedList {
     this.size -= 1;
     return poppedNode;
   }
+
+  shift() {
+    if (!this.head) return undefined;
+    let oldHead = this.head;
+    if (this.size === 1) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      this.head = oldHead.next;
+      this.head.prev = null;
+      oldHead.next = null;
+    }
+    this.size -= 1;
+    return oldHead;
+  }
+
+  /**
+   *
+   * @param {string} data
+   */
+  unshift(data) {}
 }
 
 const ll = new LinkedList();
 
 ll.push('apa');
 ll.push('banan');
-
+ll.push('donkey');
+ll.shift();
 console.log(ll);
