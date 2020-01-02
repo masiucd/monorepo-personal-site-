@@ -85,6 +85,34 @@ class LinkedList {
     this.size += 1;
     return this;
   }
+
+  /**
+   *
+   * @param {number} index
+   * @returns {this}
+   */
+  get(index) {
+    if (index < 0 || index >= this.size) return null;
+    let middle = Math.floor(this.size / 2);
+    if (index <= middle) {
+      console.log('WORKING FROM START');
+      let count = 0;
+      let current = this.head;
+      while (count !== index) {
+        current = current.next;
+        count += 1;
+      }
+      return current;
+    }
+    console.log('WORKING FROM END');
+    let count = (this.size -= 1);
+    let current = this.tail;
+    while (count !== index) {
+      current = current.prev;
+      count -= 1;
+    }
+    return current;
+  }
 }
 
 const ll = new LinkedList();
@@ -92,5 +120,10 @@ const ll = new LinkedList();
 ll.push('Harry');
 ll.push('Malfoy');
 ll.push('Harmione');
+ll.push('Dumbledore');
+ll.push('Tom Dolder');
+ll.push('Lord Voldemort');
+
 ll.unshift('Hagrid');
-console.log(ll);
+
+console.log(ll.get(4));
