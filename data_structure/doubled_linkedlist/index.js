@@ -70,14 +70,27 @@ class LinkedList {
   /**
    *
    * @param {string} data
+   * @returns {this}
    */
-  unshift(data) {}
+  unshift(data) {
+    let newNode = new Node(data);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      this.head.prev = newNode;
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+    this.size += 1;
+    return this;
+  }
 }
 
 const ll = new LinkedList();
 
-ll.push('apa');
-ll.push('banan');
-ll.push('donkey');
-ll.shift();
+ll.push('Harry');
+ll.push('Malfoy');
+ll.push('Harmione');
+ll.unshift('Hagrid');
 console.log(ll);
