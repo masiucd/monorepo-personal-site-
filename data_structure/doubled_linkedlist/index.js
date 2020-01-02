@@ -128,6 +128,28 @@ class LinkedList {
     }
     return false;
   }
+
+  /**
+   *
+   * @param {number} index
+   * @param {string} data
+   * @returns {boolean}
+   */
+  insert(index, data) {
+    if (index < 0 || index >= this.size) return false;
+    if (index === 0) return !!this.unshift(data);
+    if (index === this.size) return !!this.push(data);
+    // the index before where we want to insert!
+    let newNode = new Node(data);
+    let beforeNode = this.get(index - 1);
+    let afterNode = beforeNode.next;
+    beforeNode.next = newNode;
+    newNode.prev = beforeNode;
+    newNode.next = afterNode;
+    afterNode.prev = newNode;
+    this.size += 1;
+    return true;
+  }
 }
 
 const ll = new LinkedList();
@@ -138,7 +160,5 @@ ll.push('Harmione');
 ll.push('Dumbledore');
 ll.push('Tom Dolder');
 ll.push('Lord Voldemort');
-
-ll.unshift('Hagrid');
-
+ll.insert(3, 'la');
 console.log(ll);
