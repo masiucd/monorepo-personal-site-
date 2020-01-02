@@ -150,6 +150,24 @@ class LinkedList {
     this.size += 1;
     return true;
   }
+
+  /**
+   *
+   * @param {number} index
+   * @returns {this}
+   */
+  delete(index) {
+    if (index < 0 || index >= this.size) return null;
+    if (index === 0) return this.shift();
+    if (index === this.size - 1) return this.pop();
+    let nodeToDelete = this.get(index);
+    nodeToDelete.prev.next = nodeToDelete.next;
+    nodeToDelete.next.prev = nodeToDelete.prev;
+    nodeToDelete.prev = null;
+    nodeToDelete.next = null;
+    this.size -= 1;
+    return nodeToDelete;
+  }
 }
 
 const ll = new LinkedList();
@@ -160,5 +178,5 @@ ll.push('Harmione');
 ll.push('Dumbledore');
 ll.push('Tom Dolder');
 ll.push('Lord Voldemort');
-ll.insert(3, 'la');
+
 console.log(ll);
