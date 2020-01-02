@@ -113,6 +113,21 @@ class LinkedList {
     }
     return current;
   }
+
+  /**
+   *
+   * @param {number} index
+   * @param {string} data
+   * @returns {boolean}
+   */
+  set(index, data) {
+    let where = this.get(index);
+    if (where !== null) {
+      where.data = data;
+      return true;
+    }
+    return false;
+  }
 }
 
 const ll = new LinkedList();
@@ -126,4 +141,4 @@ ll.push('Lord Voldemort');
 
 ll.unshift('Hagrid');
 
-console.log(ll.get(4));
+console.log(ll);
