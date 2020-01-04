@@ -1,3 +1,4 @@
+// FIFI = first in first out
 class Node {
   constructor(val) {
     this.val = val;
