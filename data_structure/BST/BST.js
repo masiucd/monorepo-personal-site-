@@ -10,6 +10,10 @@ class BST {
   constructor() {
     this.root = null;
   }
+
+  insert() {
+    //
+  }
 }
 
 const tree = new BST();
