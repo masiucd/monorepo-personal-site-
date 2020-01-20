@@ -13,4 +13,8 @@ function addTogether(...rest) {
 }
 
 const a = addTogether(2, 3);
-console.log(a);
+// console.log(a);
+
+const arr = [1, 2, 3, 4, 5];
+
+console.log(arr.some(x => x === 5));
