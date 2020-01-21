@@ -5,8 +5,7 @@
  * @returns {boolean}
  */
 function checkEquality(a, b) {
-  if (isNaN(a) && isNaN(b)) return false;
-  return typeof a === typeof b && typeof b === typeof a;
+  return a === b;
 }
 
 console.log(checkEquality('a', false));
