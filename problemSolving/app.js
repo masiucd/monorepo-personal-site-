@@ -227,6 +227,7 @@ const getNamesString = people => people.join(',');
  *
  * @param {number[]} nums
  */
-const absoluteValue = nums => Math.abs(nums.reduce((a, b) => a + b, 0));
+const getAbsSum = nums => nums.map(x => Math.abs(x)).reduce((a, b) => a + b, 0);
 
-console.log(absoluteValue([1, 5, 3, -2, -2]));
+let x = getAbsSum([2, -1, 4, 8, 10]); // 25
+console.log(x);
