@@ -159,4 +159,66 @@ function countUniqueValues(arr) {
   return leftHand + 1;
 }
 
-console.log(countUniqueValues([1, 1, 1, 1, 1, 1, 2]));
+// console.log(countUniqueValues([1, 1, 1, 1, 1, 1, 2]));
+
+/**
+ *
+ * @param {number[]} grades
+ */
+function sumGrades(grades) {
+  let sum = 0;
+  grades.forEach(grade => (sum += grade));
+  return sum;
+}
+
+/**
+ * @param {number[]} numbers
+ */
+function sumPositiveNumbers(numbers) {
+  let numsArr = [];
+  let sum = 0;
+  numbers.forEach(num => {
+    if (num > 0) {
+      numsArr.push(num);
+    }
+  });
+
+  numsArr.forEach(n => (sum += n));
+
+  return sum;
+}
+
+// console.log(sumPositiveNumbers([15, -5, 10]));
+
+/**
+ * @param {number[]} numbers
+ */
+function sumOddNumbers(numbers) {
+  let sum = 0;
+
+  numbers.forEach(num => {
+    if (num % 2 !== 0 && num > 0) {
+      sum += num;
+    }
+  });
+  return sum;
+}
+
+// sample usage
+// console.log(sumOddNumbers([15, -5, 10]));
+
+/**
+ * @param {string[]} cities
+ */
+const containsAmsterdam = cities => cities.includes('Amsterdam');
+
+// console.log(containsAmsterdam(["Brussels", "Amsterdam", "Oslo"]));
+
+/**
+ *
+ * @param {string[]} people
+ */
+const getNamesString = people => people.join(',');
+
+// sample usage
+console.log(getNamesString(['John', 'Jennifer', 'Liham']));
