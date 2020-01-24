@@ -221,4 +221,12 @@ const containsAmsterdam = cities => cities.includes('Amsterdam');
 const getNamesString = people => people.join(',');
 
 // sample usage
-console.log(getNamesString(['John', 'Jennifer', 'Liham']));
+// console.log(getNamesString(['John', 'Jennifer', 'Liham']));
+
+/**
+ *
+ * @param {number[]} nums
+ */
+const absoluteValue = nums => Math.abs(nums.reduce((a, b) => a + b, 0));
+
+console.log(absoluteValue([1, 5, 3, -2, -2]));
