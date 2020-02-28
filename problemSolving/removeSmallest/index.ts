@@ -8,8 +8,6 @@ const removeSmallest = (arr: number[]): number[] =>
 
 const removeSmallest2 = (arr: number[]): number[] => {
   const smallest = arr.sort()[0];
-
-  // console.log(smallest);
   return arr.filter(x => x !== smallest);
 };
 
