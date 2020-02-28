@@ -1,7 +1,6 @@
 /* eslint-disable prefer-const */
 const maxDistToClosest = function(seats: number[]): number {
   let zeros = seats.join('').split('1');
-
   return Math.max(
     zeros.shift().length,
     zeros.pop().length,
