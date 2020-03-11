@@ -54,5 +54,8 @@ const commonFinder3 = (arr1: string[], arr2: string[]): boolean => {
   return false;
 };
 
-console.log(commonFinder3(['a', 'b', 'c'], ['g', 'h', 'o']));
-console.log(commonFinder3(['a', 'b', 'c'], ['g', 'h', 'a']));
+const commonFinder4 = (arr1: string[], arr2: string[]): boolean =>
+  arr1.some(item => arr2.includes(item));
+
+console.log(commonFinder4(['a', 'b', 'c'], ['g', 'h', 'o']));
+console.log(commonFinder4(['a', 'b', 'c'], ['g', 'h', 'a']));
