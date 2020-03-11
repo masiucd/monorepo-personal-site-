@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 // GIVEN 2 arrays create a function that let's a user know (true/false )
 // if the array contains any common values
 // arr1 = ['a','b','c','d']
@@ -21,5 +22,21 @@ const commonFinder1 = (arr1: string[], arr2: string[]): boolean => {
   return count > 0;
 };
 
-console.log(commonFinder1(['a', 'b', 'c'], ['g', 'h', 'o']));
-console.log(commonFinder1(['a', 'b', 'c'], ['g', 'h', 'a']));
+// console.log(commonFinder1(['a', 'b', 'c'], ['g', 'h', 'o']));
+// console.log(commonFinder1(['a', 'b', 'c'], ['g', 'h', 'a']));
+
+const commonFinder2 = (arr1: string[], arr2: string[]): boolean => {
+  let map = {};
+
+  for (let val of arr1) {
+    map[val] ? (map[val] += 1) : (map[val] = 1);
+  }
+
+  for (let i = 0; i < arr2.length; i++) {
+    if (map[arr2[i]] > 0) return true;
+  }
+  return false;
+};
+
+console.log(commonFinder2(['a', 'b', 'c'], ['g', 'h', 'o']));
+console.log(commonFinder2(['a', 'b', 'c'], ['g', 'h', 'a']));
