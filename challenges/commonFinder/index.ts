@@ -37,6 +37,22 @@ const commonFinder2 = (arr1: string[], arr2: string[]): boolean => {
   }
   return false;
 };
+const commonFinder3 = (arr1: string[], arr2: string[]): boolean => {
+  let map = arr1.reduce((obj: any, val: any) => {
+    if (obj[val]) {
+      obj[val] += 1;
+    } else {
+      obj[val] = 1;
+    }
+    return obj;
+  }, {});
 
-console.log(commonFinder2(['a', 'b', 'c'], ['g', 'h', 'o']));
-console.log(commonFinder2(['a', 'b', 'c'], ['g', 'h', 'a']));
+  for (let i = 0; i < arr2.length; i++) {
+    if (map[arr2[i]] > 0) return true;
+  }
+
+  return false;
+};
+
+console.log(commonFinder3(['a', 'b', 'c'], ['g', 'h', 'o']));
+console.log(commonFinder3(['a', 'b', 'c'], ['g', 'h', 'a']));
