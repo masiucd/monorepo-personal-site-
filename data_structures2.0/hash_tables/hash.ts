@@ -43,13 +43,14 @@ class HashTable {
   }
 
   keys() {
-    const keysArray = [];
+    if (!this.data.length) return undefined;
+    const keyArray = [];
     for (let i = 0; i < this.data.length; i++) {
       if (this.data[i]) {
-        keysArray.push(this.data[i][0][0]);
+        keyArray.push(this.data[i][0][0]);
       }
     }
-    return keysArray;
+    return keyArray;
   }
 }
 
