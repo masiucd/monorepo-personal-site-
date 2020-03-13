@@ -1,7 +1,7 @@
 class HashTable {
   size: number;
 
-  data: string[];
+  data: string[] | any[];
 
   constructor(size) {
     this.data = new Array(size);
@@ -15,19 +15,51 @@ class HashTable {
     return hash;
   }
 
-  set(key: string, value: string | number) {
-    const hashed = this._hash(key);
-    this.data[value] = hashed;
+  set(key: string, value: number) {
+    const address = this._hash(key);
+    // if no data in that step and to avoid collisions
+    if (!this.data[address]) {
+      this.data[address] = [];
+      this.data[address].push([key, value]);
+    }
+
+    this.data[address].push([key, value]);
+
     return this.data;
   }
 
-  get(key: string | number) {
-    return this.data[key];
+  get(key: string) {
+    const address = this._hash(key);
+    const currentBucket = this.data[address];
+    // if there is something in the bucket
+    if (currentBucket.length) {
+      for (let i = 0; i < currentBucket.length; i++) {
+        if (currentBucket[i][0] === key) {
+          return currentBucket[i][0];
+        }
+      }
+    }
+    return undefined;
+  }
+
+  keys() {
+    const keysArray = [];
+    for (let i = 0; i < this.data.length; i++) {
+      if (this.data[i]) {
+        keysArray.push(this.data[i][0][0]);
+      }
+    }
+    return keysArray;
   }
 }
 
 const ht = new HashTable(50);
-ht.set('apa', 2);
-console.log(ht);
-console.log(ht.get(2));
+ht.set('bananas', 2);
+ht.set('apples', 17);
+ht.set('kiwis', 21);
+ht.set('mangos', 3);
+// console.log(ht.get('apples'));
+// console.log(ht.get('bananas'));
+// console.log(ht.get(2));
 // console.log(ht._hash('apa'));
+console.log(ht.keys());
