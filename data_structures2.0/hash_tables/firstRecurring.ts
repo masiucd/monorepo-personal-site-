@@ -51,4 +51,20 @@ const firstRecurring3 = (xs: number[]) => {
 // console.log(firstRecurring3([1, 2, 3, 4, 1]));
 // console.log(firstRecurring3([1, 2, 3, 4, 3]));
 // console.log(firstRecurring3([1, 2, 3, 4, 5]));
-console.log(firstRecurring3([1, 2, 3, 4, 5, 6, 7, 1]));
+// console.log(firstRecurring3([1, 2, 3, 4, 5, 6, 7, 1]));
+
+const firstRecurring4 = (xs: number[]) => {
+  const map = {};
+  for (const val of xs) {
+    if (map[val] !== undefined) {
+      return map[val];
+    }
+    map[val] = val;
+  }
+  return undefined;
+};
+
+console.log(firstRecurring4([1, 2, 3, 4, 1]));
+console.log(firstRecurring4([1, 2, 3, 4, 6, 4]));
+console.log(firstRecurring4([1, 2, 3, 4]));
+console.log(firstRecurring4([1, 2, 3, 4, 5, 6, 7, 8, 9, 5]));
