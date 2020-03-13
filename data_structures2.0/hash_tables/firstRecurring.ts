@@ -32,6 +32,23 @@ const firstRecurring2 = (xs: number[]) => {
 };
 
 // console.log(firstRecurring2([1, 2, 3, 4, 5, 6, 7, 8, 9, 2]));
-console.log(firstRecurring2([1, 2, 1, 3]));
-console.log(firstRecurring2([1, 2, 3]));
+// console.log(firstRecurring2([1, 2, 1, 3]));
+// console.log(firstRecurring2([1, 2, 3]));
 // console.log(firstRecurring([3, 1, 2, 6, 4, 3, 2, 3, 1]));
+
+const firstRecurring3 = (xs: number[]) => {
+  for (let i = 0; i < xs.length; i++) {
+    for (let j = i + 1; j < xs.length; j++) {
+      console.log('i: ', xs[i], 'j: ', xs[j]);
+      if (xs[i] === xs[j]) {
+        return xs[i];
+      }
+    }
+  }
+  return undefined;
+};
+
+// console.log(firstRecurring3([1, 2, 3, 4, 1]));
+// console.log(firstRecurring3([1, 2, 3, 4, 3]));
+// console.log(firstRecurring3([1, 2, 3, 4, 5]));
+console.log(firstRecurring3([1, 2, 3, 4, 5, 6, 7, 1]));
