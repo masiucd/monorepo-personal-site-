@@ -42,7 +42,7 @@ class MyLinkedList {
       this.head = newNode;
       this.tail = this.head;
     } else {
-      this.head.next = newNode;
+      this.tail.next = newNode;
       this.tail = newNode;
     }
     this.size += 1;
