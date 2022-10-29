@@ -1,5 +1,5 @@
 {
-  "name": "ui",
+  "name": "lib",
   "version": "0.0.0",
   "main": "./index.tsx",
   "types": "./index.tsx",
@@ -8,13 +8,12 @@
     "lint": "eslint *.ts*"
   },
   "devDependencies": {
-    "@types/react": "^18.0.17",
-    "@types/react-dom": "^18.0.6",
     "eslint": "^8.26.0",
     "eslint-config-custom": "workspace:*",
-    "lib": "workspace:*",
-    "react": "^18.2.0",
     "tsconfig": "workspace:*",
-    "typescript": "^4.5.2"
+    "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "tailwind-merge": "^1.7.0"
   }
 }

@@ -1,7 +1,9 @@
 import {Barlow, Barlow_Condensed} from "@next/font/google"
-const barlow400 = Barlow({
+import type {FontModule} from "next/font"
+
+const barlow400: FontModule = Barlow({
   weight: "400",
 })
-const barlowCondensed400 = Barlow_Condensed({weight: "400"})
+const barlowCondensed400: FontModule = Barlow_Condensed({weight: "400"})
 
-export {barlowCondensed400, barlow400}
+export {barlow400, barlowCondensed400}
