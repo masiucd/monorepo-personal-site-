@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-slate-50 dark:bg-black;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply mb-1  leading-snug;
+}
+
+h1 {
+  @apply text-6xl mb-5;
+}
+h2 {
+  @apply text-5xl;
+}
+
+h3 {
+  @apply text-4xl;
+}
+h4 {
+  @apply text-3xl;
+}
+h5 {
+  @apply text-2xl;
+}
+
+p {
+  @apply mb-1 text-base;
+}
+
+a {
+  @apply transition-all  hover:text-blue-500 dark:hover:text-blue-300 text-base;
+}

@@ -4,5 +4,6 @@ module.exports = {
   experimental: {
     transpilePackages: ["ui"],
     appDir: true,
+    fontLoaders: [{loader: "@next/font/google", options: {subsets: ["latin"]}}],
   },
 }
