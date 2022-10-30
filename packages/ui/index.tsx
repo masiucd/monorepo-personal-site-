@@ -1,3 +1,3 @@
 // export * from "./src/Button"
-import {Button} from "./src/Button"
-export {Button}
+import {Highlighter} from "./src/highlighter"
+export {Highlighter}
