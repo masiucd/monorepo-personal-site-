@@ -1,27 +1,24 @@
+/* eslint-disable @next/next/no-head-element */
 import "../styles/global.css"
 
 import Link from "next/link"
 import React from "react"
 
-import {barlow400} from "~/lib/fonts"
+import {barlowCondensed400} from "~/lib/fonts"
 
 type Props = {
   children: React.ReactNode
 }
 
-const RootLayout = ({children}: Props) => {
+function RootLayout({children}: Props) {
   return (
-    <html lang="en" className={barlow400.className}>
+    <html lang="en" className={barlowCondensed400.className}>
+      <head>
+        <title>Marcell.cd.com</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </head>
       <body>
-        <header>
-          <nav className="border border-red-500">
-            <ul>
-              <li>
-                <Link href="/">Home</Link>
-              </li>
-            </ul>
-          </nav>
-        </header>
+        {/* <Header /> */}
         {children}
       </body>
     </html>
@@ -29,3 +26,17 @@ const RootLayout = ({children}: Props) => {
 }
 
 export default RootLayout
+
+function Header() {
+  return (
+    <header>
+      <nav className="border border-red-500">
+        <ul>
+          <li>
+            <Link href="/">Home</Link>{" "}
+          </li>
+        </ul>
+      </nav>
+    </header>
+  )
+}
