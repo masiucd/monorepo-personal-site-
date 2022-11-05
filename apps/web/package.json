@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@next/font": "13.0.2",
+    "framer-motion": "^7.6.4",
     "lib": "workspace:*",
     "next": "13.0.2",
     "react": "18.2.0",

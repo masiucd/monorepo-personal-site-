@@ -7,6 +7,7 @@ import React from "react"
 import {barlowCondensed400, openSans400} from "~/lib/fonts"
 
 import NavLink from "../components/nav/nav_link"
+import {Highlighter} from "ui"
 
 type Props = {
   children: React.ReactNode
@@ -21,18 +22,26 @@ function Header() {
   return (
     <header>
       {/* max-lg:bg-red-500 */}
-      <div className="lg:max-w-[75%]   flex items-center border border-red-500 m-auto">
-        <strong>
-          <NavLink styles="md:text-4xl" href="/">
+      <div className="lg:max-w-[75%] flex items-center m-auto">
+        <strong className="md:px-2">
+          <NavLink
+            styles={`md:text-4xl ${barlowCondensed400.className}`}
+            href="/"
+          >
             M<span className="text-blue-500">ar</span>cell.
             <span className="text-blue-500">C</span>.D.com
-          </NavLink>{" "}
+          </NavLink>
         </strong>
         <nav className="border border-blue-500 min-h-[10rem] flex items-center ml-auto">
           <ul className={tw("flex gap-5 md:px-5 px-2", openSans400.className)}>
             {navListItems.map(({name, href}) => (
               <li key={name} className="capitalize">
-                <NavLink href={href}> {name}</NavLink>
+                <NavLink
+                  styles="hover:text-blue-500 hover:scale-105 inline-block"
+                  href={href}
+                >
+                  {name}
+                </NavLink>
               </li>
             ))}
           </ul>
@@ -49,8 +58,18 @@ function Header() {
 
 function Footer() {
   return (
-    <footer className="border border-blue-500 min-h-[10rem]">
-      <h1>footer</h1>
+    <footer className="border border-blue-500 min-h-[10rem] flex">
+      <aside className="lg:max-w-[75%] flex flex-col items-center m-auto border-4 border-red-500 h-full justify-center">
+        <small>
+          © Copyright <Highlighter>Marcell Ciszek Druzysnki</Highlighter>. All
+          rights reserved. {new Date().getFullYear()}
+        </small>
+        <ul className="flex">
+          <li>a</li>
+          <li>a</li>
+          <li>a</li>
+        </ul>
+      </aside>
     </footer>
   )
 }
