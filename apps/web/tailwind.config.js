@@ -5,13 +5,14 @@ const config = require("tailwind-config/tailwind.config")
 module.exports = {
   ...config,
   darkMode: "class",
-  // theme: {
-  //   extend: {},
-  // backgroundImage: {
-  //   "hero-1": "url('../public/img/blackgrit.png')",
-  //   "hero-2": "url('../public/img/whitegrit.png')",
-  //   header: "url('../public/header-background.svg')",
-  // },
+  theme: {
+    extend: {
+      backgroundImage: {
+        "hero-dark": "url('../public/images/blackgrit.png')",
+        "hero-light": "url('../public/images/whitegrit.png')",
+      },
+    },
+  },
   // fontFamily: {
   //   // display: ["Operator Mono", ...defaultTheme.fontFamily.mono],
   //   // mono: ["HCo Operator Mono", ...defaultTheme.fontFamily.mono],

@@ -1,7 +1,7 @@
 import {render, screen} from "@testing-library/react"
 import {describe, expect, test} from "vitest"
 
-import NavLink from "~/app/nav_link"
+import NavLink from "~/components/nav/nav_link"
 
 describe("NavLink", () => {
   test("NavLink renders as expected", () => {
