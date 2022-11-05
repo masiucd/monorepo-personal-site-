@@ -20,10 +20,10 @@ function HomePage() {
           <Highlighter>nerd</Highlighter>.
         </h2>
         <div className="flex p-2 gap-5 ">
-          <Link href="/about" className="text-lg">
+          <Link href="/about" className="text-lg md:text-2xl">
             <CaptureText text="About" />
           </Link>
-          <Link href="/blog" className="text-lg">
+          <Link href="/blog" className="text-lg md:text-2xl">
             <CaptureText text="Blog" />
           </Link>
         </div>

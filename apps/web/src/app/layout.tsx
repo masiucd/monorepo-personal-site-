@@ -1,13 +1,7 @@
-/* eslint-disable @next/next/no-head-element */
 import "../styles/global.css"
-// import socialMediaData from "~/static/social_media.json"
-import {tw} from "lib"
-import React from "react"
-
-import {barlowCondensed400, openSans400} from "~/lib/fonts"
-
-import NavLink from "../components/nav/nav_link"
-import {Highlighter} from "ui"
+import {barlowCondensed400} from "~/lib/fonts"
+import Header from "~/components/base_layout/header"
+import Footer from "~/components/base_layout/footer"
 
 type Props = {
   children: React.ReactNode
@@ -17,65 +11,6 @@ const navListItems = [
   {name: "about", href: "/about"},
   {name: "blog", href: "/blog"},
 ]
-
-function Header() {
-  return (
-    <header>
-      {/* max-lg:bg-red-500 */}
-      <div className="lg:max-w-[75%] flex items-center m-auto">
-        <strong className="md:px-2">
-          <NavLink
-            styles={`md:text-4xl ${barlowCondensed400.className}`}
-            href="/"
-          >
-            M<span className="text-blue-500">ar</span>cell.
-            <span className="text-blue-500">C</span>.D.com
-          </NavLink>
-        </strong>
-        <nav className="border border-blue-500 min-h-[10rem] flex items-center ml-auto">
-          <ul className={tw("flex gap-5 md:px-5 px-2", openSans400.className)}>
-            {navListItems.map(({name, href}) => (
-              <li key={name} className="capitalize">
-                <NavLink
-                  styles="hover:text-blue-500 hover:scale-105 inline-block"
-                  href={href}
-                >
-                  {name}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
-        </nav>
-        <ul className="flex gap-5 md:px-5 px-2">
-          <li>Dark</li>
-          <li>Light</li>
-          <li>System</li>
-          {}
-        </ul>
-      </div>
-    </header>
-  )
-}
-
-function Footer() {
-  return (
-    <footer className="border border-blue-500 min-h-[10rem] flex">
-      <aside className="lg:max-w-[75%] flex flex-col items-center m-auto border-4 border-red-500 h-full justify-center">
-        <small>
-          © Copyright <Highlighter>Marcell Ciszek Druzysnki</Highlighter>. All
-          rights reserved. {new Date().getFullYear()}
-        </small>
-        <ul className="flex">
-          {/* {socialMediaData.map(({name, href}) => (
-            <li key={name}>
-              <a href={href}>{name}</a>
-            </li>
-          ))} */}
-        </ul>
-      </aside>
-    </footer>
-  )
-}
 
 function RootLayout({children}: Props) {
   return (
