@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-head-element */
 import "../styles/global.css"
-
+// import socialMediaData from "~/static/social_media.json"
 import {tw} from "lib"
 import React from "react"
 
@@ -50,6 +50,7 @@ function Header() {
           <li>Dark</li>
           <li>Light</li>
           <li>System</li>
+          {}
         </ul>
       </div>
     </header>
@@ -65,9 +66,11 @@ function Footer() {
           rights reserved. {new Date().getFullYear()}
         </small>
         <ul className="flex">
-          <li>a</li>
-          <li>a</li>
-          <li>a</li>
+          {/* {socialMediaData.map(({name, href}) => (
+            <li key={name}>
+              <a href={href}>{name}</a>
+            </li>
+          ))} */}
         </ul>
       </aside>
     </footer>

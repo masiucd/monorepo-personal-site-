@@ -1,3 +1,4 @@
+"use client"
 import {tw} from "lib"
 import {ReactNode} from "react"
 

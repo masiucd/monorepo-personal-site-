@@ -1,3 +1,5 @@
+"use client"
+
 import {tw} from "lib"
 
 const CaptureText = ({text, styles = ""}: any) => (

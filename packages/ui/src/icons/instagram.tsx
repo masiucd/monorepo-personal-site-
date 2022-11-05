@@ -1,3 +1,5 @@
+"use client"
+
 import {Props} from "./types"
 
 const Instagram = ({width = 25, height = 25}: Props): JSX.Element => (
