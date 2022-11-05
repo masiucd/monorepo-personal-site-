@@ -39,3 +39,6 @@ p {
 a {
   @apply transition-all  hover:text-blue-500 dark:hover:text-blue-300 text-base;
 }
+
+/* font-family: 'Barlow Condensed', sans-serif;
+font-family: 'Open Sans', sans-serif; */
