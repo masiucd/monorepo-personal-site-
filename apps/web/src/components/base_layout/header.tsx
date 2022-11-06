@@ -1,16 +1,15 @@
 import {tw} from "lib"
-import {Laptop, Moon, Sun} from "ui"
 
 import {barlowCondensed400, openSans400} from "~/lib/fonts"
 import navLinks from "~/static/nav_links.json"
 
 import NavLink from "../nav_link"
+import ThemeButtons from "./theme_buttons"
 
 function Header() {
   return (
-    <header>
-      {/* max-lg:bg-red-500 */}
-      <div className="lg:max-w-[75%] flex items-center m-auto">
+    <header className="flex justify-center items-center shadow mb-10">
+      <div className="lg:max-w-[120ch] w-full flex items-center">
         <strong className="md:px-2">
           <NavLink
             styles={`text-3xl md:text-4xl ${barlowCondensed400.className}`}
@@ -20,8 +19,13 @@ function Header() {
             <span className="text-blue-500">C</span>.D.com
           </NavLink>
         </strong>
-        <nav className="border border-blue-500 min-h-[10rem] flex items-center ml-auto">
-          <ul className={tw("flex gap-5 md:px-5 px-2", openSans400.className)}>
+        <nav className="border border-blue-500 min-h-[10rem] flex items-center justify-center ml-auto">
+          <ul
+            className={tw(
+              "gap-5 md:px-5 px-2 hidden md:flex",
+              openSans400.className
+            )}
+          >
             {navLinks.map(({name, href}) => (
               <li key={name} className="capitalize">
                 <NavLink
@@ -34,23 +38,12 @@ function Header() {
             ))}
           </ul>
         </nav>
-        <ul className="flex gap-5 md:px-5 px-2">
-          <li>
-            <button>
-              <Moon />
-            </button>
-          </li>
-          <li>
-            <button>
-              <Sun />
-            </button>
-          </li>
-          <li>
-            <button>
-              <Laptop />
-            </button>
-          </li>
-        </ul>
+        <ThemeButtons
+          theme={"dark"}
+          // setTheme={(s: string) => {
+          //   console.log("", s)
+          // }}
+        />
       </div>
     </header>
   )

@@ -11,18 +11,15 @@ export default function PageWrapper({
   styles = "",
   fluid = false,
 }: Props) {
-  return (
-    <section className={tw(getClassName(fluid), styles)}>{children}</section>
-  )
+  return <main className={tw(getClassName(fluid), styles)}>{children}</main>
 }
 
 function getClassName(fluid: boolean) {
-  let className = ""
+  let className = " p-1  m-auto "
   if (fluid) {
     className += "w-full "
   } else {
-    className += "lg:max-w-[75%] m-auto w-full "
+    className += "lg:max-w-[120ch] "
   }
-  className += "border border-pink-700 h-full flex flex-1 flex-col "
   return className
 }

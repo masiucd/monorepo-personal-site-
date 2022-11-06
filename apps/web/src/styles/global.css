@@ -9,7 +9,8 @@
 
 @layer base {
   [data-nextjs-scroll-focus-boundary] {
-    display: contents;
+    /* display: contents; */
+    @apply contents;
   }
 }
 

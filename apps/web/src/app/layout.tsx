@@ -7,11 +7,6 @@ type Props = {
   children: React.ReactNode
 }
 
-const navListItems = [
-  {name: "about", href: "/about"},
-  {name: "blog", href: "/blog"},
-]
-
 function RootLayout({children}: Props) {
   return (
     <html lang="en" className={barlowCondensed400.className}>
@@ -29,11 +24,12 @@ function RootLayout({children}: Props) {
           rel="stylesheet"
         />
       </head>
-      <body>
+      <body className="flex flex-col min-h-[100vh]">
         <Header />
-        <main className="border border-green-500 h-[calc(100vh-20rem)] w-full">
-          {children}
-        </main>
+        {/* <main className="h-[calc(100vh-12rem)] grid">{children}</main> */}
+        {/* <main className="p-1 m-auto">{children}</main> */}
+        {children}
+        {/* <main className="min-h-[calc(100vh-20rem)] grid">{children}</main> */}
         <Footer />
       </body>
     </html>

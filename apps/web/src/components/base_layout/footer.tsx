@@ -17,8 +17,8 @@ function renderIcon(name: string) {
 
 function Footer() {
   return (
-    <footer className="border border-blue-500 min-h-[10rem] flex">
-      <aside className="lg:max-w-[75%] flex flex-col items-center m-auto h-full justify-center">
+    <footer className="grid">
+      <div className="lg:max-w-[120ch] flex flex-col items-center m-auto h-full justify-center">
         <small>
           © Copyright <Highlighter>Marcell Ciszek Druzysnki</Highlighter>. All
           rights reserved. {new Date().getFullYear()}
@@ -30,7 +30,7 @@ function Footer() {
             </li>
           ))}
         </ul>
-      </aside>
+      </div>
     </footer>
   )
 }
