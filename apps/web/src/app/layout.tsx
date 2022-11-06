@@ -26,10 +26,7 @@ function RootLayout({children}: Props) {
       </head>
       <body className="flex flex-col min-h-[100vh]">
         <Header />
-        {/* <main className="h-[calc(100vh-12rem)] grid">{children}</main> */}
-        {/* <main className="p-1 m-auto">{children}</main> */}
         {children}
-        {/* <main className="min-h-[calc(100vh-20rem)] grid">{children}</main> */}
         <Footer />
       </body>
     </html>

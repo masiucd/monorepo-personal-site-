@@ -8,7 +8,7 @@ import ThemeButtons from "./theme_buttons"
 
 function Header() {
   return (
-    <header className="grid shadow py-2">
+    <header className="grid py-2">
       <div className="lg:max-w-[120ch] w-full flex m-auto">
         {/*  */}
         {/* TODO Custom icon */}

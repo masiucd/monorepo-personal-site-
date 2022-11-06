@@ -15,7 +15,7 @@ export default function PageWrapper({
 }
 
 function getClassName(fluid: boolean) {
-  let className = " p-1  m-auto "
+  let className = " p-1 m-auto flex flex-col flex-1 "
   if (fluid) {
     className += "w-full "
   } else {

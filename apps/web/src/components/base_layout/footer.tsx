@@ -17,7 +17,7 @@ function renderIcon(name: string) {
 
 function Footer() {
   return (
-    <footer className="grid">
+    <footer className="grid mt-auto">
       <div className="lg:max-w-[120ch] flex flex-col items-center m-auto h-full justify-center">
         <small>
           © Copyright <Highlighter>Marcell Ciszek Druzysnki</Highlighter>. All
