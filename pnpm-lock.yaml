@@ -26,6 +26,7 @@ importers:
       eslint: 8.26.0
       eslint-config-custom: workspace:*
       framer-motion: ^7.3.5
+      hooks: workspace:*
       jsdom: ^20.0.2
       lib: workspace:*
       next: 13.0.2
@@ -42,6 +43,7 @@ importers:
       '@next/font': 13.0.2
       dayjs: 1.11.6
       framer-motion: 7.5.3_biqbaboplfbrettd7655fr4n2y
+      hooks: link:../../packages/hooks
       lib: link:../../packages/lib
       next: 13.0.2_mqvh5p7ejg4taogoj6tpk3gd5a
       react: 18.2.0
@@ -88,6 +90,26 @@ importers:
       eslint-plugin-simple-import-sort: 8.0.0_eslint@8.26.0
       eslint-plugin-unused-imports: 2.0.0_eslint@8.26.0
     devDependencies:
+      typescript: 4.8.4
+
+  packages/hooks:
+    specifiers:
+      '@types/react': ^18.0.17
+      '@types/react-dom': ^18.0.6
+      eslint: ^8.26.0
+      eslint-config-custom: workspace:*
+      lib: workspace:*
+      react: ^18.2.0
+      tsconfig: workspace:*
+      typescript: ^4.5.2
+    devDependencies:
+      '@types/react': 18.0.25
+      '@types/react-dom': 18.0.8
+      eslint: 8.26.0
+      eslint-config-custom: link:../eslint-config-custom
+      lib: link:../lib
+      react: 18.2.0
+      tsconfig: link:../tsconfig
       typescript: 4.8.4
 
   packages/lib:

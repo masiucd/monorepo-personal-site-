@@ -3,7 +3,7 @@ import {Highlighter} from "./src/highlighter"
 import {Github} from "./src/icons/github"
 import {Instagram} from "./src/icons/instagram"
 import {Laptop} from "./src/icons/laptop"
-// import {Menu} from "./src/icons/menu"
+import {Menu} from "./src/icons/menu"
 import {Moon} from "./src/icons/moon"
 // import {Reddit} from "./src/icons/reddit"
 import {Sun} from "./src/icons/sun"
@@ -15,7 +15,7 @@ export {
   Highlighter,
   Instagram,
   Laptop,
-  // Menu,
+  Menu,
   Moon,
   // Reddit,
   Sun,
