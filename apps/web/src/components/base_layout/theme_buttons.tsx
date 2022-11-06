@@ -2,19 +2,19 @@
 
 import {Laptop, Moon, Sun} from "ui"
 
-type Props = {
-  // setTheme: (theme: string) => void
-  theme: string | undefined
-}
-function ThemeButtons({theme}: Props) {
+function ThemeButtons() {
+  // const theme = "dark"
+  // const setTheme = (theme: string) => ""
   return (
-    <div className="flex ">
+    <div className="flex gap-2 ml-auto md:ml-0 ">
       <button
         type="button"
         role="button"
-        className={`px-1 ${theme !== "light" ? "opacity-30" : "opacity-100"}`}
+        // className={` ${theme !== "light" ? "opacity-30" : "opacity-100"}`}
         onClick={() => {
           // setTheme("light")
+          document.documentElement.classList.remove("light")
+          document.documentElement.classList.add("dark")
         }}
       >
         <Sun width={25} height={25} />
@@ -23,9 +23,11 @@ function ThemeButtons({theme}: Props) {
       <button
         type="button"
         role="button"
-        className={`px-1 ${theme !== "dark" ? "opacity-30" : "opacity-100"}`}
+        // className={` ${theme !== "dark" ? "opacity-30" : "opacity-100"}`}
         onClick={() => {
           // setTheme("dark")
+          document.documentElement.classList.remove("dark")
+          document.documentElement.classList.add("light")
         }}
       >
         <Moon width={25} height={25} />
@@ -33,7 +35,7 @@ function ThemeButtons({theme}: Props) {
       <button
         type="button"
         role="button"
-        className={`px-1 ${theme !== "system" ? "opacity-30" : "opacity-100"}`}
+        // className={` ${theme !== "system" ? "opacity-30" : "opacity-100"}`}
         onClick={() => {
           // setTheme("system")
         }}

@@ -1,5 +1,6 @@
 import {Barlow_Condensed, Open_Sans} from "@next/font/google"
 import type {FontModule} from "next/font"
+// import { Inter } from '@next/font/google';
 
 const barlowCondensed400: FontModule = Barlow_Condensed({
   weight: "400",

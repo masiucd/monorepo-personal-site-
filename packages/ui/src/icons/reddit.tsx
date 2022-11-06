@@ -1,5 +1,3 @@
-"use client"
-
 import {Props} from "./types"
 
 function Reddit({width = 25, height = 25}: Props): JSX.Element {

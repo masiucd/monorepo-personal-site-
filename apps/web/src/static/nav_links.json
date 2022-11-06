@@ -1,4 +1,5 @@
 [
   {"name": "about", "href": "/about"},
-  {"name": "blog", "href": "/blog"}
+  {"name": "blog", "href": "/blog"},
+  {"name": "snippets", "href": "/snippets"}
 ]
