@@ -1,20 +1,52 @@
 "use client"
 
+import {useEffect, useState} from "react"
 import {Laptop, Moon, Sun} from "ui"
 
+function useLocalStorage<T>(
+  key: string,
+  initialValue: T
+): [T, (value: T | ((value: T) => T)) => void] {
+  const [storedValue, setStoredValue] = useState<T>(() => {
+    try {
+      const storedItem = localStorage.getItem(key)
+      return storedItem ? JSON.parse(storedItem) : initialValue
+    } catch (error) {
+      console.error(error)
+      return initialValue
+    }
+  })
+
+  const handleStoredValue = (value: T | ((value: T) => T)): void => {
+    const valueToStore = value instanceof Function ? value(storedValue) : value
+    setStoredValue(valueToStore)
+    localStorage.setItem(key, JSON.stringify(valueToStore))
+  }
+  return [storedValue, handleStoredValue]
+}
+
 function ThemeButtons() {
-  // const theme = "dark"
-  // const setTheme = (theme: string) => ""
+  const [theme, setTheme] = useLocalStorage<string>("theme", "light")
+
+  const handleTheme = (theme: string) => {
+    const nextTheme = theme === "light" ? "dark" : "light"
+    setTheme(nextTheme)
+  }
+
+  useEffect(() => {
+    document.documentElement.className = theme
+  }, [theme])
+
   return (
-    <div className="flex gap-2 ml-auto md:ml-0 ">
+    <div className="flex gap-2 ml-auto ">
       <button
         type="button"
         role="button"
         // className={` ${theme !== "light" ? "opacity-30" : "opacity-100"}`}
         onClick={() => {
           // setTheme("light")
-          document.documentElement.classList.remove("light")
-          document.documentElement.classList.add("dark")
+
+          handleTheme("dark")
         }}
       >
         <Sun width={25} height={25} />
@@ -26,8 +58,7 @@ function ThemeButtons() {
         // className={` ${theme !== "dark" ? "opacity-30" : "opacity-100"}`}
         onClick={() => {
           // setTheme("dark")
-          document.documentElement.classList.remove("dark")
-          document.documentElement.classList.add("light")
+          handleTheme("light")
         }}
       >
         <Moon width={25} height={25} />

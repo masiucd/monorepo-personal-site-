@@ -41,7 +41,7 @@ const Menu = ({
       animate={{pathLength: on ? 0.5 : 1}}
     />
     <motion.path
-      className={tw("stroke-current", pathStyle)}
+      className={tw("stroke-current ", pathStyle)}
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth={16}

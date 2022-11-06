@@ -7,7 +7,7 @@ import NavLink from "../nav_link"
 
 function Nav() {
   return (
-    <nav className="hidden md:flex items-center justify-center ml-auto">
+    <nav className="hidden md:flex items-center justify-center mr-auto">
       <ul className={tw(`flex gap-5 md:px-5 px-2`, openSans400.className)}>
         {navLinks.map(({name, href}) => (
           <li key={name} className="capitalize ">
