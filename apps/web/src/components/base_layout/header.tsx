@@ -1,4 +1,5 @@
 import {tw} from "lib"
+import {Laptop, Moon, Sun} from "ui"
 
 import {barlowCondensed400, openSans400} from "~/lib/fonts"
 import navLinks from "~/static/nav_links.json"
@@ -34,9 +35,21 @@ function Header() {
           </ul>
         </nav>
         <ul className="flex gap-5 md:px-5 px-2">
-          <li>Dark</li>
-          <li>Light</li>
-          <li>System</li>
+          <li>
+            <button>
+              <Moon />
+            </button>
+          </li>
+          <li>
+            <button>
+              <Sun />
+            </button>
+          </li>
+          <li>
+            <button>
+              <Laptop />
+            </button>
+          </li>
         </ul>
       </div>
     </header>

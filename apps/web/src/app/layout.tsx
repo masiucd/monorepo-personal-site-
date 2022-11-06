@@ -31,7 +31,7 @@ function RootLayout({children}: Props) {
       </head>
       <body>
         <Header />
-        <main className="border border-green-500 h-[calc(100vh-20rem)] w-full flex flex-col flex-1">
+        <main className="border border-green-500 h-[calc(100vh-20rem)] w-full">
           {children}
         </main>
         <Footer />
