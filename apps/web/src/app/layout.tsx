@@ -24,7 +24,7 @@ function RootLayout({children}: Props) {
           rel="stylesheet"
         />
       </head>
-      <body className="flex flex-col min-h-[100vh]">
+      <body className="grid grid-rows-1">
         <Header />
         {children}
         <Footer />

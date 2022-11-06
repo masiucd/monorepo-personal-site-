@@ -3,7 +3,7 @@ import Main from "~/components/wrappers/main"
 
 function HomePage() {
   return (
-    <Main styles="items-center justify-center ">
+    <Main>
       <Intro />
     </Main>
   )

@@ -7,7 +7,7 @@ import {CaptureText, Highlighter} from "ui"
 export default function Intro() {
   const matches = useMediaQuery("(min-width: 620px)")
   return (
-    <div className="bg-hero-dark dark:bg-hero-light md:pr-8 bg-cover sm:max-w-[100%] lg:max-w-[62.5rem] py-5">
+    <div className="bg-hero-dark dark:bg-hero-light md:pr-8 bg-cover sm:max-w-[100%] lg:max-w-[62.5rem] py-5 ">
       <h1 className="pb-5 bg-blue-300/50 shadow pl-1 text-4xl sm:text-4xl md:text-7xl">
         Hey I&#x27;m{" "}
         <Highlighter styles="after:h-2 md:after:h-4">
