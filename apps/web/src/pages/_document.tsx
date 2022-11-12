@@ -29,9 +29,7 @@ export default function Document() {
           color="#4a9885"
           href="/static/favicons/safari-pinned-tab.svg"
           rel="mask-icon"
-        />
-        
-    
+        />s
         /> */}
         <meta content="14d2e73487fa6c71" name="yandex-verification" />
         <meta content="#ffffff" name="theme-color" />
