@@ -25,9 +25,9 @@ function RootLayout({children}: Props) {
         />
       </head>
       <body className="grid grid-rows-1">
-        <Header />
+        {/* <Header /> */}
         {children}
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   )

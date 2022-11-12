@@ -1,6 +1,9 @@
 import {tw} from "lib"
 import {ReactNode} from "react"
 
+import Footer from "../base_layout/footer"
+import Header from "../base_layout/header"
+
 type Props = {
   children: ReactNode
   styles?: string
@@ -11,7 +14,13 @@ export default function PageWrapper({
   styles = "",
   fluid = false,
 }: Props) {
-  return <main className={tw(getClassName(fluid), styles)}>{children}</main>
+  return (
+    <>
+      <Header />
+      <main className={tw(getClassName(fluid), styles)}>{children}</main>
+      <Footer />
+    </>
+  )
 }
 
 function getClassName(fluid: boolean) {

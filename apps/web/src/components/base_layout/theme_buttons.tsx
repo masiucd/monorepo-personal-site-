@@ -1,5 +1,7 @@
 "use client"
 
+import {getCookie, setCookie} from "cookies-next"
+import {useMounted} from "hooks"
 import {useEffect, useState} from "react"
 import {Laptop, Moon, Sun} from "ui"
 
@@ -9,8 +11,9 @@ function useLocalStorage<T>(
 ): [T, (value: T | ((value: T) => T)) => void] {
   const [storedValue, setStoredValue] = useState<T>(() => {
     try {
-      const storedItem = localStorage.getItem(key)
-      return storedItem ? JSON.parse(storedItem) : initialValue
+      const storedItem = getCookie(key)
+      console.log("storedItem", storedItem)
+      return storedItem ? storedItem : initialValue
     } catch (error) {
       console.error(error)
       return initialValue
@@ -20,12 +23,13 @@ function useLocalStorage<T>(
   const handleStoredValue = (value: T | ((value: T) => T)): void => {
     const valueToStore = value instanceof Function ? value(storedValue) : value
     setStoredValue(valueToStore)
-    localStorage.setItem(key, JSON.stringify(valueToStore))
+    setCookie(key, valueToStore)
   }
   return [storedValue, handleStoredValue]
 }
 
 function ThemeButtons() {
+  const mounted = useMounted()
   const [theme, setTheme] = useLocalStorage<string>("theme", "light")
 
   const handleTheme = (theme: string) => {
@@ -37,7 +41,7 @@ function ThemeButtons() {
     document.documentElement.className = theme
   }, [theme])
 
-  return (
+  return mounted ? (
     <div className="flex gap-2 ml-auto ">
       <button
         type="button"
@@ -74,6 +78,8 @@ function ThemeButtons() {
         <Laptop width={25} height={25} />
       </button>
     </div>
+  ) : (
+    <div className="w-24" />
   )
 }
 
