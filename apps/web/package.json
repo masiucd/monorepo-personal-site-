@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "dev:turbo": "next dev --turbo",
+    "dev:fast": "next dev --turbo",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -12,13 +12,13 @@
     "test:watch": "vitest"
   },
   "dependencies": {
-    "@next/font": "13.0.2",
-    "cookies-next": "^2.1.1",
+    "@next/font": "13.0.3",
     "dayjs": "^1.11.6",
     "framer-motion": "^7.3.5",
     "hooks": "workspace:*",
     "lib": "workspace:*",
-    "next": "13.0.2",
+    "next": "13.0.3",
+    "next-themes": "^0.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "ui": "workspace:*"

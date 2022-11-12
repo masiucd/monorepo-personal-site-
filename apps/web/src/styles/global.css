@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  /* fonts */
-  --open-sans: "Open Sans", sans-serif;
-}
-
 @layer base {
   [data-nextjs-scroll-focus-boundary] {
     /* display: contents; */
@@ -15,7 +10,7 @@
 }
 
 body {
-  @apply bg-slate-50 dark:bg-black font-body text-slate-900 dark:text-slate-100;
+  @apply bg-slate-50 dark:bg-black  text-slate-900 dark:text-slate-100;
 }
 
 h1,
@@ -45,18 +40,13 @@ h5 {
 }
 
 p {
-  @apply mb-1 text-base  font-body;
-  /* font-family: var(--open-sans); */
+  @apply mb-1 text-base;
 }
 
 a {
-  @apply transition-all hover:text-slate-900 dark:hover:text-slate-900  text-base font-body;
-  /* font-family: var(--open-sans); */
+  @apply transition-all text-base leading-normal;
 }
 
 button {
   @apply cursor-pointer;
 }
-
-/* font-family: 'Barlow Condensed', sans-serif;
-font-family: 'Open Sans', sans-serif; */

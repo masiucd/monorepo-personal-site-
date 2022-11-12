@@ -3,7 +3,7 @@ module.exports = {
   swcMinify: true,
   experimental: {
     transpilePackages: ["ui", "lib", "hooks"],
-    appDir: true,
+    appDir: false,
     fontLoaders: [{loader: "@next/font/google", options: {subsets: ["latin"]}}],
   },
 }

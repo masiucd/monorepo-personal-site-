@@ -1,22 +1,24 @@
-// /** @type {import('tailwindcss').Config} */
 const config = require("tailwind-config/tailwind.config")
-const defaultTheme = require("tailwindcss/defaultTheme")
+const {fontFamily} = require("tailwindcss/defaultTheme")
 
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   ...config,
   darkMode: "class",
   theme: {
     extend: {
       backgroundImage: {
-        "hero-dark": "url('../public/images/blackgrit.png')",
-        "hero-light": "url('../public/images/whitegrit.png')",
+        "hero-dark": "url('../public/img/blackgrit.png')",
+        "hero-light": "url('../public/img/whitegrit.png')",
       },
     },
     fontFamily: {
       // display: ["Operator Mono", ...defaultTheme.fontFamily.mono],
       // mono: ["HCo Operator Mono", ...defaultTheme.fontFamily.mono],
       // display: ["Barlow Condensed", ...defaultTheme.fontFamily.mono],
-      body: ["Open Sans", ...defaultTheme.fontFamily.serif],
+      // display: ["Inter", ...defaultTheme.fontFamily.serif],
+      // body: ["Inter", ...defaultTheme.fontFamily.serif],
+      sans: ["var(--font-inter)", ...fontFamily.sans],
     },
   },
   // },
