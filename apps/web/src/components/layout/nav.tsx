@@ -10,6 +10,7 @@ import Menu from "./menu"
 
 export default function Nav() {
   const [on, {toggle}] = useToggle()
+
   return (
     <nav>
       <List styles="hidden sm:flex">
@@ -21,11 +22,14 @@ export default function Nav() {
       </List>
       <button
         type="button"
-        className="block sm:hidden"
+        className="block ml-2 sm:hidden z-50 relative"
         aria-label="Toggle Menu"
         onClick={toggle}
       >
-        <MenuIcon on={on} />
+        <MenuIcon
+          on={on}
+          pathStyle={on ? "stroke-blue-400" : "stroke-current"}
+        />
       </button>
       <Animate on={on}>
         <Menu />

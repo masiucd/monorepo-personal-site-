@@ -52,7 +52,7 @@ function ThemeActions() {
 function Header() {
   const mounted = useMounted()
   return (
-    <header className="min-h-[10ch]">
+    <header className="min-h-[10ch] relative">
       {/* TODO logo */}
       <div className="md:max-w-[120ch] m-auto flex items-center justify-between">
         <Nav />
