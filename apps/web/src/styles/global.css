@@ -7,10 +7,13 @@
     /* display: contents; */
     @apply contents;
   }
+  #__next {
+    @apply contents;
+  }
 }
 
 body {
-  @apply bg-slate-50 dark:bg-black  text-slate-900 dark:text-slate-100;
+  @apply bg-slate-50 dark:bg-black  text-slate-900 dark:text-slate-100 min-h-[100vh] flex flex-col m-0 p-0;
 }
 
 h1,

@@ -29,9 +29,7 @@ export default function Page({
       </Head>
       <main
         className={tw(
-          `m-auto flex items-center ${fluidStyles(fluid)} ${
-            InterFont.className
-          } min-h-[calc(100vh-20ch)] `,
+          `m-auto  ${fluidStyles(fluid)} ${InterFont.className}`,
           styles
         )}
       >

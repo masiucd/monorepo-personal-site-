@@ -10,7 +10,6 @@ import Menu from "./menu"
 
 export default function Nav() {
   const [on, {toggle}] = useToggle()
-
   return (
     <nav>
       <List styles="hidden sm:flex">

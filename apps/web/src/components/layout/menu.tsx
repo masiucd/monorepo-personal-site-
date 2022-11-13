@@ -48,6 +48,11 @@ export default function Menu() {
         variants={sideVariants}
         className="flex flex-col items-center justify-center gap-5 mb-10"
       >
+        <motion.li whileHover={{scale: 1.1}} variants={itemVariants}>
+          <NavLink href="/" styles="text-3xl capitalize text-white">
+            home
+          </NavLink>
+        </motion.li>
         {navlinks.map(({name, href}) => (
           <motion.li
             key={name}
@@ -74,7 +79,12 @@ export default function Menu() {
             whileHover={{scale: 1.1}}
             variants={itemVariants}
           >
-            <a href={href} className="text-2xl capitalize text-white">
+            <a
+              href={href}
+              target="_blank"
+              rel="noreferrer"
+              className="text-2xl capitalize text-white"
+            >
               {name}
             </a>
           </motion.li>

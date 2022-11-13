@@ -1,4 +1,5 @@
 import {useMounted} from "hooks"
+import Link from "next/link"
 import {useTheme} from "next-themes"
 import {Laptop, Moon, Sun} from "ui"
 
@@ -8,7 +9,7 @@ import Nav from "./nav"
 function ThemeActions() {
   const {theme, setTheme} = useTheme()
   return (
-    <List>
+    <List styles="ml-auto">
       <li>
         <button
           className={theme === "light" ? "opacity-100" : "opacity-25"}
@@ -52,11 +53,15 @@ function ThemeActions() {
 function Header() {
   const mounted = useMounted()
   return (
-    <header className="min-h-[10ch] relative">
-      {/* TODO logo */}
-      <div className="md:max-w-[120ch] m-auto flex items-center justify-between">
-        <Nav />
-        {mounted ? <ThemeActions /> : <div className="w-32 px-2" />}
+    <header className="min-h-[5rem]">
+      <div className="fixed w-full p-0">
+        <aside className="md:max-w-[120ch] mx-auto flex items-center">
+          <Link href="/" className="flex pr-2">
+            <strong>MCD</strong>
+          </Link>
+          <Nav />
+          {mounted ? <ThemeActions /> : <div className="w-32 px-2" />}
+        </aside>
       </div>
     </header>
   )
