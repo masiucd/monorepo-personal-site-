@@ -4,7 +4,7 @@ import Layout from "~/components/layout"
 import Page from "~/components/wrappers/page"
 
 export default function BlogPage() {
-  return <Page>BlogPage</Page>
+  return <Page title="Blog">BlogPage</Page>
 }
 
 BlogPage.getLayout = function getLayout(page: ReactElement) {

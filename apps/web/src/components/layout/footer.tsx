@@ -20,7 +20,7 @@ export default function Footer() {
   const matches = useMediaQuery("(min-width: 620px)")
   return (
     <footer className="min-h-[10ch]">
-      <div className="md:max-w-[140ch] flex flex-col items-center m-auto h-full justify-center">
+      <div className="md:max-w-[120ch] flex flex-col items-center m-auto h-full justify-center">
         <small>
           © Copyright{" "}
           <Highlighter>

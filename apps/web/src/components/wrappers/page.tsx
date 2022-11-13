@@ -21,6 +21,10 @@ export default function Page({
     <>
       <Head>
         <title>{title}</title>
+        <meta
+          content="Software developer, enduarance freak and a tech nerd"
+          name="description"
+        />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <main
@@ -42,7 +46,7 @@ function fluidStyles(fluid: boolean) {
   if (fluid) {
     styles += " w-full "
   } else {
-    styles += " max-w-[140ch] "
+    styles += " max-w-[120ch] "
   }
   return styles
 }

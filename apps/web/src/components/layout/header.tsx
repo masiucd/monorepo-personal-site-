@@ -12,6 +12,7 @@ function ThemeActions() {
       <li>
         <button
           className={theme === "light" ? "opacity-100" : "opacity-25"}
+          aria-label="Toggle Light Mode"
           type="button"
           onClick={() => {
             setTheme("light")
@@ -23,6 +24,7 @@ function ThemeActions() {
       <li>
         <button
           className={theme === "dark" ? "opacity-100" : "opacity-25"}
+          aria-label="Toggle Dark Mode"
           type="button"
           onClick={() => {
             setTheme("dark")
@@ -34,6 +36,7 @@ function ThemeActions() {
       <li>
         <button
           className={theme === "system" ? "opacity-100" : "opacity-25"}
+          aria-label="Toggle System Mode"
           type="button"
           onClick={() => {
             setTheme("system")
@@ -51,7 +54,7 @@ function Header() {
   return (
     <header className="min-h-[10ch]">
       {/* TODO logo */}
-      <div className="md:max-w-[140ch] m-auto flex items-center justify-between">
+      <div className="md:max-w-[120ch] m-auto flex items-center justify-between">
         <Nav />
         {mounted ? <ThemeActions /> : <div className="w-32 px-2" />}
       </div>
