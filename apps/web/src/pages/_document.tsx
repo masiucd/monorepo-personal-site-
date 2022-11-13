@@ -4,7 +4,7 @@ import {InterFont} from "~/lib/fonts"
 
 export default function Document() {
   return (
-    <Html lang="en">
+    <Html lang="en" className={InterFont.className}>
       <Head>
         {/* <link href="/static/favicons/favicon.ico" rel="shortcut icon" />
         <link href="/static/favicons/site.webmanifest" rel="manifest" />
@@ -35,7 +35,7 @@ export default function Document() {
         <meta content="#ffffff" name="theme-color" />
         <meta content="#ffffff" name="msapplication-TileColor" />
       </Head>
-      <body className={InterFont.className}>
+      <body>
         <Main />
         <NextScript />
       </body>

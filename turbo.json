@@ -6,9 +6,10 @@
       "outputs": ["dist/**", ".next/**"]
     },
     "test": {
-      "dependsOn": ["build"],
-      "outputs": [],
-      "inputs": ["src/**/*.tsx", "src/**/*.ts", "test/**/*.ts", "test/**/*.tsx"]
+      "outputs": []
+    },
+    "test:watch": {
+      "cache": false
     },
     "lint": {
       "outputs": []
