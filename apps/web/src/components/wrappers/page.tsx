@@ -25,7 +25,7 @@ export default function Page({
           content="Software developer, enduarance freak and a tech nerd"
           name="description"
         />
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        {/* <meta name="viewport" content="initial-scale=1.0, width=device-width" /> */}
       </Head>
       <main
         className={tw(
