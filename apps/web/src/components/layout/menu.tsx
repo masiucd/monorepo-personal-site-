@@ -30,7 +30,7 @@ const sideVariants = {
 export default function Menu() {
   return (
     <motion.aside
-      className="bg-gray-900/80 fixed left-0 top-0 w-full h-full grid items-center content-center z-40"
+      className="bg-gray-900 fixed left-0 top-0 w-full h-full grid items-center content-center z-40"
       initial={{y: "100%"}}
       animate={{
         y: 0,
@@ -48,11 +48,6 @@ export default function Menu() {
         variants={sideVariants}
         className="flex flex-col items-center justify-center gap-5 mb-10"
       >
-        <motion.li whileHover={{scale: 1.1}} variants={itemVariants}>
-          <NavLink href="/" styles="text-3xl capitalize text-white">
-            home
-          </NavLink>
-        </motion.li>
         {navlinks.map(({name, href}) => (
           <motion.li
             key={name}

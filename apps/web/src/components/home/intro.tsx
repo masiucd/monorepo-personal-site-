@@ -14,7 +14,7 @@ function Intro() {
       </h1>
       <h2 className="bg-blue-300/50 pl-1 p-3 shadow leading-snug text-xl sm:text-2xl md:text-5xl ml-3 mr-2 ">
         Software <Highlighter>developer</Highlighter>, Endurance{" "}
-        <Highlighter>freak</Highlighter> and a tech{" "}
+        <Highlighter>span</Highlighter> and a tech{" "}
         <Highlighter>nerd</Highlighter>.
       </h2>
       <div className="flex p-2 gap-5 ">

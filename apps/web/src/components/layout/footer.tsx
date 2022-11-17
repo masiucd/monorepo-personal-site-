@@ -19,7 +19,7 @@ function renderIcon(name: string) {
 export default function Footer() {
   const matches = useMediaQuery("(min-width: 620px)")
   return (
-    <footer className="min-h-[5rem]">
+    <footer className="min-h-[5/5rem]">
       <div className="md:max-w-[120ch] flex flex-col items-center m-auto h-full justify-center">
         <small>
           © Copyright{" "}

@@ -1,5 +1,4 @@
 import {useMounted} from "hooks"
-import Link from "next/link"
 import {useTheme} from "next-themes"
 import {Laptop, Moon, Sun} from "ui"
 
@@ -53,12 +52,9 @@ function ThemeActions() {
 function Header() {
   const mounted = useMounted()
   return (
-    <header className="min-h-[5rem]">
+    <header className="min-h-[5.5rem] p-0 m-0">
       <div className="fixed w-full p-0">
         <aside className="md:max-w-[120ch] mx-auto flex items-center">
-          <Link href="/" className="flex pr-2">
-            <strong>MCD</strong>
-          </Link>
           <Nav />
           {mounted ? <ThemeActions /> : <div className="w-32 px-2" />}
         </aside>
