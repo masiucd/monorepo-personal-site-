@@ -1,10 +1,8 @@
 import {Head, Html, Main, NextScript} from "next/document"
 
-import {InterFont} from "~/lib/fonts"
-
 export default function Document() {
   return (
-    <Html lang="en" className={InterFont.className}>
+    <Html lang="en">
       <Head>
         {/* <meta
           name="viewport"

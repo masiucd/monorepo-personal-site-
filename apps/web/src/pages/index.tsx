@@ -1,13 +1,19 @@
 import {Button} from "ui"
 import {ReactElement} from "react"
 import Layout from "~/components/layout"
+import NavLink from "~/components/nav_link"
+import Page from "~/components/common/page"
 
 export default function HomePage() {
   return (
-    <div>
+    <Page>
       <h1>Web</h1>
-      <Button />
-    </div>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa voluptate
+        dolorem aspernatur. Ut adipisci sapiente cumque culpa, et at ea, quo
+        quam ipsa tempora perferendis, expedita beatae mollitia enim provident.
+      </p>
+    </Page>
   )
 }
 

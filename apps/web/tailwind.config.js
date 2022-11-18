@@ -7,20 +7,19 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {
-      backgroundImage: {
-        "hero-dark": "url('../public/img/blackgrit.png')",
-        "hero-light": "url('../public/img/whitegrit.png')",
+      // backgroundImage: {
+      //   "hero-dark": "url('../public/img/blackgrit.png')",
+      //   "hero-light": "url('../public/img/whitegrit.png')",
+      // },
+      fontFamily: {
+        // display: ["Operator Mono", ...defaultTheme.fontFamily.mono],
+        // mono: ["HCo Operator Mono", ...defaultTheme.fontFamily.mono],
+        // display: ["Barlow Condensed", ...defaultTheme.fontFamily.mono],
+        // display: ["Inter", ...defaultTheme.fontFamily.serif],
+        // body: ["Inter", ...defaultTheme.fontFamily.serif],
+        sans: ["var(--font-inter)", ...fontFamily.sans],
       },
     },
-    fontFamily: {
-      // display: ["Operator Mono", ...defaultTheme.fontFamily.mono],
-      // mono: ["HCo Operator Mono", ...defaultTheme.fontFamily.mono],
-      // display: ["Barlow Condensed", ...defaultTheme.fontFamily.mono],
-      // display: ["Inter", ...defaultTheme.fontFamily.serif],
-      // body: ["Inter", ...defaultTheme.fontFamily.serif],
-      sans: ["var(--font-inter)", ...fontFamily.sans],
-    },
   },
-  // },
   plugins: [require("@tailwindcss/typography")],
 }
