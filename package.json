@@ -1,5 +1,5 @@
 {
-  "name": "marcell.cd",
+  "name": "marcell.cd.com",
   "version": "0.0.0",
   "private": true,
   "workspaces": [
@@ -10,9 +10,7 @@
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "test": "turbo run test",
-    "test:watch": "turbo run test:watch"
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
     "eslint-config-custom": "workspace:*",
@@ -20,8 +18,8 @@
     "turbo": "latest"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=14.0.0"
   },
   "dependencies": {},
-  "packageManager": "pnpm@7.10.0"
+  "packageManager": "pnpm@7.11.0"
 }
