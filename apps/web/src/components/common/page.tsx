@@ -1,5 +1,6 @@
 import {tw} from "lib"
 import {ReactNode} from "react"
+
 interface Props {
   children: ReactNode
   fluid?: boolean
@@ -8,7 +9,7 @@ interface Props {
 
 export default function Page({children, fluid = false, styles = ""}: Props) {
   return (
-    <div className={tw("m-auto max-w-[61.25rem]", mergedStyles(fluid, styles))}>
+    <div className={tw("m-auto max-w-3xl", mergedStyles(fluid, styles))}>
       {children}
     </div>
   )

@@ -14,6 +14,6 @@ module.exports = {
     "no-unused-vars": "error",
     "unused-imports/no-unused-imports": "error",
     semi: ["error", "never"],
-    "import/order": ["error"],
+    "import/no-cycle": "error",
   },
 }

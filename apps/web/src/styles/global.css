@@ -9,7 +9,7 @@
   }
   #__next {
     /* @apply contents; */
-    @apply bg-gray-50 dark:bg-gray-900 flex flex-col min-h-[100vh];
+    @apply bg-slate-50 dark:bg-black flex flex-col min-h-[100vh];
   }
 }
 
