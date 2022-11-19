@@ -17,7 +17,7 @@ module.exports = {
         // display: ["Barlow Condensed", ...defaultTheme.fontFamily.mono],
         // display: ["Inter", ...defaultTheme.fontFamily.serif],
         // body: ["Inter", ...defaultTheme.fontFamily.serif],
-        sans: ["var(--font-inter)", ...fontFamily.sans],
+        sans: ["Inter", ...fontFamily.serif],
       },
     },
   },

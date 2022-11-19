@@ -1,13 +1,15 @@
+import {tw} from "lib"
 import {ReactNode} from "react"
-import {InterFont} from "~/lib/fonts"
+
 interface Props {
   children: ReactNode
+  styles?: string
 }
 
-export default function Layout({children}: Props) {
+export default function Layout({children, styles = ""}: Props) {
   return (
     <>
-      <header className={InterFont.className}>
+      <header>
         <strong>header</strong>
         <nav>
           <ul className="flex">
@@ -18,8 +20,8 @@ export default function Layout({children}: Props) {
           </ul>
         </nav>
       </header>
-      <main className={`${InterFont.className} flex-1`}>{children}</main>
-      <footer className={InterFont.className}>
+      <main className={tw(`flex-1`, styles)}>{children}</main>
+      <footer>
         <strong>footer</strong>
       </footer>
     </>

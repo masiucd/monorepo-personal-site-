@@ -1,12 +1,10 @@
-import {Button} from "ui"
 import {ReactElement} from "react"
 import Layout from "~/components/layout"
-import NavLink from "~/components/nav_link"
 import Page from "~/components/common/page"
 
 export default function HomePage() {
   return (
-    <Page>
+    <Page styles="border-2 border-red-500">
       <h1>Web</h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa voluptate
@@ -18,5 +16,5 @@ export default function HomePage() {
 }
 
 HomePage.getLayout = function getLayout(page: ReactElement) {
-  return <Layout>{page}</Layout>
+  return <Layout styles="flex">{page}</Layout>
 }
