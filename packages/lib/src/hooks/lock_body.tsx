@@ -1,4 +1,4 @@
-import {useEffect, useLayoutEffect, useState} from "react"
+import {useEffect, useState} from "react"
 
 // eslint-disable-next-line no-unused-vars
 type ReturnType = [boolean, (locked: boolean) => void]
@@ -6,8 +6,7 @@ type ReturnType = [boolean, (locked: boolean) => void]
 function useLockedBody(initialLocked = false): ReturnType {
   const [locked, setLocked] = useState(initialLocked)
 
-  // Do the side effect before render
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (!locked) {
       return
     }

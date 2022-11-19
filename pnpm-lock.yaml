@@ -124,14 +124,19 @@ importers:
       '@types/react-dom': ^18.0.6
       eslint: ^8.28.0
       eslint-config-custom: workspace:*
+      framer-motion: ^7.6.7
+      lib: workspace:*
       react: ^18.2.0
       tsconfig: workspace:*
       typescript: ^4.5.2
+    dependencies:
+      lib: link:../lib
     devDependencies:
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
       eslint: 8.28.0
       eslint-config-custom: link:../eslint-config-custom
+      framer-motion: 7.6.7_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
       tsconfig: link:../tsconfig
       typescript: 4.9.3
@@ -407,12 +412,10 @@ packages:
     requiresBuild: true
     dependencies:
       '@emotion/memoize': 0.7.4
-    dev: false
     optional: true
 
   /@emotion/memoize/0.7.4:
     resolution: {integrity: sha1-Gb8PWvGRSREcQNmLsM+CEZ9dnus=}
-    dev: false
     optional: true
 
   /@esbuild/android-arm/0.15.14:
@@ -534,7 +537,6 @@ packages:
       '@motionone/types': 10.14.0
       '@motionone/utils': 10.14.0
       tslib: 2.4.1
-    dev: false
 
   /@motionone/dom/10.13.1:
     resolution: {integrity: sha1-/CnqXRJTjyGyEbMWjlAs/AeiSII=}
@@ -545,14 +547,12 @@ packages:
       '@motionone/utils': 10.14.0
       hey-listen: 1.0.8
       tslib: 2.4.1
-    dev: false
 
   /@motionone/easing/10.14.0:
     resolution: {integrity: sha1-2BVLf3FJFBTzze4jvTg412P//QA=}
     dependencies:
       '@motionone/utils': 10.14.0
       tslib: 2.4.1
-    dev: false
 
   /@motionone/generators/10.14.0:
     resolution: {integrity: sha1-4F2d1W2nikuS25kYWEig89tiJC0=}
@@ -560,11 +560,9 @@ packages:
       '@motionone/types': 10.14.0
       '@motionone/utils': 10.14.0
       tslib: 2.4.1
-    dev: false
 
   /@motionone/types/10.14.0:
     resolution: {integrity: sha1-FIw08ycLF1OX5JwwWLM/q0BcIeM=}
-    dev: false
 
   /@motionone/utils/10.14.0:
     resolution: {integrity: sha1-oZo0ZO01sIUGdHsGLQNce8m75wg=}
@@ -572,7 +570,6 @@ packages:
       '@motionone/types': 10.14.0
       hey-listen: 1.0.8
       tslib: 2.4.1
-    dev: false
 
   /@next/env/13.0.4:
     resolution: {integrity: sha1-JJohvoj6YeGnEpOdsAudAnZIMfQ=}
@@ -2261,13 +2258,11 @@ packages:
       tslib: 2.4.0
     optionalDependencies:
       '@emotion/is-prop-valid': 0.8.8
-    dev: false
 
   /framesync/6.1.2:
     resolution: {integrity: sha1-dV7/L7W487TSsmbdGBIbMArv6ic=}
     dependencies:
       tslib: 2.4.0
-    dev: false
 
   /fs.realpath/1.0.0:
     resolution: {integrity: sha1-FQStJSMVjKpA20onh8sBQRmU6k8=}
@@ -2422,7 +2417,6 @@ packages:
 
   /hey-listen/1.0.8:
     resolution: {integrity: sha1-jllWH/ckkI3hqpJO1uzISlapqmg=}
-    dev: false
 
   /html-encoding-sniffer/3.0.0:
     resolution: {integrity: sha1-LLGozw21JBR3blsqegTV3ZgVjek=}
@@ -3116,7 +3110,6 @@ packages:
       hey-listen: 1.0.8
       style-value-types: 5.1.2
       tslib: 2.4.0
-    dev: false
 
   /postcss-import/14.1.0_postcss@8.4.19:
     resolution: {integrity: sha1-pzM//jLwuHlTA+6eQCFdrJIngfA=}
@@ -3511,7 +3504,6 @@ packages:
     dependencies:
       hey-listen: 1.0.8
       tslib: 2.4.0
-    dev: false
 
   /styled-jsx/5.1.0_3lzqd2prgnu7gkxqqdmtvzna5u:
     resolution: {integrity: sha1-SlYiq5cUvT/PruwpKqVVhx8FdWM=}
@@ -3658,11 +3650,9 @@ packages:
 
   /tslib/2.4.0:
     resolution: {integrity: sha1-fOyqfwc85oCgWEeqd76UEJjzbcM=}
-    dev: false
 
   /tslib/2.4.1:
     resolution: {integrity: sha1-DQv7qsKIC5HiLfB2jlW+l1OlsX4=}
-    dev: false
 
   /tsutils/3.21.0_typescript@4.9.3:
     resolution: {integrity: sha1-tIcX05TOpsHglpg+7Vjp1hcVtiM=}
