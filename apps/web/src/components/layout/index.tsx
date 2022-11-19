@@ -1,4 +1,4 @@
-import {tw} from "lib"
+import {tw, useLockedBody} from "lib"
 import {useTheme} from "next-themes"
 import {AnimatePresence, motion} from "framer-motion"
 import Head from "next/head"
@@ -134,22 +134,16 @@ export default function Layout({children, styles = "", metaData}: Props) {
 }
 
 function MobileMenu() {
-  const [on, setOn] = useState(false)
+  const [locked, setLocked] = useLockedBody()
+
   const toggleMenu = () => {
-    if (on) {
-      setOn(false)
-      document.body.style.overflow = ""
+    if (!locked) {
+      setLocked(!locked)
     } else {
-      setOn(true)
-      document.body.style.overflow = "hidden"
+      setLocked(!locked)
     }
   }
 
-  useEffect(() => {
-    return () => {
-      document.body.style.overflow = "hidden"
-    }
-  })
   return (
     <>
       <button
@@ -161,7 +155,7 @@ function MobileMenu() {
         Menu
       </button>
       <AnimatePresence>
-        {on && (
+        {locked && (
           <motion.aside
             className="fixed top-0 left-0 w-full h-full flex  bg-slate-50 dark:bg-black"
             role="dialog"
