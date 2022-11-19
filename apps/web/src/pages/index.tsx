@@ -4,7 +4,7 @@ import Page from "~/components/common/page"
 
 export default function HomePage() {
   return (
-    <Page styles="border-2 border-red-500">
+    <Page styles="">
       <h1>Web</h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa voluptate

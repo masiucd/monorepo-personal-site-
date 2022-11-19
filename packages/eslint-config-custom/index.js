@@ -14,20 +14,6 @@ module.exports = {
     "no-unused-vars": "error",
     "unused-imports/no-unused-imports": "error",
     semi: ["error", "never"],
-    "import/order": [
-      "error",
-      {
-        groups: [
-          "index",
-          "sibling",
-          "parent",
-          "internal",
-          "external",
-          "builtin",
-          "object",
-          "type",
-        ],
-      },
-    ],
+    "import/order": ["error"],
   },
 }

@@ -1,5 +1,5 @@
-import {ReactNode} from "react"
 import {tw} from "lib"
+import {ReactNode} from "react"
 interface Props {
   children: ReactNode
   fluid?: boolean
