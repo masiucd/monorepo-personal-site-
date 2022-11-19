@@ -90,16 +90,22 @@ importers:
 
   packages/lib:
     specifiers:
+      '@types/react': ^18.0.17
+      '@types/react-dom': ^18.0.6
       eslint: ^8.28.0
       eslint-config-custom: workspace:*
+      react: ^18.2.0
       tailwind-merge: ^1.8.0
       tsconfig: workspace:*
       typescript: ^4.9.3
     dependencies:
       tailwind-merge: 1.8.0
     devDependencies:
+      '@types/react': 18.0.25
+      '@types/react-dom': 18.0.9
       eslint: 8.28.0
       eslint-config-custom: link:../eslint-config-custom
+      react: 18.2.0
       tsconfig: link:../tsconfig
       typescript: 4.9.3
 
@@ -116,7 +122,7 @@ importers:
     specifiers:
       '@types/react': ^18.0.17
       '@types/react-dom': ^18.0.6
-      eslint: ^7.32.0
+      eslint: ^8.28.0
       eslint-config-custom: workspace:*
       react: ^18.2.0
       tsconfig: workspace:*
@@ -124,7 +130,7 @@ importers:
     devDependencies:
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
-      eslint: 7.32.0
+      eslint: 8.28.0
       eslint-config-custom: link:../eslint-config-custom
       react: 18.2.0
       tsconfig: link:../tsconfig
