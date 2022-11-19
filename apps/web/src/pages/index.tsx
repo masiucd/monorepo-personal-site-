@@ -1,6 +1,7 @@
 import {ReactElement} from "react"
-import Layout from "~/components/layout"
+
 import Page from "~/components/common/page"
+import Layout from "~/components/layout"
 
 export default function HomePage() {
   return (

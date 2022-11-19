@@ -1,4 +1,5 @@
 import {useMediaQuery} from "lib"
+
 import socialData from "~/static_data/social.json"
 
 function Footer() {

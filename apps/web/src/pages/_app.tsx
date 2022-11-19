@@ -1,9 +1,11 @@
 import "~/styles/global.css"
-import {ReactElement} from "react"
-import {NextPageWithLayout} from "~/lib/types"
-import {InterFont} from "~/lib/fonts"
+
 import type {AppProps} from "next/app"
 import {ThemeProvider} from "next-themes"
+import {ReactElement} from "react"
+
+import {InterFont} from "~/lib/fonts"
+import {NextPageWithLayout} from "~/lib/types"
 
 type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout

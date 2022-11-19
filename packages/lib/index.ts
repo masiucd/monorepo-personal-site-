@@ -1,7 +1,7 @@
-import {tw} from "./src/tw"
-import {useToggle} from "./src/hooks/toggle"
 import {useLockedBody} from "./src/hooks/lock_body"
-import {useMounted} from "./src/hooks/mounted"
 import {useMediaQuery} from "./src/hooks/media"
+import {useMounted} from "./src/hooks/mounted"
+import {useToggle} from "./src/hooks/toggle"
+import {tw} from "./src/tw"
 
-export {tw, useToggle, useMediaQuery, useLockedBody, useMounted}
+export {tw, useLockedBody, useMediaQuery, useMounted, useToggle}

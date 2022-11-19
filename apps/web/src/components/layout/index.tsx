@@ -1,11 +1,12 @@
-import {tw, useLockedBody, useMediaQuery, useMounted} from "lib"
-import {useTheme} from "next-themes"
 import {AnimatePresence, motion} from "framer-motion"
+import {tw, useLockedBody, useMediaQuery, useMounted} from "lib"
 import Head from "next/head"
 import Link from "next/link"
 import {useRouter} from "next/router"
+import {useTheme} from "next-themes"
 import {ReactNode} from "react"
-import {Sun, Menu, Moon} from "ui"
+import {Menu, Moon, Sun} from "ui"
+
 import Footer from "./footer"
 
 function NavLink({
