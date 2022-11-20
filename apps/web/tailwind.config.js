@@ -11,6 +11,8 @@ module.exports = {
         // "hero-dark": "url('../public/img/blackgrit.png')",
         // "hero-light": "url('../public/img/whitegrit.png')",
         hero: "url('../public/static/images/header-background.svg')",
+        "hero-dark":
+          "url('../public/static/images/header-background-dark.svg')",
       },
       fontFamily: {
         // display: ["Operator Mono", ...defaultTheme.fontFamily.mono],

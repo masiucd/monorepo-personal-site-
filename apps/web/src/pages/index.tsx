@@ -9,7 +9,7 @@ export default function HomePage() {
   const matches = useMediaQuery("(min-width: 768px)")
   return (
     <Page>
-      <section className="bg-hero bg-cover flex flex-col justify-center min-h-[25rem]">
+      <section className="bg-hero dark:bg-hero-dark bg-cover flex flex-col justify-center min-h-[25rem]">
         <h1 className="text-4xl pl-4 md:text-6xl md:p-0">
           HI I{" "}
           <span className="border-b-2 dark:border-sky-400 border-sky-500">
@@ -19,10 +19,11 @@ export default function HomePage() {
         </h1>
         <aside className="grid grid-cols-5 pr-2 md:pr-0 mb-5">
           <p className="border-l-2 border-sky-500 dark:border-sky-400 pl-4 col-start-2 col-end-6">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
-            voluptate dolorem aspernatur. Ut adipisci sapiente cumque culpa, et
-            at ea, quo quam ipsa tempora perferendis, expedita beatae mollitia
-            enim provident.
+            Here where I share my thoughts about software development and topics
+            like <span className="text-sky-400  dark:text-sky-200">React</span>,{" "}
+            <span className="text-sky-400 dark:text-sky-200">Javascript</span>,{" "}
+            <span className="text-sky-400 dark:text-sky-200">Go</span> and other
+            topics related to software development.
           </p>
         </aside>
         <ul className="flex gap-5 pl-4 md:pl-0">

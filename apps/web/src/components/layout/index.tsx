@@ -30,8 +30,8 @@ export default function Layout({children, styles = "", metaData}: Props) {
   const router = useRouter()
   const matches = useMediaQuery("(min-width: 768px)")
   const meta: Meta = {
-    title: "Marcell Ciszek Druzynski, software developer",
-    description: "software developer | endurance freak ",
+    title: "Marcell Ciszek Druzynski",
+    description: "software developer | endurance freak | tech nerd",
     image: "https://marcell-cd.vercel.app/static/images/jp.jpeg",
     type: "website",
     ...metaData,
