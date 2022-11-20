@@ -1,4 +1,3 @@
-import {tw} from "lib"
 import Link from "next/link"
 import {useRouter} from "next/router"
 import {ReactNode} from "react"
@@ -6,17 +5,13 @@ import {ReactNode} from "react"
 type Props = {
   href: string
   children: ReactNode
-  className?: string
 }
 
-function NavLink({href, children, className = ""}: Props) {
+function NavLink({href, children}: Props) {
   const {pathname} = useRouter()
   const active = href === pathname
   return (
-    <Link
-      className={tw(`${active ? "border-b-2 border-sky-500 " : ""}`, className)}
-      href={href}
-    >
+    <Link className={active ? "border-b-2 border-sky-500 " : ""} href={href}>
       {children}
     </Link>
   )

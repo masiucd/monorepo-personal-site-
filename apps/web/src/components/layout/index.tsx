@@ -79,7 +79,7 @@ export default function Layout({children, styles = "", metaData}: Props) {
               <MobileMenu />
             )}
           </nav>
-          <div className="relative border-2 border-slate-900 rounded-full flex items-center justify-center w-10 h-10 bg-zinc-900 dark:bg-zinc-50 shadow-sm mr-2 md:mr-0">
+          <div className="border-2 border-slate-900 rounded-full flex items-center justify-center w-10 h-10 bg-zinc-900 dark:bg-zinc-50 shadow-sm mr-2 md:mr-0 z-20">
             {mounted && (
               <button
                 type="button"

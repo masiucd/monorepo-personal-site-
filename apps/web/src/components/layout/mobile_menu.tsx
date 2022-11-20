@@ -43,7 +43,7 @@ function MobileMenu() {
       <button
         type="button"
         aria-label="Menu Button"
-        className="ml-2 relative z-10"
+        className="ml-2 relative z-20"
         onClick={toggleMenu}
       >
         <Menu on={locked} />
@@ -51,7 +51,7 @@ function MobileMenu() {
       <AnimatePresence>
         {locked && (
           <motion.aside
-            className="fixed top-0 left-0 w-full h-full flex bg-slate-50 dark:bg-black"
+            className="fixed top-0 left-0 w-full h-full flex bg-slate-50 dark:bg-black z-10"
             role="dialog"
             initial={{opacity: 0.45, scale: 0.3}}
             animate={{
