@@ -69,9 +69,7 @@ export default function Layout({children, styles = "", metaData}: Props) {
               <ul className="flex gap-5 h-full items-center">
                 {navLinks.map(({name, path}) => (
                   <li key={name}>
-                    <NavLink className="capitalize" href={path}>
-                      {name}
-                    </NavLink>
+                    <NavLink href={path}>{name}</NavLink>
                   </li>
                 ))}
               </ul>

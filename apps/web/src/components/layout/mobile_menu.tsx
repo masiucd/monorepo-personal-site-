@@ -78,7 +78,7 @@ function MobileMenu() {
                   variants={itemVariants}
                   whileHover={{scale: 1.01}}
                 >
-                  <NavLink className="capitalize pb-1 block" href={path}>
+                  <NavLink className="pb-1 block" href={path}>
                     {name}
                   </NavLink>
                 </motion.li>

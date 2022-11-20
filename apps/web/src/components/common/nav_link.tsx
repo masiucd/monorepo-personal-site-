@@ -5,16 +5,23 @@ import {ReactNode} from "react"
 type Props = {
   href: string
   children: ReactNode
+  className?: string
 }
 
-function NavLink({href, children}: Props) {
+function NavLink({href, children, className}: Props) {
   const {pathname} = useRouter()
   const active = href === pathname
+
   return (
-    <Link className={active ? "border-b-2 border-sky-500 " : ""} href={href}>
+    <Link
+      className={`${activeStyles(active)} capitalize ${className}`}
+      href={href}
+    >
       {children}
     </Link>
   )
 }
-
+function activeStyles(active: boolean): string {
+  return active ? "border-b-2 border-sky-500 " : ""
+}
 export default NavLink
