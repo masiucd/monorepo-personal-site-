@@ -1,57 +1,15 @@
-import {AnimatePresence, motion} from "framer-motion"
-import {tw, useLockedBody, useMediaQuery, useMounted} from "lib"
+import {tw, useMediaQuery, useMounted} from "lib"
 import Head from "next/head"
-import Link from "next/link"
 import {useRouter} from "next/router"
 import {useTheme} from "next-themes"
 import {ReactNode} from "react"
-import {Menu, Moon, Sun} from "ui"
+import {Moon, Sun} from "ui"
+
+import NavLink from "~/components/common/nav_link"
+import navLinks from "~/static_data/nav_links.json"
 
 import Footer from "./footer"
-
-function NavLink({
-  href,
-  children,
-  className = "",
-}: {
-  href: string
-  children: ReactNode
-  className?: string
-}) {
-  const {pathname} = useRouter()
-
-  const active = href === pathname
-  return (
-    <Link
-      className={tw(`${active ? "border-b border-sky-500 " : ""}`, className)}
-      href={href}
-    >
-      {children}
-    </Link>
-  )
-}
-
-const itemVariants = {
-  closed: {
-    opacity: 0,
-    x: -100,
-  },
-  open: {opacity: 1, x: 0},
-}
-const sideVariants = {
-  closed: {
-    transition: {
-      staggerChildren: 0.2,
-      staggerDirection: -1,
-    },
-  },
-  open: {
-    transition: {
-      staggerChildren: 0.2,
-      staggerDirection: 1,
-    },
-  },
-}
+import MobileMenu from "./mobile_menu"
 
 type Meta = {
   title?: string
@@ -109,18 +67,13 @@ export default function Layout({children, styles = "", metaData}: Props) {
           <nav className="relative">
             {matches ? (
               <ul className="flex gap-5 h-full items-center">
-                <li>
-                  <NavLink href="/">Home</NavLink>
-                </li>
-                <li>
-                  <NavLink href="/blog">Blog</NavLink>
-                </li>
-                <li>
-                  <NavLink href="/about">About</NavLink>
-                </li>
-                <li>
-                  <NavLink href="/bites">Bites</NavLink>
-                </li>
+                {navLinks.map(({name, path}) => (
+                  <li key={name}>
+                    <NavLink className="capitalize" href={path}>
+                      {name}
+                    </NavLink>
+                  </li>
+                ))}
               </ul>
             ) : (
               <MobileMenu />
@@ -143,93 +96,6 @@ export default function Layout({children, styles = "", metaData}: Props) {
       </header>
       <main className={tw(`flex-1`, styles)}>{children}</main>
       <Footer />
-    </>
-  )
-}
-
-function MobileMenu() {
-  const [locked, setLocked] = useLockedBody()
-  const toggleMenu = () => {
-    if (!locked) {
-      setLocked(!locked)
-    } else {
-      setLocked(!locked)
-    }
-  }
-
-  return (
-    <>
-      <button
-        type="button"
-        aria-label="Menu Button"
-        className="ml-2 relative z-10"
-        onClick={toggleMenu}
-      >
-        <Menu on={locked} />
-      </button>
-      <AnimatePresence>
-        {locked && (
-          <motion.aside
-            className="fixed top-0 left-0 w-full h-full flex bg-slate-50 dark:bg-black"
-            role="dialog"
-            initial={{opacity: 0.45, scale: 0.3}}
-            animate={{
-              opacity: 1,
-              scale: 1,
-            }}
-            exit={{
-              opacity: 0.45,
-              y: "100%",
-              transition: {delay: 0.7, duration: 0.3},
-            }}
-          >
-            <motion.ul
-              className="flex flex-col gap-5 pt-20 px-5 w-full"
-              initial="closed"
-              animate="open"
-              exit="closed"
-              variants={sideVariants}
-            >
-              <motion.li
-                className="text-3xl border-b-2 border-sky-600 dark:border-sky-500 dark:border-opacity-60"
-                variants={itemVariants}
-                whileHover={{scale: 1.01}}
-              >
-                <NavLink className="pb-1 block" href="/">
-                  Home
-                </NavLink>
-              </motion.li>
-              <motion.li
-                className="text-3xl border-b-2 border-sky-600 dark:border-sky-500 dark:border-opacity-60"
-                variants={itemVariants}
-                whileHover={{scale: 1.01}}
-              >
-                <NavLink className="pb-1 block" href="/">
-                  Blog
-                </NavLink>
-              </motion.li>
-              <motion.li
-                className="text-3xl border-b-2 border-sky-600 dark:border-sky-500 dark:border-opacity-60"
-                variants={itemVariants}
-                whileHover={{scale: 1.01}}
-              >
-                <NavLink className="pb-1 block" href="/">
-                  About
-                </NavLink>
-              </motion.li>
-              <motion.li
-                className="text-3xl border-b-2 border-sky-600 dark:border-sky-500 dark:border-opacity-60"
-                variants={itemVariants}
-                whileHover={{scale: 1.01}}
-              >
-                <NavLink className="pb-1 block" href="/">
-                  Picks
-                </NavLink>
-              </motion.li>
-            </motion.ul>
-          </motion.aside>
-        )}
-      </AnimatePresence>
     </>
   )
 }
