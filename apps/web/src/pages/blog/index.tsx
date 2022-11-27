@@ -1,32 +1,26 @@
-import fs from "node:fs"
-
 import {GetStaticProps} from "next"
-import path from "path"
 import {ReactElement} from "react"
 
 import Page from "~/components/common/page"
 import Layout from "~/components/layout"
+import {getAllPosts} from "~/lib/blog"
 
 export const getStaticProps: GetStaticProps = () => {
-  const absolutePath = process.cwd()
-  const pathToPosts = path.join(absolutePath, "src", "blog_posts")
-  const blogPosts = fs.readdirSync(pathToPosts, "utf8").map((post) => {
-    const p = fs.readFileSync(path.join(pathToPosts, post), "utf8")
-    console.log({p})
-  })
-  console.log({blogPosts})
+  const posts = getAllPosts(["slug"])
+
   return {
     props: {
-      data: "test",
+      posts,
     },
   }
 }
 
 type Props = {
-  data: string
+  posts: any[]
 }
 
-export default function BlogPage({data}: Props) {
+export default function BlogPage({posts}: Props) {
+  console.log({posts})
   return (
     <Page>
       <section className="bg-hero bg-cover flex flex-col justify-center h-72">
