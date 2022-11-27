@@ -1,0 +1,160 @@
+---
+title: "Imperative and Declarative"
+slug: "imperative_declarative"
+description: "Two common and known paradigms that can be good to know the differences"
+date: "2022-12-24"
+updated: "2022-12-24"
+time: "7min"
+tags: ["dev", "philosophy"]
+author:
+  name: Marcell Ciszek Druzynski
+---
+
+Declarative and imperative are known paradigms in computer science.
+They both have their pros and cons, and there is no one there is better than the other.
+There are developers that might prefer one paradigm, move the other.
+A common trend is to market new libraries/frameworks with a declarative API.
+
+### What are the differences
+
+_Imperative programming_ is an old and basic paradigm.
+When we write code in an imperative way, the code describes step-by-step for the program execution.
+It is common that beginners think that it is easier to write programs in an imperative way, by follow along with the steps and what is going on in the program.
+We as developers are more interested in how the program runs.
+
+There are languages that by the core are classed as imperative, but most of them has been modernized and have declarative API’s as well, but just if we go back when the languages were created they are labeled as imperative programming languages, and they are:
+
+- Java
+- C
+- Ruby
+- PHP
+- C++
+
+When we write declarative programs, you write _what the program should achieve_ instead of how it should run.
+We describe the result the program should accomplish without focusing on its control flow.
+
+Programming languages and libraries have different APIs how to achieve this.
+It is like you are asking the program on what you **want** out of the program and not the **what**.
+
+Take **SQL** for example, where we describe what we want.
+We are not focused on how the SQL does it under the hood.
+A simple SQL query.
+`SELECT u.id, u.name from users u WHERE u.id = 25`
+
+Example of declarative languages are:
+
+- SQL
+- CSS
+- Haskell
+- Lisp
+- Scala
+
+> **Declarative programming** express the final result without going into the details of the api.
+> **Imperative programming** focus on changing the programs state with using statements.
+
+How can we express these two paradigms in the daily life.
+With a simple example, it could look like this.
+
+**Declarative:**
+You have cravings for a pizza, you are telling your friend to get you a pizza, you don’t care if he does it by himself or order it, even what type of pizza it is, the only thing you care about is to get your pizza.
+You want the final result which is the pizza, nothing else matters.
+
+**Imperative**
+You once again want a pizza, but this time you do not trust your friend, and you want him to make the pizza himself from scratch.
+You want to help him, so you go into the kitchen and show hem step by step what and how he should do the pizza.
+
+### How can we define the two paradigms in code?
+
+First an imperative approach toggle the theme between dark and light using vanilla JavaScript where we manipulate the _DOM_.
+
+**Imperative approach**
+
+```
+const darkBtn = document.querySelector(".dark-btn")
+const lightBtn = document.querySelector(".light-btn")
+
+;(() => {
+  const theme = localStorage.getItem("theme")
+  document.documentElement.className = theme
+  if (theme === "dark") {
+    lightBtn.classList.remove("active")
+    darkBtn.classList.add("active")
+  } else {
+    darkBtn.classList.remove("active")
+    lightBtn.classList.add("active")
+  }
+})()
+
+darkBtn.addEventListener("click", () => {
+  localStorage.setItem("theme", "dark")
+  const currentTheme = localStorage.getItem("theme")
+  document.documentElement.className = currentTheme
+  lightBtn.classList.remove("active")
+  darkBtn.classList.add("active")
+})
+
+lightBtn.addEventListener("click", () => {
+  localStorage.setItem("theme", "light")
+  const currentTheme = localStorage.getItem("theme")
+  document.documentElement.className = currentTheme
+  darkBtn.classList.remove("active")
+  lightBtn.classList.add("active")
+})
+```
+
+_If you want to check out the [codepen](https://codepen.io/legionista1994/pen/yLEXLbm)._
+
+**Declarative approach**
+Here we are doing the same thing, but using [React](https://reactjs.org/) to toggle theme between dark and light.
+
+```
+import { useTheme } from "theme"
+
+const ThemeChanger = () => {
+  const { theme, setTheme } = useTheme()
+
+  return (
+    <div>
+      The current theme is: {theme} // dark or light
+      <button onClick={() => setTheme("light")}>Light Mode</button>
+      <button onClick={() => setTheme("dark")}>Dark Mode</button>
+    </div>
+  )
+}
+```
+
+We are focusing here more on what we want as the result and not on the implementation details compared to how the imperative example looked like.
+The declarative example never touches any element at all, it describes how the UI should look like and work and let the React handle the rest. We do not manipulate the _DOM_.
+
+This is one of the philosophy’s of React, to not think how things should be done, instead how should the UI look like when the new state is calculated.
+
+Let’s go with another example where we have a list of numbers and where we ant to get a new list with only even numbers.
+A imperative solution could look like this.
+
+```
+fn only_even_nums(xs: &Vec<i32>) -> Vec<i32> {
+    let mut res = Vec::new();
+    for &x in xs.into_iter() {
+        if x % 2 == 0 {
+            res.push(x);
+        }
+    }
+    res
+}
+```
+
+And the declarative approach would look like this:
+
+```
+fn only_even_nums(xs: &Vec<i32>) -> Vec<&i32> {
+     xs.into_iter().filter(|&&x| x % 2 == 0).collect::<Vec<&i32>>()
+}
+```
+
+### Conclusion
+
+No paradigm is better over the other, they both have their pros and cons.
+While the imperative paradigm focusing more on the step-by-step instructions for how an executed program achieves the desired results.
+The declarative paradigm focusing more hon **what** we want and not on how things should be done.
+
+There are favor of preference, while imperative is easier to getting start with and declarative paradigm is a more natural way to write programs the more experience you get, that is what I have experienced.
