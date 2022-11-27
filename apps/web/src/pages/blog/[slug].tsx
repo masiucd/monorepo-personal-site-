@@ -1,9 +1,11 @@
 import {ParsedUrlQuery} from "node:querystring"
 
 import {GetStaticPaths, GetStaticProps} from "next"
+import Head from "next/head"
 import {ReactElement} from "react"
 import {z} from "zod"
 
+import Page from "~/components/common/page"
 import Layout from "~/components/layout"
 import {getAllPosts, getPostBySlug} from "~/lib/blog"
 
@@ -22,7 +24,9 @@ export const getStaticPaths: GetStaticPaths<Params> = async () => {
   return {paths: posts.map(({slug}) => ({params: {slug}})), fallback: false}
 }
 
-export const getStaticProps: GetStaticProps<any, Params> = async ({params}) => {
+export const getStaticProps: GetStaticProps<Props, Params> = async ({
+  params,
+}) => {
   if (!params) {
     return {
       redirect: {
@@ -52,9 +56,21 @@ type Props = {
 }
 export default function BlogSlugPage({post}: Props) {
   console.log({post})
-  return <div>BlogItemSlugPage</div>
+  return (
+    <>
+      <Head>
+        <title>post</title>
+        {/* <title>Blog | {post.frontMatter.title}</title>
+    <meta name="description" content={post.frontMatter.excerpt} />
+    <meta property="og:title" content={post.frontMatter.title} /> */}
+      </Head>
+      <Page fluid>
+        <div>BlogItemSlugPage</div>
+      </Page>
+    </>
+  )
 }
 
 BlogSlugPage.getLayout = function getLayout(page: ReactElement) {
-  return <Layout metaData={{title: "Articles"}}>{page}</Layout>
+  return <Layout>{page}</Layout>
 }
