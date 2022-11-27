@@ -10,11 +10,16 @@ export function getPostSlugs() {
   return fs.readdirSync(getPath(), "utf8")
 }
 
+type PostData = {
+  [k: string]: string | string[]
+}
+
 export function getPostBySlug(file: string, fields: string[]) {
   const slug = file.replace(/.mdx$/, "")
   const postContent = fs.readFileSync(path.join(getPath(), file), "utf8")
   const {data, content} = matter(postContent)
-  const postData: Record<string, string> = {}
+  const postData: PostData = {}
+
   for (const field of fields) {
     if (field === "slug") {
       postData[field] = slug
