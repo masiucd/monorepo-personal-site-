@@ -1,6 +1,6 @@
 import {z} from "zod"
 
-const PostsSchema = z.object({
+export const PostsSchema = z.object({
   title: z.string(),
   slug: z.string(),
   updated: z.string(),
