@@ -10,3 +10,14 @@ export const PostsSchema = z.object({
 })
 
 export const AllPostsSchema = z.array(PostsSchema)
+
+export const PostsBySlugSchema = z.array(z.object({slug: z.string()}))
+
+export const PostSlugItemSchema = z.object({
+  title: z.string(),
+  content: z.string(),
+  updated: z.string(),
+  tags: z.array(z.string()),
+  author: z.object({name: z.string()}),
+  description: z.string(),
+})
