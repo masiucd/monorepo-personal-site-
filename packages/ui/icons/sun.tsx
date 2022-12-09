@@ -1,4 +1,5 @@
 import {motion} from "framer-motion"
+
 import {Props} from "./types"
 
 const Sun = ({width = 30, height = 30, options}: Props) => (
