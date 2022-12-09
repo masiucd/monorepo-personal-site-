@@ -6,7 +6,6 @@ import Link from "next/link"
 import {MDXRemote, MDXRemoteSerializeResult} from "next-mdx-remote"
 import {ReactElement} from "react"
 import {Reddit, Twitter} from "ui"
-import {z} from "zod"
 
 import Page from "~/components/common/page"
 import Layout from "~/components/layout"
@@ -76,7 +75,7 @@ export default function BlogSlugPage({post, source}: Props) {
       <Page fluid>
         <div className="bg-gray-900 dark:bg-slate-100 text-white dark:text-gray-900 p-4 py-10">
           <div
-            className={`max-w-4xl px-5 py-4 ${BarlowFont.className} border-t-2 border-b-2 border-slate-100 dark:border-gray-900`}
+            className={`max-w-4xl m-auto px-5 py-4 ${BarlowFont.className} border-t-2 border-b-2 border-slate-100 dark:border-gray-900  relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-2/3 after:h-2 after:bg-slate-100 dark:after:bg-gray-900 `}
           >
             <h1>{post.title}</h1>
             <p>{post.description}</p>
