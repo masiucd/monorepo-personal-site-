@@ -10,6 +10,7 @@ import {z} from "zod"
 import Page from "~/components/common/page"
 import Layout from "~/components/layout"
 import {getAllPosts, getPostBySlug} from "~/lib/blog"
+import {BarlowFont} from "~/lib/fonts"
 
 interface Params extends ParsedUrlQuery {
   slug: string
@@ -78,9 +79,11 @@ export default function BlogSlugPage({post}: Props) {
     <meta name="description" content={post.frontMatter.excerpt} />
     <meta property="og:title" content={post.frontMatter.title} /> */}
       </Head>
-      <Page fluid styles="border border-red-500">
-        <div className="bg-gray-900 dark:bg-slate-100 text-white dark:text-gray-900 ">
-          <div className="max-w-4xl px-5 py-4">
+      <Page fluid>
+        <div className="bg-gray-900 dark:bg-slate-100 text-white dark:text-gray-900 p-4">
+          <div
+            className={`max-w-4xl px-5 py-4 ${BarlowFont.className} border-t-2 border-b-2 border-slate-100 dark:border-gray-900`}
+          >
             <h1>{post.title}</h1>
             <p>{post.description}</p>
             <div className="flex flex-col">
