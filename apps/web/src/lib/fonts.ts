@@ -6,7 +6,7 @@ const InterFont = Inter({
 
 const BarlowFont = Barlow_Condensed({
   variable: "--font-mono",
-  weight: ["400"],
+  weight: ["400", "500", "600", "700", "800"],
 })
 
 export {BarlowFont, InterFont}

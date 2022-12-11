@@ -14,7 +14,9 @@ function NavLink({href, children, className}: Props) {
 
   return (
     <Link
-      className={`${activeStyles(active)} capitalize ${className}`}
+      className={`${activeStyles(
+        active
+      )} capitalize ${className} hover:text-blue-500 dark:hover:text-blue-300`}
       href={href}
     >
       {children}
