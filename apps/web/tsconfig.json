@@ -2,6 +2,7 @@
   "extends": "tsconfig/nextjs.json",
   "compilerOptions": {
     "baseUrl": ".",
+    "downlevelIteration": true,
     "strict": true,
     "paths": {
       "~/*": ["./src/*"]

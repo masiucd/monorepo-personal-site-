@@ -17,42 +17,6 @@ interface Params extends ParsedUrlQuery {
   slug: string
 }
 
-export const getStaticPaths: GetStaticPaths<Params> = async () => {
-  const posts = PostsBySlugSchema.parse(getAllPosts(["slug"]))
-  return {paths: posts.map(({slug}) => ({params: {slug}})), fallback: false}
-}
-
-export const getStaticProps: GetStaticProps<Props, Params> = async ({
-  params,
-}) => {
-  if (!params) {
-    return {
-      redirect: {
-        destination: "/blog",
-        permanent: false,
-      },
-    }
-  }
-  // TODO use zod
-  const post = PostSlugItemSchema.parse(
-    getPostBySlug(`${params.slug}.mdx`, [
-      "title",
-      "content",
-      "updated",
-      "tags",
-      "author",
-      "description",
-    ])
-  )
-
-  return {
-    props: {
-      post,
-      source: await parseContentToMDX(post.content),
-    },
-  }
-}
-
 type Props = {
   post: PostsType
   source: MDXRemoteSerializeResult<
@@ -84,4 +48,40 @@ export default function BlogSlugPage({post, source}: Props) {
 
 BlogSlugPage.getLayout = function getLayout(page: ReactElement) {
   return <Layout>{page}</Layout>
+}
+
+export const getStaticPaths: GetStaticPaths<Params> = async () => {
+  const posts = PostsBySlugSchema.parse(getAllPosts(["slug"]))
+  return {paths: posts.map(({slug}) => ({params: {slug}})), fallback: false}
+}
+
+export const getStaticProps: GetStaticProps<Props, Params> = async ({
+  params,
+}) => {
+  if (!params) {
+    return {
+      redirect: {
+        destination: "/blog",
+        permanent: false,
+      },
+    }
+  }
+
+  const post = PostSlugItemSchema.parse(
+    getPostBySlug(`${params.slug}.mdx`, [
+      "title",
+      "content",
+      "updated",
+      "tags",
+      "author",
+      "description",
+    ])
+  )
+
+  return {
+    props: {
+      post,
+      source: await parseContentToMDX(post.content),
+    },
+  }
 }

@@ -1,9 +1,9 @@
-import {tw} from "lib"
 import {GetStaticProps} from "next"
-import {ReactElement, ReactNode} from "react"
+import {ReactElement} from "react"
 
 import BlogItem from "~/components/blog/blog_item"
 import Page from "~/components/common/page"
+import Title from "~/components/common/title"
 import Layout from "~/components/layout"
 import {getAllPosts} from "~/lib/blog"
 import {AllPostsSchema} from "~/lib/schemas"
@@ -19,24 +19,6 @@ export const getStaticProps: GetStaticProps = () => ({
 
 type Props = {
   posts: AllPosts
-}
-
-type TitleProps = {
-  title?: string | null
-  children?: ReactNode | null
-  styles?: string
-}
-function Title({title = null, children = null, styles = ""}: TitleProps) {
-  if (title !== null) {
-    return (
-      <section className={tw("mb-5 py-10", styles)}>
-        <h1>{title}</h1>
-      </section>
-    )
-  } else if (children !== null) {
-    return <section className={tw("mb-5 py-10", styles)}>{children}</section>
-  }
-  return null
 }
 
 export default function BlogPage({posts}: Props) {
