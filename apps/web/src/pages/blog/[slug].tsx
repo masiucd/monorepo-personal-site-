@@ -1,5 +1,5 @@
-// import "highlight.js/styles/nord.css"
-import "highlight.js/styles/atom-one-dark.css"
+// import "highlight.js/styles/atom-one-dark.css"
+import "highlight.js/styles/github-dark.css"
 
 import {ParsedUrlQuery} from "node:querystring"
 

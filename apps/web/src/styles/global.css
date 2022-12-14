@@ -65,7 +65,7 @@ button {
 }
 
 pre {
-  overflow-x: auto;
+  @apply overflow-x-auto;
 }
 /* REHYPE */
 #blog_article pre {

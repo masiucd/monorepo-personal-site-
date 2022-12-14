@@ -131,7 +131,7 @@ The declarative example never touches any element at all, it describes how the U
 This is one of the philosophy’s of React, to not think how things should be done, instead how should the UI look like when the new state is calculated.
 
 Let’s go with another example where we have a list of numbers and where we ant to get a new list with only even numbers.
-A imperative solution could look like this.
+Here two examples where the first is a imperative approach and the second is the declarative way.
 
 ```rust
 fn only_even_nums(xs: &Vec<i32>) -> Vec<i32> {
@@ -144,8 +144,6 @@ fn only_even_nums(xs: &Vec<i32>) -> Vec<i32> {
     res
 }
 ```
-
-And the declarative approach would look like this:
 
 ```rust
 fn only_even_nums(xs: &Vec<i32>) -> Vec<&i32> {
