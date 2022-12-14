@@ -1,4 +1,5 @@
 import {GetStaticProps} from "next"
+import Link from "next/link"
 import {ReactElement} from "react"
 
 import BlogItem from "~/components/blog/blog_item"
@@ -31,6 +32,12 @@ export default function BlogPage({posts}: Props) {
           software development. Articles about React, Javascript, Typescript and
           Rust are close to my hart.
         </p>
+        <Link
+          href="/tags"
+          className="relative block after:content-[''] after:transition-all after:ease-in-out after:duration-200 after:w-3  hover:after:w-full after:h-1 after:bg-sky-500 after:dark:bg-sky-400 after:absolute after:bottom-1 after:-rotate-1 after:left-0 md:text-lg w-fit italic"
+        >
+          View posts by tag
+        </Link>
       </Title>
       <ul>
         {posts.map((p) => (

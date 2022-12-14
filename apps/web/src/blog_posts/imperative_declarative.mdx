@@ -71,7 +71,7 @@ First an imperative approach toggle the theme between dark and light using vanil
 
 **Imperative approach**
 
-```
+```js
 const darkBtn = document.querySelector(".dark-btn")
 const lightBtn = document.querySelector(".light-btn")
 
@@ -109,11 +109,11 @@ _If you want to check out the [codepen](https://codepen.io/legionista1994/pen/yL
 **Declarative approach**
 Here we are doing the same thing, but using [React](https://reactjs.org/) to toggle theme between dark and light.
 
-```
-import { useTheme } from "theme"
+```tsx
+import {useTheme} from "theme"
 
 const ThemeChanger = () => {
-  const { theme, setTheme } = useTheme()
+  const {theme, setTheme} = useTheme()
 
   return (
     <div>
@@ -133,7 +133,7 @@ This is one of the philosophy’s of React, to not think how things should be do
 Let’s go with another example where we have a list of numbers and where we ant to get a new list with only even numbers.
 A imperative solution could look like this.
 
-```
+```rust
 fn only_even_nums(xs: &Vec<i32>) -> Vec<i32> {
     let mut res = Vec::new();
     for &x in xs.into_iter() {
@@ -147,7 +147,7 @@ fn only_even_nums(xs: &Vec<i32>) -> Vec<i32> {
 
 And the declarative approach would look like this:
 
-```
+```rust
 fn only_even_nums(xs: &Vec<i32>) -> Vec<&i32> {
      xs.into_iter().filter(|&&x| x % 2 == 0).collect::<Vec<&i32>>()
 }

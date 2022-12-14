@@ -2,6 +2,7 @@ import {Barlow_Condensed, Inter} from "@next/font/google"
 
 const InterFont = Inter({
   variable: "--font-inter",
+  weight: ["200", "300", "400", "500", "600", "700", "800"],
 })
 
 const BarlowFont = Barlow_Condensed({

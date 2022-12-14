@@ -63,3 +63,31 @@ a {
 button {
   @apply cursor-pointer;
 }
+
+pre {
+  overflow-x: auto;
+}
+/* REHYPE */
+#blog_article pre {
+  @apply bg-slate-50 dark:bg-black;
+}
+
+#blog_article pre code {
+  @apply rounded-md border-2 border-blue-500 dark:border-blue-400;
+}
+
+/* .rehype-code-title {
+  @apply px-5 py-3 font-mono text-sm font-bold text-gray-800 bg-gray-200 border border-b-0 border-gray-200 rounded-t-lg dark:text-gray-200 dark:border-gray-700 dark:bg-gray-800;
+}
+
+.rehype-code-title + pre {
+  @apply mt-0 rounded-t-none;
+} */
+
+/**
+ * Inspired by gatsby remark prism - https://www.gatsbyjs.com/plugins/gatsby-remark-prismjs/
+ * 1. Make the element just wide enough to fit its content.
+ * 2. Always fill the visible space in .code-highlight.
+ */
+
+/* REHYPE */

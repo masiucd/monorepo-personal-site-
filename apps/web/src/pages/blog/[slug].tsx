@@ -1,3 +1,6 @@
+// import "highlight.js/styles/nord.css"
+import "highlight.js/styles/atom-one-dark.css"
+
 import {ParsedUrlQuery} from "node:querystring"
 
 import {GetStaticPaths, GetStaticProps} from "next"
@@ -39,15 +42,11 @@ export default function BlogSlugPage({post, source}: Props) {
           id="blog_article"
           className="max-w-3xl m-auto py-3 prose prose-stone dark:prose-invert lg:prose-xl"
         >
-          <MDXRemote {...source} />
+          <MDXRemote {...source} components={{}} />
         </article>
       </Page>
     </>
   )
-}
-
-BlogSlugPage.getLayout = function getLayout(page: ReactElement) {
-  return <Layout>{page}</Layout>
 }
 
 export const getStaticPaths: GetStaticPaths<Params> = async () => {
@@ -77,11 +76,20 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
       "description",
     ])
   )
-
+  if (!post) {
+    return {
+      notFound: true,
+    }
+  }
+  const {mdxSource} = await parseContentToMDX(post.content)
   return {
     props: {
       post,
-      source: await parseContentToMDX(post.content),
+      source: mdxSource,
     },
   }
+}
+
+BlogSlugPage.getLayout = function getLayout(page: ReactElement) {
+  return <Layout>{page}</Layout>
 }

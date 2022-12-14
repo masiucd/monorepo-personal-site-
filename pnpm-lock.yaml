@@ -9,12 +9,11 @@ importers:
       turbo: latest
     devDependencies:
       eslint-config-custom: link:packages/eslint-config-custom
-      prettier: 2.7.1
+      prettier: 2.8.1
       turbo: 1.6.3
 
   apps/web:
     specifiers:
-      '@babel/core': ^7.0.0
       '@next/font': ^13.0.4
       '@tailwindcss/typography': ^0.5.8
       '@testing-library/react': ^13.4.0
@@ -36,7 +35,8 @@ importers:
       postcss: ^8.4.19
       react: 18.2.0
       react-dom: 18.2.0
-      rehype-slug: ^5.1.0
+      rehype-highlight: ^6.0.0
+      rehype-prism-plus: ^1.5.0
       tailwind-config: workspace:*
       tailwindcss: ^3.2.1
       tsconfig: workspace:*
@@ -55,11 +55,11 @@ importers:
       next-themes: 0.2.1_6jx7hpii6hgsrmhxgqrmo3277u
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-      rehype-slug: 5.1.0
+      rehype-highlight: 6.0.0
+      rehype-prism-plus: 1.5.0
       ui: link:../../packages/ui
       zod: 3.19.1
     devDependencies:
-      '@babel/core': 7.20.2
       '@tailwindcss/typography': 0.5.8_tailwindcss@3.2.4
       '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
       '@types/node': 17.0.45
@@ -92,7 +92,7 @@ importers:
       eslint-config-next: 13.0.0_hsf322ms6xhhd4b5ne6lb74y4a
       eslint-config-prettier: 8.5.0_eslint@8.28.0
       eslint-config-turbo: 0.0.4_eslint@8.28.0
-      eslint-plugin-prettier: 4.2.1_pgxuib4rd7wiymfktharf5ydt4
+      eslint-plugin-prettier: 4.2.1_qq4qrlmv7psaeddaptzfbe7nlq
       eslint-plugin-react: 7.31.8_eslint@8.28.0
       eslint-plugin-simple-import-sort: 8.0.0_eslint@8.28.0
     devDependencies:
@@ -890,6 +890,14 @@ packages:
   /@types/node/17.0.45:
     resolution: {integrity: sha1-LA+v14cF56GLeQa1IBpSJxncUZA=}
     dev: true
+
+  /@types/parse5/6.0.3:
+    resolution: {integrity: sha1-cFuzSeeJ76BvQ/EozvUSQHU0JMs=}
+    dev: false
+
+  /@types/prismjs/1.26.0:
+    resolution: {integrity: sha1-ocOAmwrWHGLKxtTgxW1hDJELdlQ=}
+    dev: false
 
   /@types/prop-types/15.7.5:
     resolution: {integrity: sha1-XxnSuFqY6VWANvajysyIGUIPBc8=}
@@ -2051,7 +2059,7 @@ packages:
       semver: 6.3.0
     dev: false
 
-  /eslint-plugin-prettier/4.2.1_pgxuib4rd7wiymfktharf5ydt4:
+  /eslint-plugin-prettier/4.2.1_qq4qrlmv7psaeddaptzfbe7nlq:
     resolution: {integrity: sha1-ZRy7iLHauYv9QvAXoS+mstmT+Us=}
     engines: {node: '>=12.0.0'}
     peerDependencies:
@@ -2064,7 +2072,7 @@ packages:
     dependencies:
       eslint: 8.28.0
       eslint-config-prettier: 8.5.0_eslint@8.28.0
-      prettier: 2.7.1
+      prettier: 2.8.1
       prettier-linter-helpers: 1.0.0
     dev: false
 
@@ -2379,6 +2387,12 @@ packages:
     dependencies:
       reusify: 1.0.4
 
+  /fault/2.0.1:
+    resolution: {integrity: sha1-1Hyp83yibkvTg3SnxQC1o4R1W2w=}
+    dependencies:
+      format: 0.2.2
+    dev: false
+
   /file-entry-cache/6.0.1:
     resolution: {integrity: sha1-IRst2WWcsDlLBz5zI6w8kz1SICc=}
     engines: {node: ^10.12.0 || >=12.0.0}
@@ -2422,6 +2436,11 @@ packages:
       combined-stream: 1.0.8
       mime-types: 2.1.35
     dev: true
+
+  /format/0.2.2:
+    resolution: {integrity: sha1-1hcBB+nv3E7TDJ3DkBbflCtctYs=}
+    engines: {node: '>=0.4.x'}
+    dev: false
 
   /fraction.js/4.2.0:
     resolution: {integrity: sha1-RI5RCaMTo1J/WjqyEZ7Ezw4OKVA=}
@@ -2501,10 +2520,6 @@ packages:
     dependencies:
       call-bind: 1.0.2
       get-intrinsic: 1.1.3
-    dev: false
-
-  /github-slugger/2.0.0:
-    resolution: {integrity: sha1-Us8vknmiHrbFndOFtBDwwK3ajxo=}
     dev: false
 
   /glob-parent/5.1.2:
@@ -2613,12 +2628,28 @@ packages:
     dependencies:
       function-bind: 1.1.1
 
-  /hast-util-has-property/2.0.0:
-    resolution: {integrity: sha1-wVzWGA8+U1VAc5/Ml4e8/7VwjK4=}
+  /hast-util-from-parse5/7.1.0:
+    resolution: {integrity: sha1-wSndOiTdioZ6uKApykfieqVIZLc=}
+    dependencies:
+      '@types/hast': 2.3.4
+      '@types/parse5': 6.0.3
+      '@types/unist': 2.0.6
+      hastscript: 7.1.0
+      property-information: 6.2.0
+      vfile: 5.3.6
+      vfile-location: 4.0.1
+      web-namespaces: 2.0.1
     dev: false
 
-  /hast-util-heading-rank/2.1.0:
-    resolution: {integrity: sha1-w580+oMw6/7AOgi11QGe1WEiApw=}
+  /hast-util-is-element/2.1.2:
+    resolution: {integrity: sha1-/AsNx87ziV6Dm41ml51XsDOMaPM=}
+    dependencies:
+      '@types/hast': 2.3.4
+      '@types/unist': 2.0.6
+    dev: false
+
+  /hast-util-parse-selector/3.1.0:
+    resolution: {integrity: sha1-pRnifothvVqY+tSU7QYTHOaNnD8=}
     dependencies:
       '@types/hast': 2.3.4
     dev: false
@@ -2651,12 +2682,35 @@ packages:
       '@types/hast': 2.3.4
     dev: false
 
+  /hast-util-to-text/3.1.1:
+    resolution: {integrity: sha1-t2madfemGvbgvvtnZgzXhGDZbcY=}
+    dependencies:
+      '@types/hast': 2.3.4
+      hast-util-is-element: 2.1.2
+      unist-util-find-after: 4.0.0
+    dev: false
+
   /hast-util-whitespace/2.0.0:
     resolution: {integrity: sha1-T8EIZGfMHvW6IGc8trA87DqXDxw=}
     dev: false
 
+  /hastscript/7.1.0:
+    resolution: {integrity: sha1-5ALtSPRhYc8vCTutv/MFg6XDwxU=}
+    dependencies:
+      '@types/hast': 2.3.4
+      comma-separated-tokens: 2.0.3
+      hast-util-parse-selector: 3.1.0
+      property-information: 6.2.0
+      space-separated-tokens: 2.0.2
+    dev: false
+
   /hey-listen/1.0.8:
     resolution: {integrity: sha1-jllWH/ckkI3hqpJO1uzISlapqmg=}
+
+  /highlight.js/11.7.0:
+    resolution: {integrity: sha1-P/AWW8hD+Mm84f2J4v2pFD0ksR4=}
+    engines: {node: '>=12.0.0'}
+    dev: false
 
   /html-encoding-sniffer/3.0.0:
     resolution: {integrity: sha1-LLGozw21JBR3blsqegTV3ZgVjek=}
@@ -3099,6 +3153,14 @@ packages:
     dependencies:
       get-func-name: 2.0.0
     dev: true
+
+  /lowlight/2.8.0:
+    resolution: {integrity: sha1-PNhJvUKc1PPcjRGRAP9YnKxJu14=}
+    dependencies:
+      '@types/hast': 2.3.4
+      fault: 2.0.1
+      highlight.js: 11.7.0
+    dev: false
 
   /lru-cache/6.0.0:
     resolution: {integrity: sha1-bW/mVw69lqr5D8rR2vo7JWbbOpQ=}
@@ -3760,6 +3822,14 @@ packages:
       is-hexadecimal: 2.0.1
     dev: false
 
+  /parse-numeric-range/1.3.0:
+    resolution: {integrity: sha1-fGO2EZDWHk1ToRl/DIPEe7Zw/6M=}
+    dev: false
+
+  /parse5/6.0.1:
+    resolution: {integrity: sha1-4aHAhcVps9wIMhGE8Zo5zCf3wws=}
+    dev: false
+
   /parse5/7.1.1:
     resolution: {integrity: sha1-Rkn5QMz7ldh1Tzf3MHjqIK/gx0Y=}
     dependencies:
@@ -3912,8 +3982,8 @@ packages:
       fast-diff: 1.2.0
     dev: false
 
-  /prettier/2.7.1:
-    resolution: {integrity: sha1-4jWAaFDQV/l7sINopPfYmfd2DGQ=}
+  /prettier/2.8.1:
+    resolution: {integrity: sha1-Th/RHDTiQhvB2prqm9gSfNCjXvw=}
     engines: {node: '>=10.13.0'}
     hasBin: true
 
@@ -4004,6 +4074,15 @@ packages:
       picomatch: 2.3.1
     dev: true
 
+  /refractor/4.8.0:
+    resolution: {integrity: sha1-7VaWPWZ2WsTzBL+fFukBxWQhZNI=}
+    dependencies:
+      '@types/hast': 2.3.4
+      '@types/prismjs': 1.26.0
+      hastscript: 7.1.0
+      parse-entities: 4.0.0
+    dev: false
+
   /regenerator-runtime/0.13.11:
     resolution: {integrity: sha1-9tyj587sIFkNB62nhWNqkM3KF/k=}
 
@@ -4019,15 +4098,33 @@ packages:
     resolution: {integrity: sha1-BCWido2PI7rXDKS5BGH6LxIT4bI=}
     engines: {node: '>=8'}
 
-  /rehype-slug/5.1.0:
-    resolution: {integrity: sha1-H35pvn6hogZ7zEz+WOdMiB1cBH4=}
+  /rehype-highlight/6.0.0:
+    resolution: {integrity: sha1-gJchnYgTtR9MK22S2yfaxsvJpkE=}
     dependencies:
       '@types/hast': 2.3.4
-      github-slugger: 2.0.0
-      hast-util-has-property: 2.0.0
-      hast-util-heading-rank: 2.1.0
-      hast-util-to-string: 2.0.0
+      hast-util-to-text: 3.1.1
+      lowlight: 2.8.0
       unified: 10.1.2
+      unist-util-visit: 4.1.1
+    dev: false
+
+  /rehype-parse/8.0.4:
+    resolution: {integrity: sha1-PRfJ/xbd/va7zI5qJamUZ7SC1og=}
+    dependencies:
+      '@types/hast': 2.3.4
+      hast-util-from-parse5: 7.1.0
+      parse5: 6.0.1
+      unified: 10.1.2
+    dev: false
+
+  /rehype-prism-plus/1.5.0:
+    resolution: {integrity: sha1-ETquGWh8D4+vb1+xaWT/FSfRMNc=}
+    dependencies:
+      hast-util-to-string: 2.0.0
+      parse-numeric-range: 1.3.0
+      refractor: 4.8.0
+      rehype-parse: 8.0.4
+      unist-util-filter: 4.0.0
       unist-util-visit: 4.1.1
     dev: false
 
@@ -4584,6 +4681,21 @@ packages:
       '@types/unist': 2.0.6
     dev: false
 
+  /unist-util-filter/4.0.0:
+    resolution: {integrity: sha1-Wbx5YLss/TTMCGMBCQVAvbVYCoY=}
+    dependencies:
+      '@types/unist': 2.0.6
+      unist-util-is: 5.1.1
+      unist-util-visit-parents: 5.1.1
+    dev: false
+
+  /unist-util-find-after/4.0.0:
+    resolution: {integrity: sha1-EQHOv1/tiK48bz+mduhv1XcqTzI=}
+    dependencies:
+      '@types/unist': 2.0.6
+      unist-util-is: 5.1.1
+    dev: false
+
   /unist-util-generated/2.0.0:
     resolution: {integrity: sha1-hvr7d+ts6b+mtmPD9a1PjlamARM=}
     dev: false
@@ -4795,6 +4907,10 @@ packages:
     dependencies:
       xml-name-validator: 4.0.0
     dev: true
+
+  /web-namespaces/2.0.1:
+    resolution: {integrity: sha1-EBD/fGUOzLJZLOvur5obJT/UBpI=}
+    dev: false
 
   /webidl-conversions/7.0.0:
     resolution: {integrity: sha1-JWtOGIK+feu/AdBfCqIDl3jqCAo=}

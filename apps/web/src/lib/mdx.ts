@@ -1,24 +1,33 @@
 import {serialize} from "next-mdx-remote/serialize"
 // import rehypeAutolinkHeadings from "rehype-autolink-headings"
 // import rehypeCodeTitles from "rehype-code-titles"
-// import rehypeHighlight from "rehype-highlight"
-import rehypeSlug from "rehype-slug"
+// import rehypeSlug from "rehype-slug"
+// import remarkGfm from "remark-gfm"
+// import rehypeAutolinkHeadings from "rehype-autolink-headings"
+// import rehypeCodeTitles from "rehype-code-titles"
+import rehypeHighlight from "rehype-highlight"
+// import rehypePrism from "rehype-prism-plus"
 
 export const parseContentToMDX = async (content: string) => {
-  return await serialize(content, {
+  const mdxSource = await serialize(content, {
     mdxOptions: {
+      // remarkPlugins: [remarkGfm],
       rehypePlugins: [
-        rehypeSlug,
+        rehypeHighlight,
+        // rehypeSlug,
+        // rehypeCodeTitles,
+        // rehypePrism,
         // [
         //   rehypeAutolinkHeadings,
         //   {
-        //     properties: {className: ["anchor"]},
+        //     properties: {
+        //       className: ["anchor"],
+        //     },
         //   },
-        // {behaviour: "wrap"},
         // ],
-        // rehypeHighlight,
-        // rehypeCodeTitles,
       ],
+      format: "mdx",
     },
   })
+  return {mdxSource}
 }
