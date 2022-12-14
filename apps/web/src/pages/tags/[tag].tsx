@@ -2,6 +2,7 @@ import {GetStaticPaths, GetStaticProps} from "next"
 import {ParsedUrlQuery} from "querystring"
 import React, {ReactElement} from "react"
 
+import BlogItem from "~/components/blog/blog_item"
 import Page from "~/components/common/page"
 import Title from "~/components/common/title"
 import Layout from "~/components/layout"
@@ -56,11 +57,16 @@ export default function TagItemPage({tag, posts}: Props) {
   return (
     <Page>
       <Title>
-        <h1>Posts with tag {tag}</h1>
+        <h1>
+          Posts with tag{" "}
+          <span className="border-b-2 border-blue-500 text-slate-700 dark:text-slate-200 font-bold ">
+            {tag}
+          </span>
+        </h1>
       </Title>
       <ul>
         {posts.map((post) => (
-          <li key={post.title}>{post.title}</li>
+          <BlogItem key={post.slug} post={post} />
         ))}
       </ul>
     </Page>

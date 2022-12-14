@@ -25,10 +25,13 @@ export default function TagsPage({tags}: Props) {
       <Title>
         <h1>Blog post tags</h1>
       </Title>
-      <ul className="flex flex-col gap-5">
+      <ul className="grid grid-cols-3 gap-5">
         {tags.map((tag) => (
-          <li key={tag} className="capitalize">
-            <Link className="block text-3xl" href={`/tags/${tag}`}>
+          <li key={tag} className="capitalize w-fit">
+            <Link
+              className="text-3xl relative block after:content-[''] after:transition-all after:ease-in-out after:duration-200 after:w-3  hover:after:w-full after:h-1 after:bg-sky-500 after:dark:bg-sky-400 after:absolute after:bottom-1 after:-rotate-1 after:left-0 md:text-lg"
+              href={`/tags/${tag}`}
+            >
               {tag}
             </Link>
           </li>
