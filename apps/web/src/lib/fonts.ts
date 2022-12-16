@@ -1,13 +1,13 @@
-import {Barlow_Condensed, Inter} from "@next/font/google"
+import {IBM_Plex_Mono, Inter} from "@next/font/google"
 
-const InterFont = Inter({
+const MainFont = Inter({
   variable: "--font-inter",
   weight: ["200", "300", "400", "500", "600", "700", "800"],
 })
 
-const BarlowFont = Barlow_Condensed({
+const SecondaryFont = IBM_Plex_Mono({
   variable: "--font-mono",
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
 })
 
-export {BarlowFont, InterFont}
+export {MainFont, SecondaryFont}

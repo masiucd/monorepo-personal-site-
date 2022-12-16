@@ -40,7 +40,7 @@ export default function BlogSlugPage({post, source}: Props) {
         <PostHero post={post} />
         <article
           id="blog_article"
-          className="max-w-3xl m-auto py-3 prose prose-stone dark:prose-invert lg:prose-xl"
+          className="max-w-3xl m-auto p-3 dark:prose-invert prose prose-stone"
         >
           <MDXRemote {...source} components={{}} />
         </article>

@@ -9,10 +9,7 @@ type Props = {
 function BlogItem({post}: Props) {
   const {slug, title, updated, description, tags} = post
   return (
-    <li
-      key={slug}
-      className="mb-5 shadow py-1 px-2 rounded-sm dark:shadow-zinc-800"
-    >
+    <li key={slug} className="shadow py-1 px-2 rounded-sm dark:shadow-gray-800">
       <div className="flex justify-between pb-3 flex-col sm:flex-row">
         <p>
           <Link

@@ -4,7 +4,7 @@ import type {AppProps} from "next/app"
 import {ThemeProvider} from "next-themes"
 import {ReactElement} from "react"
 
-import {InterFont} from "~/lib/fonts"
+import {MainFont} from "~/lib/fonts"
 import {NextPageWithLayout} from "~/lib/types"
 
 type AppPropsWithLayout = AppProps & {
@@ -18,7 +18,7 @@ export default function App({Component, pageProps}: AppPropsWithLayout) {
     <ThemeProvider defaultTheme="system" attribute="class">
       <style jsx global>{`
         html {
-          font-family: ${InterFont.style.fontFamily};
+          font-family: ${MainFont.style.fontFamily};
         }
       `}</style>
       {getLayout(<Component {...pageProps} />)}

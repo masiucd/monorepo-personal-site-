@@ -6,14 +6,9 @@ import Layout from "~/components/layout"
 export default function BitesPage() {
   return (
     <Page>
-      <section className="bg-hero bg-cover flex flex-col justify-center h-72">
+      <section>
         <h1>Bites</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
-          voluptate dolorem aspernatur. Ut adipisci sapiente cumque culpa, et at
-          ea, quo quam ipsa tempora perferendis, expedita beatae mollitia enim
-          provident
-        </p>
+        <h3>Coming soon!</h3>
       </section>
     </Page>
   )

@@ -4,32 +4,29 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <link href="/static/favicons/favicon.ico" rel="shortcut icon" />
-        {/* <link href="/static/favicons/site.webmanifest" rel="manifest" /> */}
         <link
-          href="/static/favicons/apple-touch-icon.png"
           rel="apple-touch-icon"
           sizes="180x180"
+          href="/static/favicons/apple-touch-icon.png"
         />
         <link
-          href="/static/favicons/favicon-32x32.png"
           rel="icon"
+          type="image/png"
           sizes="32x32"
-          type="image/png"
+          href="/static/favicons/favicon-32x32.png"
         />
         <link
-          href="/static/favicons/favicon-16x16.png"
           rel="icon"
-          sizes="16x16"
           type="image/png"
+          sizes="16x16"
+          href="/static/favicons/favicon-16x16.png"
         />
+        <link rel="manifest" href="/static/favicons/site.webmanifest" />
         <link
-          color="#4a9885"
-          href="/static/favicons/safari-pinned-tab.svg"
           rel="mask-icon"
+          href="/static/favicons/safari-pinned-tab.svg"
+          color="#5bbad5"
         />
-        {/* <meta name="msapplication-TileColor" content="#da532c" />
-        <meta name="theme-color" content="current" /> */}
       </Head>
       <body>
         <Main />

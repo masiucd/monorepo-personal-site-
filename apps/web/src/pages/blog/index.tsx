@@ -39,7 +39,7 @@ export default function BlogPage({posts}: Props) {
           View posts by tag
         </Link>
       </Title>
-      <ul>
+      <ul className="flex flex-col gap-5">
         {posts.map((p) => (
           <BlogItem key={p.slug} post={p} />
         ))}
