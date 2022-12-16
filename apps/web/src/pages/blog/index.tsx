@@ -30,7 +30,7 @@ export default function BlogPage({posts}: Props) {
         <p className="opacity-80">
           This is a collection of articles where I write about programming and
           software development. Articles about React, Javascript, Typescript and
-          Rust are close to my hart.
+          Go are close to my hart.
         </p>
         <Link
           href="/tags"

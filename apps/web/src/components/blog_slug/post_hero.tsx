@@ -27,9 +27,13 @@ export default function PostHero({post}: Props) {
         className={`max-w-4xl m-auto px-5 py-5 ${SecondaryFont.className} border-slate-100 dark:border-gray-900  relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-full md:after:w-2/4 after:h-2 after:bg-slate-100 dark:after:bg-gray-900  
             before:content-[''] before:absolute before:left-0 before:top-0 before:w-full md:before:w-2/3 before:h-2 before:bg-slate-100 dark:before:bg-gray-900`}
       >
-        <h1 className={MainFont.className}>{post.title}</h1>
-        <p className="md:text-xl">{post.description}</p>
-        <div className="flex gap-5">
+        <h1
+          className={`text-2xl md:text-4xl lg:text-6xl ${MainFont.className}`}
+        >
+          {post.title}
+        </h1>
+        <p className="md:text-xl mb-5">{post.description}</p>
+        <div className="flex flex-wrap gap-5">
           <p className="text-slate-400 dark:text-slate-700">
             <span className="font-bold">Updated:</span>{" "}
             {parseDate(post.updated)}
