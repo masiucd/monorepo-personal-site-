@@ -1,0 +1,76 @@
+---
+title: "At()"
+description: "Get elements for the array starting either from the beginning or from the end, in a much cleaner and reader-friendly syntax".
+date: "2022-12-28"
+updated: "2022-12-28"
+time: "4in"
+tags: ["dev", "JS"]
+author:
+  name: Marcell Ciszek Druzynski
+---
+
+# Array.prototype.at()
+
+If you have not noticed we have a new array method in JavaScript that makes our code a tiny bit cleaner, I am talking about `Array. prototype.at()‌` where we can retrieve an item from the list in a more reader-friendly way.
+
+To get the first item in the array we can type it like this:
+
+```ts
+const dogs = [
+  {id: 1, name: "Snickers", breed: "Pug"},
+  {id: 2, name: "Lassy", breed: "Poodle"},
+  {id: 3, name: "Frankie", breed: "Husky"},
+]
+
+const firstDog = dogs.at(0)
+```
+
+```bash
+{ id: 1, name: "Snickers", breed: "Pug" }
+```
+
+Previously to retrieve the first item in the array we had to type:
+
+```ts
+const firstDog = dogs[0]
+```
+
+Okey to retrieve the first item in the array is maybe not that impressive, but what we can do is retrieve items starting at the end of the array.
+
+Today without using the `Array.prototype.at()` method to get the last dog in the list we have to type:
+
+```ts
+const lastDogInTheArray = dogs[doges.length - 1]
+```
+
+Honestly in my opinion it is not the prettiest syntax, let’s see how we can get the same result but using `Array. prototype.at()` instead.
+
+```ts
+const lastDog = dogs.at(-1)
+```
+
+```
+{ id: 3, name: "Frankie", breed: "Husky" }
+```
+
+Here we add a negative one*(-1)* to get the last dog in the array, we are going backward!
+
+I don’t know what you think but I think it is a much cleaner syntax than using the length of the array and then using the square brackets `list[list.length-1]` to retrieve the last item.
+
+Do we pass in a negative two*(-2)* we would get the second last item, if we pass in negative three*(-3)* we would get the third last item, and so on.
+
+- `dogs.at(0)` —> first dog
+- `dogs.at(1)` —> second dog
+- `dogs.at(2)` —> third dog
+- `dogs.at(-1)` —> last dog
+- `dogs.at(-2)` —> second last dog
+- `dogs.at(-3)` —> third last dog
+
+### Summary
+
+`Array. prototype.at()` is a new array method that takes an integer value and returns the item at that index.
+We can pass both positive and negative values depending if we want to start from the beginning or at the end of the array.
+
+- Use the `Array. prototype.at()` method to retrieve an element from the array by its index.
+- Positive values to get items, starting from the beginning, `At(1)`.
+- Negative values to get items, starting from the end `At(-1)`.
