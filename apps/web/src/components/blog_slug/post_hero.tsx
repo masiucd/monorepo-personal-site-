@@ -1,5 +1,4 @@
 import Link from "next/link"
-import {Reddit, Twitter} from "ui"
 
 import {parseDate} from "~/lib/date"
 import {MainFont, SecondaryFont} from "~/lib/fonts"
@@ -8,17 +7,6 @@ import {PostsType} from "~/lib/types"
 type Props = {
   post: PostsType
 }
-
-const shareIcons = [
-  {
-    name: "twitter",
-    icon: <Twitter />,
-  },
-  {
-    name: "reddit",
-    icon: <Reddit />,
-  },
-]
 
 export default function PostHero({post}: Props) {
   return (
@@ -33,33 +21,50 @@ export default function PostHero({post}: Props) {
           {post.title}
         </h1>
         <p className="md:text-xl mb-5">{post.description}</p>
-        <div className="flex flex-wrap gap-5">
-          <p className="text-slate-400 dark:text-slate-700">
-            <span className="font-bold">Updated:</span>{" "}
-            {parseDate(post.updated)}
-          </p>
-          <ul className="flex gap-4">
-            {post.tags.map((tag) => (
-              <li
-                key={tag}
-                className="capitalize text-slate-400 dark:text-slate-700 hover:text-slate-100 dark:hover:text-slate-900"
-              >
-                <Link href={`/tags/${tag}`}>{tag}</Link>
-              </li>
-            ))}
-          </ul>
-          <ul className="flex gap-4">
-            {shareIcons.map(({icon, name}) => (
-              <li
-                key={name}
-                className="text-slate-400 dark:text-slate-700 hover:text-slate-100 dark:hover:text-slate-900"
-              >
-                <button>{icon}</button>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <Bottom tags={post.tags} updated={post.updated} />
       </div>
     </div>
+  )
+}
+
+type BottomProps = {
+  tags: string[]
+  updated: string
+}
+function Bottom({tags, updated}: BottomProps) {
+  return (
+    <div className="flex flex-wrap gap-5">
+      <div className="flex items-center justify-center">
+        <p className="text-slate-400 dark:text-slate-700 p-0 m-0">
+          <span className="font-bold">Updated:</span> {parseDate(updated)}
+        </p>
+      </div>
+      <Tags tags={tags} />
+      {/* TODO SHARe API */}
+    </div>
+  )
+}
+
+type TagsProps = {
+  tags: string[]
+}
+
+function Tags({tags}: TagsProps) {
+  return (
+    <ul className="flex gap-4">
+      {tags.map((tag) => (
+        <li
+          key={tag}
+          className="capitalize text-slate-400 dark:text-slate-700 hover:text-slate-100 dark:hover:text-slate-900"
+        >
+          <Link
+            className="relative block after:content-[''] after:transition-all after:ease-in-out after:duration-200 after:w-2  hover:after:w-full after:h-1 after:bg-sky-500 after:dark:bg-sky-400 after:absolute after:bottom-0 after:-rotate-1 after:left-0 md:text-lg"
+            href={`/tags/${tag}`}
+          >
+            {tag}
+          </Link>
+        </li>
+      ))}
+    </ul>
   )
 }
