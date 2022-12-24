@@ -1,8 +1,8 @@
-import Link from "next/link"
-
 import {parseDate} from "~/lib/date"
 import {MainFont, SecondaryFont} from "~/lib/fonts"
 import {PostsType} from "~/lib/types"
+
+import Link from "../common/link"
 
 type Props = {
   post: PostsType
@@ -57,12 +57,7 @@ function Tags({tags}: TagsProps) {
           key={tag}
           className="capitalize text-slate-400 dark:text-slate-700 hover:text-slate-100 dark:hover:text-slate-900"
         >
-          <Link
-            className="relative block after:content-[''] after:transition-all after:ease-in-out after:duration-200 after:w-2  hover:after:w-full after:h-1 after:bg-sky-500 after:dark:bg-blue-500 after:absolute after:bottom-0 after:-rotate-1 after:left-0 md:text-lg"
-            href={`/tags/${tag}`}
-          >
-            {tag}
-          </Link>
+          <Link href={`/tags/${tag}`}>{tag}</Link>
         </li>
       ))}
     </ul>

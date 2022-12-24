@@ -9,7 +9,7 @@ function Footer() {
       <div className="max-w-3xl mx-auto py-5 grid justify-center">
         <small className="pb-2">
           © Copyright{" "}
-          <span className="text-sky-500">
+          <span className="text-blue-500">
             {" "}
             {matches ? "Marcell Ciszek Druzysnki" : "Marcell.CD"}
           </span>
@@ -22,7 +22,7 @@ function Footer() {
                 href={href}
                 target="_blank"
                 rel="noreferrer"
-                className="transition hover:text-sky-500 dark:hover:text-blue-500 capitalize text-zinc-700  dark:text-zinc-300"
+                className="transition hover:text-blue-500 dark:hover:text-blue-500 capitalize text-zinc-700  dark:text-zinc-300"
               >
                 {name}
               </a>

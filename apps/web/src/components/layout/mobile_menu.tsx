@@ -74,7 +74,7 @@ function MobileMenu() {
               {navLinks.map(({name, path}) => (
                 <motion.li
                   key={name}
-                  className="text-3xl border-b-2 border-sky-600 dark:border-sky-500 dark:border-opacity-60"
+                  className="text-3xl border-b-2 border-blue-600 dark:border-blue-500 dark:border-opacity-60"
                   variants={itemVariants}
                   whileHover={{scale: 1.01}}
                 >

@@ -33,7 +33,7 @@ export default function TagsPage({tags}: Props) {
         {tags.map((tag) => (
           <li key={tag} className="capitalize w-fit">
             <Link
-              className="text-3xl relative block after:content-[''] after:transition-all after:ease-in-out after:duration-200 after:w-3  hover:after:w-full after:h-1 after:bg-sky-500 after:dark:bg-blue-500 after:absolute after:bottom-1 after:-rotate-1 after:left-0 md:text-lg"
+              className="text-3xl relative block after:content-[''] after:transition-all after:ease-in-out after:duration-200 after:w-3  hover:after:w-full after:h-1 after:bg-blue-500 after:dark:bg-blue-500 after:absolute after:bottom-1 after:-rotate-1 after:left-0 md:text-lg"
               href={`/tags/${tag}`}
             >
               {tag}

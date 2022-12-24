@@ -12,18 +12,18 @@ export default function HomePage() {
       <section className="bg-hero dark:bg-hero-dark bg-cover flex flex-col justify-center min-h-[25rem]">
         <h1 className="text-4xl pl-4 md:text-6xl md:p-0">
           HI I{" "}
-          <span className="border-b-2 dark:border-blue-500 border-sky-500">
+          <span className="border-b-2 dark:border-blue-500 border-blue-500">
             am
           </span>{" "}
           {matches ? "Marcell Ciszek Druzynski" : "Marcell.C.D"}
         </h1>
         <aside className="grid grid-cols-5 pr-2 md:pr-0 mb-5">
-          <p className="border-l-2 border-sky-500 dark:border-blue-500 pl-4 col-start-2 col-end-6 md:text-lg">
+          <p className="border-l-2 border-blue-500 dark:border-blue-500 pl-4 col-start-2 col-end-6 md:text-lg">
             Here where I share my thoughts about software development and topics
-            like <span className="text-blue-500  dark:text-sky-200">React</span>
-            ,{" "}
-            <span className="text-blue-500 dark:text-sky-200">Javascript</span>,{" "}
-            <span className="text-blue-500 dark:text-sky-200">Go</span> and
+            like{" "}
+            <span className="text-blue-500  dark:text-blue-200">React</span>,{" "}
+            <span className="text-blue-500 dark:text-blue-200">Javascript</span>
+            , <span className="text-blue-500 dark:text-blue-200">Go</span> and
             other topics related to software development.
           </p>
         </aside>

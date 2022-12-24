@@ -17,7 +17,7 @@ export default function PageNotFound() {
         <ul className="flex gap-5 ">
           <li>
             <Link
-              className="hover:text-sky-500 dark:hover:text-sky-500"
+              className="hover:text-blue-500 dark:hover:text-blue-500"
               href="/"
             >
               Home
@@ -25,7 +25,7 @@ export default function PageNotFound() {
           </li>
           <li>
             <Link
-              className="hover:text-sky-500 dark:hover:text-sky-500"
+              className="hover:text-blue-500 dark:hover:text-blue-500"
               href="/blog"
             >
               Blog

@@ -45,7 +45,7 @@ export default function Page({
           href={`https://marcell-cd.vercel.app${router.asPath}`}
         />
         <meta property="og:type" content={meta.type} />
-        <meta property="og:site_name" content="Marcell.cd.com" />
+        <meta property="og:site_name" content="marcell-cd" />
         <meta property="og:description" content={meta.description} />
         <meta property="og:title" content={meta.title} />
         <meta property="og:image" content={meta.image} />

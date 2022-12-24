@@ -24,6 +24,6 @@ function NavLink({href, children, className}: Props) {
   )
 }
 function activeStyles(active: boolean): string {
-  return active ? "border-b-2 border-sky-500 " : ""
+  return active ? "border-b-2 border-blue-500 " : ""
 }
 export default NavLink
