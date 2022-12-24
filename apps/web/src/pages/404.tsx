@@ -6,7 +6,9 @@ import Layout from "~/components/layout"
 
 export default function PageNotFound() {
   return (
-    <Page>
+    <Page
+      metaData={{title: "Page Not Found", description: "404 Page not found"}}
+    >
       <section>
         <h1>Ooops something happened</h1>
         <p className="text-xl prose-stone mb-3">
@@ -36,9 +38,5 @@ export default function PageNotFound() {
 }
 
 PageNotFound.getLayout = function getLayout(page: ReactElement) {
-  return (
-    <Layout styles="flex" metaData={{title: "Page Not Found"}}>
-      {page}
-    </Layout>
-  )
+  return <Layout styles="flex">{page}</Layout>
 }

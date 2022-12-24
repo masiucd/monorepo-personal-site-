@@ -55,7 +55,12 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
 
 export default function TagItemPage({tag, posts}: Props) {
   return (
-    <Page>
+    <Page
+      metaData={{
+        title: `Tags | ${tag}`,
+        description: "Tags for posts",
+      }}
+    >
       <Title>
         <h1>
           Posts with tag{" "}

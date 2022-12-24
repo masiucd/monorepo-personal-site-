@@ -24,7 +24,7 @@ type Props = {
 
 export default function BlogPage({posts}: Props) {
   return (
-    <Page>
+    <Page metaData={{title: "Blog posts"}}>
       <Title>
         <h1>Blog</h1>
         <p className="opacity-80">
@@ -49,5 +49,5 @@ export default function BlogPage({posts}: Props) {
 }
 
 BlogPage.getLayout = function getLayout(page: ReactElement) {
-  return <Layout metaData={{title: "Articles"}}>{page}</Layout>
+  return <Layout>{page}</Layout>
 }

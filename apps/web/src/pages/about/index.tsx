@@ -14,7 +14,7 @@ const stuffAboutMe = Object.freeze([
 
 export default function AboutPage() {
   return (
-    <Page>
+    <Page metaData={{title: "About Marcell Ciszek Druzynski"}}>
       <section>
         <h1>About</h1>
         <strong>Software developer that loves to build/create stuff</strong>
@@ -39,9 +39,5 @@ export default function AboutPage() {
 }
 
 AboutPage.getLayout = function getLayout(page: ReactElement) {
-  return (
-    <Layout metaData={{title: "About Marcell Ciszek Druzynski"}} styles="flex">
-      {page}
-    </Layout>
-  )
+  return <Layout styles="flex">{page}</Layout>
 }

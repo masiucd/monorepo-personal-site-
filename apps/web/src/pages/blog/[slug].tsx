@@ -4,7 +4,6 @@ import "highlight.js/styles/github-dark.css"
 import {ParsedUrlQuery} from "node:querystring"
 
 import {GetStaticPaths, GetStaticProps} from "next"
-import Head from "next/head"
 import {MDXRemote, MDXRemoteSerializeResult} from "next-mdx-remote"
 import {ReactElement} from "react"
 
@@ -28,15 +27,15 @@ type Props = {
   >
 }
 export default function BlogSlugPage({post, source}: Props) {
-  // navigator.share
   return (
     <>
-      <Head>
-        <title>Blog | {post.title}</title>
-        <meta name="description" content={post.description} />
-        <meta property="og:title" content={post.title} />
-      </Head>
-      <Page fluid>
+      <Page
+        fluid
+        metaData={{
+          title: `Blog | ${post.title}`,
+          description: post.description,
+        }}
+      >
         <PostHero post={post} />
         <article
           id="blog_article"

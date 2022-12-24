@@ -21,7 +21,11 @@ type Props = {
 
 export default function TagsPage({tags}: Props) {
   return (
-    <Page>
+    <Page
+      metaData={{
+        title: "Tags",
+      }}
+    >
       <Title>
         <h1>Blog post tags</h1>
       </Title>
@@ -51,5 +55,5 @@ export const getStaticProps: GetStaticProps = () => {
 }
 
 TagsPage.getLayout = function getLayout(page: ReactElement) {
-  return <Layout metaData={{title: "Tags"}}>{page}</Layout>
+  return <Layout>{page}</Layout>
 }

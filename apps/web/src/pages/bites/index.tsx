@@ -5,7 +5,12 @@ import Layout from "~/components/layout"
 
 export default function BitesPage() {
   return (
-    <Page>
+    <Page
+      metaData={{
+        title: "Bites",
+        description: "Bites, commonly used tips and tricks regarding code",
+      }}
+    >
       <section>
         <h1>Bites</h1>
         <h3>Coming soon!</h3>
@@ -15,15 +20,5 @@ export default function BitesPage() {
 }
 
 BitesPage.getLayout = function getLayout(page: ReactElement) {
-  return (
-    <Layout
-      metaData={{
-        title: "Bites",
-        description: "Bites, commonly used tips and tricks regarding code",
-      }}
-      styles="flex"
-    >
-      {page}
-    </Layout>
-  )
+  return <Layout styles="flex">{page}</Layout>
 }
