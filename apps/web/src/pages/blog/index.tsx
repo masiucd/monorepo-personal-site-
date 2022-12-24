@@ -34,7 +34,7 @@ export default function BlogPage({posts}: Props) {
         </p>
         <Link
           href="/tags"
-          className="relative block after:content-[''] after:transition-all after:ease-in-out after:duration-200 after:w-3  hover:after:w-full after:h-1 after:bg-sky-500 after:dark:bg-sky-400 after:absolute after:bottom-0 after:-rotate-1 after:left-0 md:text-lg w-fit italic"
+          className="dark:text-gray-300 text-gray-700 dark:hover:text-blue-500 hover:text-blue-500"
         >
           View posts by tag
         </Link>

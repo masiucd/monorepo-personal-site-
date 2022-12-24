@@ -24,7 +24,7 @@ export default function Layout({children, styles = "", metaData}: Props) {
   const meta: Meta = {
     title: "Marcell Ciszek Druzynski",
     description: "software developer | endurance freak | tech nerd",
-    image: "https://marcell-cd.vercel.app/static/images/jp.jpeg",
+    image: "https://marcell-cd.vercel.app/public/static/images/jp.jpeg",
     type: "website",
     ...metaData,
   }

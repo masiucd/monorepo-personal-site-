@@ -22,7 +22,7 @@ function Footer() {
                 href={href}
                 target="_blank"
                 rel="noreferrer"
-                className="transition hover:text-sky-500 dark:hover:text-sky-500 capitalize text-zinc-700  dark:text-zinc-300"
+                className="transition hover:text-sky-500 dark:hover:text-blue-500 capitalize text-zinc-700  dark:text-zinc-300"
               >
                 {name}
               </a>

@@ -1,7 +1,7 @@
-import Link from "next/link"
-
 import {parseDate} from "~/lib/date"
 import {Post} from "~/lib/types"
+
+import Link from "../common/link"
 
 type Props = {
   post: Post
@@ -11,14 +11,15 @@ function BlogItem({post}: Props) {
   return (
     <li key={slug} className="shadow py-1 px-2 rounded-sm dark:shadow-gray-800">
       <div className="flex justify-between pb-3 flex-col sm:flex-row">
-        <p>
+        <strong>
           <Link
-            className="font-bold text-xl hover:scale-105 hover:shadow-sm block transition"
+            reset
             href={`/blog/${slug}`}
+            styles="md:text-3xl dark:hover:text-blue-500 hover:text-blue-500 scale-100 hover:scale-105 transition-all duration-200 ease-in-out block"
           >
             {title}
           </Link>
-        </p>
+        </strong>
         <p>{parseDate(updated)}</p>
       </div>
       <div className="flex flex-col">
@@ -26,12 +27,7 @@ function BlogItem({post}: Props) {
         <ul className="flex gap-5 justify-end">
           {tags.map((tag) => (
             <li key={tag} className="capitalize">
-              <Link
-                className="relative block after:content-[''] after:transition-all after:ease-in-out after:duration-200 after:w-3  hover:after:w-full after:h-1 after:bg-sky-500 after:dark:bg-sky-400 after:absolute after:bottom-1 after:-rotate-1 after:left-0 md:text-lg"
-                href={`/tags/${tag}`}
-              >
-                {tag}
-              </Link>
+              <Link href={`/tags/${tag}`}>{tag}</Link>
             </li>
           ))}
         </ul>
