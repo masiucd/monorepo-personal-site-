@@ -1,3 +1,4 @@
+import Image from "next/image"
 import {ReactElement} from "react"
 
 import Page from "~/components/common/page"
@@ -34,6 +35,7 @@ export default function AboutPage() {
           ))}
         </ul>
       </section>
+      <Image src="/jp.jpg" width={300} height={300} alt="apa" />
     </Page>
   )
 }
