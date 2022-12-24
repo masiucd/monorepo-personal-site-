@@ -26,7 +26,7 @@ export default function Page({
   const meta: Meta = {
     title: "Marcell Ciszek Druzynski",
     description: "software developer | endurance freak | tech nerd",
-    image: "https://marcell-cd.vercel.app/static/images/jp.jpeg",
+    image: "https://marcell-cd.vercel.app/jp.jpeg",
     type: "website",
     ...metaData,
   }
