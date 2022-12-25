@@ -1,0 +1,52 @@
+---
+title: "conditional types"
+description: "Conditional types in TypeScript, are a way to create types based on other types. Let's see how we can use them to create a type that is either a string or a number or whatever."
+date: "2023-01-01"
+date: "2023-01-01"
+time: "3min"
+tags: ["ts"]
+author:
+  name: Marcell Ciszek Druzynski
+---
+
+Let's take a look at conditional types in Typescript and check how they work.
+To make it simple and to understand the basics of conditional types we will go with a simple example.
+
+Here we have a conditional check that resolves to `"yes"`, but how does this work?
+
+```ts
+type Result = true extends boolean ? "yes" : "no"
+```
+
+We are doing a check in this part `true extends boolean`.
+We can visualize this like a function where we take a parameter that accepts a boolean and call the function with `true` as an argument that makes the function pass.
+
+```ts
+function someCheck(param: boolean) {
+  if (param) {
+    return "yes"
+  }
+  return "no"
+}
+```
+
+What would happen if the param does not extend the boolean type in our `Result` type? Let's check.
+
+```ts
+type Result = {} extends boolean ? "yes" : "no"
+```
+
+Now the Result type will fall back to `"no"` since an empty object literal does not extend the primitive type of boolean.
+
+### Conclusion
+
+We can see that these conditional types are simpler than we think.
+They work like functions that take in a param and check if it follows the conditions.
+They are split into three parts.
+
+- We have a check `true extends boolean`
+- We have a true case `? true`
+- We have false case `: false`
+
+And that's it.
+Hope you enjoy this post and could learn something from it.
