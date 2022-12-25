@@ -35,7 +35,7 @@ export default function AboutPage() {
           ))}
         </ul>
       </section>
-      <Image src="/jp.jpg" width={300} height={300} alt="apa" />
+      <Image src="/images/jp.jpg" width={300} height={300} alt="apa" />
     </Page>
   )
 }

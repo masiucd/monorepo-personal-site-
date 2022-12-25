@@ -8,18 +8,14 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        // "hero-dark": "url('../public/img/blackgrit.png')",
-        // "hero-light": "url('../public/img/whitegrit.png')",
-        hero: "url('../public/images/header-background.svg')",
-        "hero-dark": "url('../public/images/header-background-dark.svg')",
+        // hero: "url('../public/images/header-background.svg')",
+        // "hero-dark": "url('../public/images/header-background-dark.svg')",
+        hero: "url('../../public/images/header-background.svg')",
+        "hero-dark": "url('../../public/images/header-background-dark.svg')",
       },
       fontFamily: {
-        // display: ["Operator Mono", ...defaultTheme.fontFamily.mono],
-        // mono: ["HCo Operator Mono", ...defaultTheme.fontFamily.mono],
-        // display: ["Barlow Condensed", ...defaultTheme.fontFamily.mono],
-        // display: ["Inter", ...defaultTheme.fontFamily.serif],
-        // body: ["Inter", ...defaultTheme.fontFamily.serif],
         sans: ["Inter", ...fontFamily.serif],
+        mono: ["IBM Plex Mono", ...fontFamily.mono],
       },
     },
   },

@@ -7,8 +7,8 @@ module.exports = {
       "cdn.sanity.io",
     ],
   },
+  transpilePackages: ["ui", "lib"],
   experimental: {
-    transpilePackages: ["ui", "lib"],
     fontLoaders: [{loader: "@next/font/google", options: {subsets: ["latin"]}}],
   },
 }

@@ -1,8 +1,8 @@
 ---
-title: "conditional types"
+title: "Conditional types"
 description: "Conditional types in TypeScript, are a way to create types based on other types. Let's see how we can use them to create a type that is either a string or a number or whatever."
-date: "2023-01-01"
-date: "2023-01-01"
+date: "2022-12-29"
+updated: "2022-12-29"
 time: "3min"
 tags: ["ts"]
 author:
@@ -50,9 +50,9 @@ type Result<T> = T extends boolean ? "yes" : "no"
 Now when we assign a new variable with the type `Result<T>`
 it has to result in either `"yes"` or `"no"` depending on what we pass in as the type argument.
 
-```true
-let willBeYes: Result<true>  // "yes"
-let willBeNo: Result<{}>  // "no"
+```ts
+let willBeYes: Result<true> // "yes"
+let willBeNo: Result<{}> // "no"
 ```
 
 ### Conclusion
