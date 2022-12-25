@@ -38,6 +38,23 @@ type Result = {} extends boolean ? "yes" : "no"
 
 Now the Result type will fall back to `"no"` since an empty object literal does not extend the primitive type of boolean.
 
+### Adding generics
+
+Conditional types are more used when working with _generics_ in Typescript.
+If we take our `Result` type and re-write it so it takes in a generic instead, we would see a better connection where it can be used.
+
+```ts
+type Result<T> = T extends boolean ? "yes" : "no"
+```
+
+Now when we assign a new variable with the type `Result<T>`
+it has to result in either `"yes"` or `"no"` depending on what we pass in as the type argument.
+
+```true
+let willBeYes: Result<true>  // "yes"
+let willBeNo: Result<{}>  // "no"
+```
+
 ### Conclusion
 
 We can see that these conditional types are simpler than we think.
@@ -48,5 +65,5 @@ They are split into three parts.
 - We have a true case `? true`
 - We have false case `: false`
 
-And that's it.
+Conditional types in Typescript are more commonly used when working with generics.
 Hope you enjoy this post and could learn something from it.
