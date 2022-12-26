@@ -19,13 +19,13 @@ const itemVariants = {
 const sideVariants = {
   closed: {
     transition: {
-      staggerChildren: 0.2,
+      staggerChildren: 0.1,
       staggerDirection: -1,
     },
   },
   open: {
     transition: {
-      staggerChildren: 0.2,
+      staggerChildren: 0.1,
       staggerDirection: 1,
     },
   },
@@ -63,7 +63,7 @@ function MobileMenu() {
             exit={{
               opacity: 0.45,
               y: "100%",
-              transition: {delay: 0.7, duration: 0.3},
+              transition: {delay: 0.5, duration: 0.3},
             }}
           >
             <motion.ul
@@ -85,7 +85,7 @@ function MobileMenu() {
                   </NavLink>
                 </motion.li>
               ))}
-              <SocialLinks />
+              {/* <SocialLinks /> */}
             </motion.ul>
           </motion.aside>
         )}
