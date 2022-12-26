@@ -51,12 +51,13 @@ export default function AboutPage() {
             about me.
           </p>
           <p>
-            Watching Movies, being active in sports like running and swimming
-            are some of my hobbies.
+            Watching Movies, eating some delicious thai papaya salad(som-tam)🇹🇭,
+            being active in sports like running and swimming are some of my
+            hobbies.
           </p>
           <p>
             Programming/developing is what I love to do, to create new software
-            that helps others is my passion.
+            and to help others through software is my passion.
           </p>
           <p>
             I love learning new things and sharing my knowledge with my friends
@@ -66,7 +67,7 @@ export default function AboutPage() {
           <p> To share my knowledge with you!</p>
 
           <p className="border-b-2 border-blue-500 font-black inline-block">
-            Summery about me{" "}
+            Summery
           </p>
           <ul className="list-disc">
             {stuffAboutMe.map((item) => (

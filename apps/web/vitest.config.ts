@@ -5,7 +5,7 @@ import {defineConfig} from "vitest/config"
 // https://vitejs.dev/config/
 export default defineConfig({
   // @ts-ignore
-  plugins: [react({jsxRuntime: "classic"})],
+  plugins: [react()],
   resolve: {
     alias: {
       "~": fileURLToPath(new URL("./src", import.meta.url)),
