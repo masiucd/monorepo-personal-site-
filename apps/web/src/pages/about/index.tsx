@@ -33,7 +33,7 @@ export default function AboutPage() {
         <Image
           className="border-2 border-blue-500 rounded-md"
           src="/images/me.jpg"
-          alt="apa"
+          alt="me"
           width="900"
           height="100"
         />
