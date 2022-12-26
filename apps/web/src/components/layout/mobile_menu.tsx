@@ -7,8 +7,6 @@ import {Menu} from "ui"
 import NavLink from "~/components/common/nav_link"
 import navLinks from "~/static_data/nav_links.json"
 
-import SocialLinks from "../common/social_links"
-
 const itemVariants = {
   closed: {
     opacity: 0,
@@ -85,7 +83,6 @@ function MobileMenu() {
                   </NavLink>
                 </motion.li>
               ))}
-              {/* <SocialLinks /> */}
             </motion.ul>
           </motion.aside>
         )}
