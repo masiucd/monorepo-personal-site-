@@ -32,7 +32,7 @@ export default function AboutPage() {
       <section className="grid grid-cols-1  gap-2 p-2 md:p-1 dark:prose-invert prose prose-stone">
         <Image
           className="border-2 border-blue-500 rounded-md"
-          src="/images/me.jpg"
+          src="/images/jp.jpg"
           alt="me"
           width="900"
           height="100"
