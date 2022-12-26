@@ -64,7 +64,7 @@ export default function TagItemPage({tag, posts}: Props) {
       <Title>
         <h1>
           Posts with tag{" "}
-          <span className="border-b-2 border-blue-500 text-slate-700 dark:text-slate-200 font-bold ">
+          <span className="border-b-2 border-blue-500 text-slate-700 dark:text-slate-200 font-bold capitalize">
             {tag}
           </span>
         </h1>

@@ -6,6 +6,7 @@ import Link from "../common/link"
 type Props = {
   post: Post
 }
+
 function BlogItem({post}: Props) {
   const {slug, title, updated, description, tags} = post
   return (
@@ -15,7 +16,7 @@ function BlogItem({post}: Props) {
           <Link
             reset
             href={`/blog/${slug}`}
-            styles="md:text-3xl dark:hover:text-blue-500 hover:text-blue-500 scale-100 hover:scale-105 transition-all duration-200 ease-in-out block"
+            styles="md:text-3xl text-xl dark:hover:text-blue-500 hover:text-blue-500 scale-100 hover:scale-105 transition-all duration-200 ease-in-out block"
           >
             {title}
           </Link>

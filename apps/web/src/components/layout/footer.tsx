@@ -1,6 +1,6 @@
 import {useMediaQuery} from "lib"
 
-import socialData from "~/static_data/social.json"
+import SocialLinks from "../common/social_links"
 
 function Footer() {
   const matches = useMediaQuery("(min-width: 768px)")
@@ -15,20 +15,7 @@ function Footer() {
           </span>
           . All rights reserved. {new Date().getFullYear()}
         </small>
-        <ul className="flex gap-3 justify-center">
-          {socialData.map(({href, name}) => (
-            <li key={name}>
-              <a
-                href={href}
-                target="_blank"
-                rel="noreferrer"
-                className="transition hover:text-blue-500 dark:hover:text-blue-500 capitalize text-zinc-700  dark:text-zinc-300"
-              >
-                {name}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <SocialLinks styles="justify-center" />
       </div>
     </footer>
   )

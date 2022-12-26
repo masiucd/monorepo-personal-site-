@@ -7,6 +7,8 @@ import {Menu} from "ui"
 import NavLink from "~/components/common/nav_link"
 import navLinks from "~/static_data/nav_links.json"
 
+import SocialLinks from "../common/social_links"
+
 const itemVariants = {
   closed: {
     opacity: 0,
@@ -74,7 +76,7 @@ function MobileMenu() {
               {navLinks.map(({name, path}) => (
                 <motion.li
                   key={name}
-                  className="text-3xl border-b-2 border-blue-600 dark:border-blue-500 dark:border-opacity-60"
+                  className="text-3xl border-b-2 border-blue-500 dark:border-blue-500 dark:border-opacity-60"
                   variants={itemVariants}
                   whileHover={{scale: 1.01}}
                 >
@@ -83,6 +85,7 @@ function MobileMenu() {
                   </NavLink>
                 </motion.li>
               ))}
+              <SocialLinks />
             </motion.ul>
           </motion.aside>
         )}

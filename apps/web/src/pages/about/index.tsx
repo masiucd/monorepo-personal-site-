@@ -27,7 +27,17 @@ export default function AboutPage() {
           Programming is what I love to do and want to become better for each
           day, to add another dimension into my toolbox writing about what I
           know and currently learning is another reason why I write here at m
-          blog..
+          blog.
+        </p>
+        <p>
+          I am a software developer born and raised in Goteborg Sweden.
+          Describing myself I would say I am simple person, nothing fancy about
+          me. I love learning new things and sharing them with my friends and
+          community, that is one reason why I writing here at my blog.
+          Programming is what I love to do and want to become better for each
+          day, to add another dimension into my toolbox writing about what I
+          know and currently learning is another reason why I write here at m
+          blog.
         </p>
         <ul>
           {stuffAboutMe.map((item) => (

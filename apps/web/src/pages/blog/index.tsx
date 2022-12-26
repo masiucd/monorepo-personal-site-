@@ -25,7 +25,7 @@ type Props = {
 export default function BlogPage({posts}: Props) {
   return (
     <Page metaData={{title: "Blog posts"}}>
-      <Title>
+      <Title styles="px-2">
         <h1>Blog</h1>
         <p className="opacity-80">
           This is a collection of articles where I write about programming and
