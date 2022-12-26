@@ -4,14 +4,16 @@ import {defineConfig} from "vitest/config"
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  // @ts-ignore
+  plugins: [react({jsxRuntime: "classic"})],
   resolve: {
     alias: {
       "~": fileURLToPath(new URL("./src", import.meta.url)),
     },
   },
   test: {
+    globals: true,
+
     environment: "jsdom",
-    exclude: ["node_modules/**/*"],
   },
 })
