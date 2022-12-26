@@ -1,7 +1,7 @@
-import {tw} from "lib"
 import Head from "next/head"
 import {useRouter} from "next/router"
 import {ReactNode} from "react"
+import {twMerge as tw} from "tailwind-merge"
 
 type Meta = {
   title?: string

@@ -1,5 +1,5 @@
-import {tw} from "lib"
 import {ReactNode} from "react"
+import {twMerge as tw} from "tailwind-merge"
 
 import Footer from "./footer"
 import Header from "./header"

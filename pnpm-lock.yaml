@@ -38,6 +38,7 @@ importers:
       rehype-code-titles: ^1.1.0
       rehype-highlight: ^6.0.0
       tailwind-config: workspace:*
+      tailwind-merge: ^1.8.0
       tailwindcss: ^3.2.1
       tsconfig: workspace:*
       typescript: ^4.5.3
@@ -57,6 +58,7 @@ importers:
       react-dom: 18.2.0_react@18.2.0
       rehype-code-titles: 1.1.0
       rehype-highlight: 6.0.0
+      tailwind-merge: 1.8.0
       ui: link:../../packages/ui
       zod: 3.19.1
     devDependencies:
@@ -4368,7 +4370,7 @@ packages:
     dev: true
 
   /tailwind-merge/1.8.0:
-    resolution: {integrity: sha1-QcRzCypRynqQXGvuvL/iN7+2HzA=}
+    resolution: {integrity: sha512-tER/2SbYRdfPYg6m4pDWZSlbymLTmDi+dx4iCsJmgmz4UDGzgnVelOvBe3GNtGCw9Bmc4MiObfJJbKeVL+KnMQ==}
     dev: false
 
   /tailwindcss/3.2.4_postcss@8.4.19:

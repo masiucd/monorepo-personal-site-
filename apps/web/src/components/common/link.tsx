@@ -1,5 +1,5 @@
-import {tw} from "lib"
 import NextLink from "next/link"
+import {twMerge as tw} from "tailwind-merge"
 
 type Props = {
   children: React.ReactNode

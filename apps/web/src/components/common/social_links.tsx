@@ -1,4 +1,4 @@
-import {tw} from "lib"
+import {twMerge as tw} from "tailwind-merge"
 
 import socialData from "~/static_data/social.json"
 

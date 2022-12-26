@@ -23,6 +23,7 @@
     "react-dom": "18.2.0",
     "rehype-code-titles": "^1.1.0",
     "rehype-highlight": "^6.0.0",
+    "tailwind-merge": "^1.8.0",
     "ui": "workspace:*",
     "zod": "^3.19.1"
   },

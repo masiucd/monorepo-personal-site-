@@ -1,11 +1,12 @@
-import {tw} from "lib"
 import {ReactNode} from "react"
+import {twMerge as tw} from "tailwind-merge"
 
 type Props = {
   title?: string | null
   children?: ReactNode | null
   styles?: string
 }
+
 function Title({title = null, children = null, styles = ""}: Props) {
   if (title !== null) {
     return (
