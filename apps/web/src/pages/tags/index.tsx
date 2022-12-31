@@ -27,7 +27,7 @@ export default function TagsPage({tags}: Props) {
       }}
     >
       <Title>
-        <h1>Blog post tags</h1>
+        <h1>Blog post&apos;s tags</h1>
       </Title>
       <ul className="grid grid-cols-3 gap-5">
         {tags.map((tag) => (

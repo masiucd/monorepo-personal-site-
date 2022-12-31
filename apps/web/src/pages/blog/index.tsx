@@ -1,6 +1,6 @@
 import {GetStaticProps} from "next"
 import Link from "next/link"
-import {ReactElement} from "react"
+import {ReactElement, useState} from "react"
 
 import BlogItem from "~/components/blog/blog_item"
 import Page from "~/components/common/page"
@@ -22,7 +22,12 @@ type Props = {
   posts: AllPosts
 }
 
+function getPostTags(posts: AllPosts) {
+  return [...new Set(posts.flatMap((p) => p.tags.map((x) => x)))]
+}
+
 export default function BlogPage({posts}: Props) {
+  const [tags, setTags] = useState<string[]>([])
   return (
     <Page metaData={{title: "Blog posts"}}>
       <Title styles="px-2">
@@ -39,10 +44,43 @@ export default function BlogPage({posts}: Props) {
           View posts by tag
         </Link>
       </Title>
+      <div className="mb-10 border-2 border-blue-500 rounded-md p-2">
+        <h4 className="mb-2"> Filter posts by tags </h4>
+        <ul className="flex gap-5 flex-wrap">
+          {getPostTags(posts).map((tag) => (
+            <li key={tag}>
+              <button
+                className={`${
+                  tags.includes(tag) ? "border-b-2 border-blue-500" : ""
+                } capitalize`}
+                onClick={() =>
+                  setTags(
+                    tags.includes(tag)
+                      ? tags.filter((t) => t !== tag)
+                      : [...tags, tag]
+                  )
+                }
+              >
+                {tag}
+              </button>
+            </li>
+          ))}
+          <button
+            className={`${
+              tags.length === 0 ? "border-b-2 border-blue-500" : ""
+            } `}
+            onClick={() => setTags([])}
+          >
+            All
+          </button>
+        </ul>
+      </div>
       <ul className="flex flex-col gap-5">
-        {posts.map((p) => (
-          <BlogItem key={p.slug} post={p} />
-        ))}
+        {tags.length > 0
+          ? posts
+              .filter((p) => p.tags.find((x) => tags.includes(x)))
+              .map((p) => <BlogItem key={p.slug} post={p} />)
+          : posts.map((p) => <BlogItem key={p.slug} post={p} />)}
       </ul>
     </Page>
   )
