@@ -11,6 +11,7 @@ import rehypeHighlight from "rehype-highlight"
 export const parseContentToMDX = async (content: string) => {
   const mdxSource = await serialize(content, {
     mdxOptions: {
+      development: false, // Fix Uncaught TypeError: _jsxDEV is not a function. Problem
       // remarkPlugins: [remarkGfm],
       rehypePlugins: [
         rehypeHighlight,
