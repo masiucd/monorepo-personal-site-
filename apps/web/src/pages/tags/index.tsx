@@ -33,7 +33,7 @@ export default function TagsPage({tags}: Props) {
         {tags.map((tag) => (
           <li key={tag} className="capitalize w-fit">
             <Link
-              className="text-3xl relative block after:content-[''] after:transition-all after:ease-in-out after:duration-200 after:w-3  hover:after:w-full after:h-1 after:bg-blue-500 after:dark:bg-blue-500 after:absolute after:bottom-1 after:-rotate-1 after:left-0 md:text-lg"
+              className="text-xl relative block after:content-[''] after:transition-all after:ease-in-out after:duration-200 after:w-3  hover:after:w-full after:h-1 after:bg-blue-500 after:dark:bg-blue-500 after:absolute after:bottom-1 after:-rotate-1 after:left-0"
               href={`/tags/${tag}`}
             >
               {tag}
@@ -46,10 +46,12 @@ export default function TagsPage({tags}: Props) {
 }
 
 export const getStaticProps: GetStaticProps = () => {
-  const tags = OnlyTagsSchema.parse(getAllPosts(["tags"]))
+  const postsWithOnlyTags = OnlyTagsSchema.parse(getAllPosts(["tags"]))
   return {
     props: {
-      tags: tags.flatMap(({tags}) => [...new Set(tags)]),
+      tags: [
+        ...new Set(postsWithOnlyTags.flatMap((p) => p.tags.map((x) => x))),
+      ],
     },
   }
 }
