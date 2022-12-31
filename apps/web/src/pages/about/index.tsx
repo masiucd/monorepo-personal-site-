@@ -98,9 +98,9 @@ export default function AboutPage() {
             </h2>
             <p>
               When I&apos;m not coding, you can usually find me running long
-              runs 🏃🏻‍♂️, cooking up a storm in the kitchen,
-              <strong>(asian food is the best)</strong>, Watching Movies, eating
-              some delicious thai papaya salad(som-tam)🇹🇭.
+              runs 🏃🏻‍♂️ on the streets, cooking up a storm in the kitchen,
+              <strong>(asian food is the best)</strong>, watching movies and
+              eating some delicious thai papaya salad(som-tam)🇹🇭.
             </p>
             <p>
               I have a love for all things tech, and I&apos;m always looking for
@@ -120,7 +120,7 @@ export default function AboutPage() {
               contribute if you like!
             </p>
             <h3 className="font-black inline-block" ref={ref}>
-              <Span text="Me in a nutshell" />
+              <Span text="Stuff about me" />
             </h3>
           </motion.div>
           <AnimatePresence>
