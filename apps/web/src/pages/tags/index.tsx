@@ -1,19 +1,12 @@
 import {GetStaticProps} from "next"
 import Link from "next/link"
 import React, {ReactElement} from "react"
-import {z} from "zod"
 
 import Page from "~/components/common/page"
 import Title from "~/components/common/title"
 import Layout from "~/components/layout"
 import {getAllPosts} from "~/lib/blog"
-
-// const OnlyTagsSchema = z.object({tags: z.array(z.string())})
-const OnlyTagsSchema = z.array(
-  z.object({
-    tags: z.array(z.string()),
-  })
-)
+import {OnlyPostTagsSchema} from "~/lib/schemas"
 
 type Props = {
   tags: string[]
@@ -46,7 +39,7 @@ export default function TagsPage({tags}: Props) {
 }
 
 export const getStaticProps: GetStaticProps = () => {
-  const postsWithOnlyTags = OnlyTagsSchema.parse(getAllPosts(["tags"]))
+  const postsWithOnlyTags = OnlyPostTagsSchema.parse(getAllPosts(["tags"]))
   return {
     props: {
       tags: [

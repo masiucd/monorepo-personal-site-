@@ -21,3 +21,9 @@ export const PostSlugItemSchema = z.object({
   author: z.object({name: z.string()}),
   description: z.string(),
 })
+
+export const OnlyPostTagsSchema = z.array(
+  z.object({
+    tags: z.array(z.string()),
+  })
+)

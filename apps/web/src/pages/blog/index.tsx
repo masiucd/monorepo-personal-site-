@@ -70,6 +70,15 @@ function TagsFilter({
   )
 }
 
+function renderBlogItems(tags: string[], posts: AllPosts) {
+  if (tags.length > 0) {
+    return posts
+      .filter((p) => tags.every((t) => p.tags.includes(t)))
+      .map((p) => <BlogItem key={p.slug} post={p} />)
+  }
+  return posts.map((p) => <BlogItem key={p.slug} post={p} />)
+}
+
 export default function BlogPage({posts}: Props) {
   const [tags, setTags] = useState<string[]>([])
   return (
@@ -89,13 +98,7 @@ export default function BlogPage({posts}: Props) {
         </Link>
       </Title>
       <TagsFilter posts={posts} tags={tags} setTags={setTags} />
-      <ul className="flex flex-col gap-5">
-        {tags.length > 0
-          ? posts
-              .filter((p) => p.tags.find((x) => tags.includes(x)))
-              .map((p) => <BlogItem key={p.slug} post={p} />)
-          : posts.map((p) => <BlogItem key={p.slug} post={p} />)}
-      </ul>
+      <ul className="flex flex-col gap-5">{renderBlogItems(tags, posts)}</ul>
     </Page>
   )
 }
