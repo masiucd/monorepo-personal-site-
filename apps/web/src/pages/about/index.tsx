@@ -64,12 +64,12 @@ export default function AboutPage() {
       </Title>
       <section className="grid grid-cols-1  gap-2 p-2 md:p-1 dark:prose-invert prose prose-stone">
         <AnimatedImage
-          initial={{opacity: 0, x: -100, rotate: 20}}
-          animate={{opacity: 1, x: 0, rotate: 0}}
+          initial={{opacity: 0}}
+          animate={{opacity: 1}}
           transition={{duration: 1, delay: 0.2}}
           className="border-2 border-blue-500 rounded-md"
           src="/images/me-th.jpg"
-          alt="me"
+          alt="me in the ring corner"
           width="900"
           height="100"
           priority
@@ -103,12 +103,13 @@ export default function AboutPage() {
               eating some delicious thai papaya salad(som-tam)🇹🇭.
             </p>
             <p>
-              I have a love for all things tech, and I&apos;m always looking for
-              new and exciting ways to push the boundaries of what&apos;s
-              possible. Whether I&apos;m working on a new app, website, or
-              software project, I&apos;m always eager to learn and grow as a
-              developer. Programming/developing is what I love to do, to create
-              new software and to help others through software is my passion.
+              I have a love for all things tech and a love for problem-solving
+              where I&apos;m always looking for new and exciting ways to push
+              the boundaries of what&apos;s possible. Whether I&apos;m working
+              on a new app, website, or software project, I&apos;m always eager
+              to learn and grow as a developer. Programming/developing is what I
+              love to do, to create new software and to help others through
+              software is my passion.
             </p>
             <p>
               I&apos;m a big believer in the power of teamwork, and I love
