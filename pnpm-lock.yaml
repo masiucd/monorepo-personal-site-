@@ -14,6 +14,7 @@ importers:
 
   apps/web:
     specifiers:
+      '@latest': link:@next/@latest
       '@next/font': ^13.0.4
       '@tailwindcss/typography': ^0.5.8
       '@testing-library/react': ^13.4.0
@@ -46,6 +47,7 @@ importers:
       vitest: ^0.25.2
       zod: ^3.19.1
     dependencies:
+      '@latest': link:@next/@latest
       '@next/font': 13.1.1
       framer-motion: 7.10.3_biqbaboplfbrettd7655fr4n2y
       gray-matter: 4.0.3
