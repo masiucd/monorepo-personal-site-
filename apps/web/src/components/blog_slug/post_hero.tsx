@@ -36,11 +36,15 @@ type BottomProps = {
 function Bottom({tags, created, updated}: BottomProps) {
   return (
     <div className="flex flex-wrap gap-5">
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center gap-3">
         <p className="text-slate-400 dark:text-slate-700 p-0 m-0">
-          G<span className="font-bold">Created:</span> {formatDate(created)}
-          <span className="font-bold">Updated:</span> {formatDate(updated)}
+          <span className="font-bold">Created:</span> {formatDate(created)}
         </p>
+        {created !== updated && (
+          <p className="text-slate-400 dark:text-slate-700 p-0 m-0">
+            <span className="font-bold">Updated:</span> {formatDate(updated)}
+          </p>
+        )}
       </div>
       <Tags tags={tags} />
       {/* TODO SHARe API */}

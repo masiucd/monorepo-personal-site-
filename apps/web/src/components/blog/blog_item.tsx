@@ -22,8 +22,17 @@ function BlogItem({post}: Props) {
             {title}
           </Link>
         </strong>
-        <p> Created: {formatDate(date)}</p>
-        <p>Updated: {formatDate(updated)}</p>
+        <div>
+          <p>
+            <span className="font-semibold">Created</span>: {formatDate(date)}
+          </p>
+          {date !== updated && (
+            <p>
+              <span className="font-semibold">Updated</span>:{" "}
+              {formatDate(updated)}
+            </p>
+          )}
+        </div>
       </div>
       <div className="flex flex-col">
         <p className="opacity-80">{description}</p>

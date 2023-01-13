@@ -120,7 +120,7 @@ export default function AboutPage() {
               Hope you can learn something from my site and feel welcome to
               contribute if you like!
             </p>
-            <h3 className="font-black inline-block" ref={ref}>
+            <h3 className="font-semibold	 inline-block" ref={ref}>
               <Span text="Stuff about me" />
             </h3>
           </motion.div>

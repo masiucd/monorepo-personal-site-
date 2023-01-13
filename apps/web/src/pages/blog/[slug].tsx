@@ -28,23 +28,21 @@ type Props = {
 }
 export default function BlogSlugPage({post, source}: Props) {
   return (
-    <>
-      <Page
-        fluid
-        metaData={{
-          title: `Blog | ${post.title}`,
-          description: post.description,
-        }}
+    <Page
+      fluid
+      metaData={{
+        title: `Blog | ${post.title}`,
+        description: post.description,
+      }}
+    >
+      <PostHero post={post} />
+      <article
+        id="blog_article"
+        className="max-w-3xl m-auto p-3 dark:prose-invert prose prose-stone"
       >
-        <PostHero post={post} />
-        <article
-          id="blog_article"
-          className="max-w-3xl m-auto p-3 dark:prose-invert prose prose-stone"
-        >
-          <MDXRemote {...source} components={{}} />
-        </article>
-      </Page>
-    </>
+        <MDXRemote {...source} components={{}} />
+      </article>
+    </Page>
   )
 }
 
