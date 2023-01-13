@@ -1,4 +1,5 @@
-import {parseDate} from "~/lib/date"
+import {formatDate} from "lib"
+
 import {MainFont, SecondaryFont} from "~/lib/fonts"
 import {PostsType} from "~/lib/types"
 
@@ -21,7 +22,7 @@ export default function PostHero({post}: Props) {
           {post.title}
         </h1>
         <p className="md:text-xl mb-5">{post.description}</p>
-        <Bottom tags={post.tags} updated={post.updated} />
+        <Bottom tags={post.tags} created={post.date} updated={post.updated} />
       </div>
     </div>
   )
@@ -29,14 +30,16 @@ export default function PostHero({post}: Props) {
 
 type BottomProps = {
   tags: string[]
+  created: string
   updated: string
 }
-function Bottom({tags, updated}: BottomProps) {
+function Bottom({tags, created, updated}: BottomProps) {
   return (
     <div className="flex flex-wrap gap-5">
       <div className="flex items-center justify-center">
         <p className="text-slate-400 dark:text-slate-700 p-0 m-0">
-          <span className="font-bold">Updated:</span> {parseDate(updated)}
+          G<span className="font-bold">Created:</span> {formatDate(created)}
+          <span className="font-bold">Updated:</span> {formatDate(updated)}
         </p>
       </div>
       <Tags tags={tags} />

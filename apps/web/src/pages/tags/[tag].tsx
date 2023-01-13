@@ -27,7 +27,6 @@ export const getStaticPaths: GetStaticPaths<Params> = async () => {
       .map((tag) => ({params: {tag}})),
     fallback: false,
   }
-  // return {paths: posts.map(({slug}) => ({params: {slug}})), fallback: false}
 }
 export const getStaticProps: GetStaticProps<Props, Params> = async ({
   params,
@@ -42,7 +41,15 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
   }
 
   const posts = AllPostsSchema.parse(
-    getAllPosts(["slug", "title", "updated", "time", "tags", "description"])
+    getAllPosts([
+      "slug",
+      "title",
+      "updated",
+      "date",
+      "time",
+      "tags",
+      "description",
+    ])
   ).filter(({tags}) => tags.includes(params.tag))
 
   return {

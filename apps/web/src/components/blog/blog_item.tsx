@@ -1,4 +1,5 @@
-import {parseDate} from "~/lib/date"
+import {formatDate} from "lib"
+
 import {Post} from "~/lib/types"
 
 import Link from "../common/link"
@@ -8,7 +9,7 @@ type Props = {
 }
 
 function BlogItem({post}: Props) {
-  const {slug, title, updated, description, tags} = post
+  const {slug, title, updated, date, description, tags} = post
   return (
     <li key={slug} className="shadow py-1 px-2 rounded-sm dark:shadow-gray-800">
       <div className="flex justify-between pb-3 flex-col sm:flex-row">
@@ -21,7 +22,8 @@ function BlogItem({post}: Props) {
             {title}
           </Link>
         </strong>
-        <p>{parseDate(updated)}</p>
+        <p> Created: {formatDate(date)}</p>
+        <p>Updated: {formatDate(updated)}</p>
       </div>
       <div className="flex flex-col">
         <p className="opacity-80">{description}</p>

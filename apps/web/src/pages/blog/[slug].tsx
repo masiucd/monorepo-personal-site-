@@ -70,6 +70,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
       "title",
       "content",
       "updated",
+      "date",
       "tags",
       "author",
       "description",

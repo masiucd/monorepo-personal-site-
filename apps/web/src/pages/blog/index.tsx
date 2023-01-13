@@ -13,7 +13,15 @@ import {AllPosts} from "~/lib/types"
 export const getStaticProps: GetStaticProps = () => ({
   props: {
     posts: AllPostsSchema.parse(
-      getAllPosts(["slug", "title", "updated", "time", "tags", "description"])
+      getAllPosts([
+        "slug",
+        "title",
+        "updated",
+        "date",
+        "time",
+        "tags",
+        "description",
+      ])
     ),
   },
 })
