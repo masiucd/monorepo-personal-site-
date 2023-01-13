@@ -11,6 +11,7 @@
     "test:watch": "vitest"
   },
   "dependencies": {
+    "@latest": "link:@next/@latest",
     "@next/font": "^13.0.4",
     "framer-motion": "^7.6.7",
     "gray-matter": "^4.0.3",
