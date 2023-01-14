@@ -1,5 +1,6 @@
 import NextLink from "next/link"
-import {twMerge as tw} from "tailwind-merge"
+
+import {cn} from "~/lib/utils"
 
 type Props = {
   children: React.ReactNode
@@ -22,7 +23,7 @@ export default function Link({
   }
   return (
     <NextLink
-      className={tw(
+      className={cn(
         "relative block after:content-[''] after:transition-all after:ease-in-out after:duration-200 after:w-3  hover:after:w-full after:h-1 after:bg-blue-500 after:dark:bg-blue-500 after:absolute after:bottom-1 after:-rotate-1 after:left-0 md:text-lg",
         styles
       )}

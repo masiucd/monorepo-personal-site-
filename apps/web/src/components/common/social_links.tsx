@@ -1,5 +1,4 @@
-import {twMerge as tw} from "tailwind-merge"
-
+import {cn} from "~/lib/utils"
 import socialData from "~/static_data/social.json"
 
 type Props = {
@@ -8,7 +7,7 @@ type Props = {
 
 function SocialLinks({styles = ""}: Props) {
   return (
-    <ul className={tw("flex gap-3", styles)}>
+    <ul className={cn("flex gap-3", styles)}>
       {socialData.map(({href, name}) => (
         <li key={name}>
           <a

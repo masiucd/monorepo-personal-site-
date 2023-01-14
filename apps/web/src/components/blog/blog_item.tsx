@@ -1,17 +1,22 @@
 import {formatDate} from "lib"
 
 import {Post} from "~/lib/types"
+import {cn} from "~/lib/utils"
 
 import Link from "../common/link"
 
 type Props = {
   post: Post
+  styles?: string
 }
 
-function BlogItem({post}: Props) {
+function BlogItem({post, styles = ""}: Props) {
   const {slug, title, updated, date, description, tags} = post
   return (
-    <li key={slug} className="shadow py-1 px-2 rounded-sm dark:shadow-gray-800">
+    <li
+      key={slug}
+      className={cn("shadow py-1 px-2 rounded-sm dark:shadow-gray-800", styles)}
+    >
       <div className="flex justify-between pb-3 flex-col sm:flex-row">
         <strong>
           <Link
@@ -23,12 +28,19 @@ function BlogItem({post}: Props) {
           </Link>
         </strong>
         <div>
-          <p>
-            <span className="font-semibold">Created</span>: {formatDate(date)}
+          <p className="text-slate-700 dark:text-slate-400">
+            {date === updated ? (
+              <>{formatDate(date)}</>
+            ) : (
+              <>
+                <span className="font-extrabold">Created:</span>
+                {formatDate(date)}
+              </>
+            )}
           </p>
           {date !== updated && (
-            <p>
-              <span className="font-semibold">Updated</span>:{" "}
+            <p className="text-slate-700 dark:text-slate-400">
+              <span className="font-extrabold">Updated</span>:{" "}
               {formatDate(updated)}
             </p>
           )}

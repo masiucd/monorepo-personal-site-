@@ -1,5 +1,6 @@
 import {ReactNode} from "react"
-import {twMerge as tw} from "tailwind-merge"
+
+import {cn} from "~/lib/utils"
 
 import Footer from "./footer"
 import Header from "./header"
@@ -13,7 +14,7 @@ export default function Layout({children, styles = ""}: Props) {
   return (
     <>
       <Header />
-      <main className={tw(`flex-1`, styles)}>{children}</main>
+      <main className={cn(`flex-1`, styles)}>{children}</main>
       <Footer />
     </>
   )

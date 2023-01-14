@@ -1,5 +1,6 @@
 import {ReactNode} from "react"
-import {twMerge as tw} from "tailwind-merge"
+
+import {cn} from "~/lib/utils"
 
 type Props = {
   title?: string | null
@@ -10,12 +11,12 @@ type Props = {
 function Title({title = null, children = null, styles = ""}: Props) {
   if (title !== null) {
     return (
-      <section className={tw("mb-5 py-10", styles)}>
+      <section className={cn("mb-5 py-10", styles)}>
         <h1>{title}</h1>
       </section>
     )
   } else if (children !== null) {
-    return <section className={tw("mb-5 py-10", styles)}>{children}</section>
+    return <section className={cn("mb-5 py-10", styles)}>{children}</section>
   }
   return null
 }

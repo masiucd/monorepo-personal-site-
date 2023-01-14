@@ -13,6 +13,7 @@
   "dependencies": {
     "@latest": "link:@next/@latest",
     "@next/font": "^13.0.4",
+    "clsx": "^1.2.1",
     "framer-motion": "^7.6.7",
     "gray-matter": "^4.0.3",
     "lib": "workspace:*",

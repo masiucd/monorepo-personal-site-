@@ -1,7 +1,8 @@
 import Head from "next/head"
 import {useRouter} from "next/router"
 import {ReactNode} from "react"
-import {twMerge as tw} from "tailwind-merge"
+
+import {cn} from "~/lib/utils"
 
 type Meta = {
   title?: string
@@ -55,7 +56,7 @@ export default function Page({
         <meta name="twitter:description" content={meta.description} />
         <meta name="twitter:image" content={meta.image} />
       </Head>
-      <div className={tw("m-auto max-w-3xl", mergedStyles(fluid, styles))}>
+      <div className={cn("m-auto max-w-3xl", mergedStyles(fluid, styles))}>
         {children}
       </div>
     </>
@@ -63,7 +64,7 @@ export default function Page({
 }
 
 function mergedStyles(fluid: boolean, styles: string) {
-  return tw(applyFluidStyles(fluid), styles)
+  return cn(applyFluidStyles(fluid), styles)
 }
 function applyFluidStyles(fluid: boolean): string {
   if (fluid) {

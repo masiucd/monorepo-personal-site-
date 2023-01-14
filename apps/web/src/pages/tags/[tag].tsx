@@ -76,7 +76,7 @@ export default function TagItemPage({tag, posts}: Props) {
           </span>
         </h1>
       </Title>
-      <ul>
+      <ul className="flex flex-col gap-5">
         {posts.map((post) => (
           <BlogItem key={post.slug} post={post} />
         ))}
