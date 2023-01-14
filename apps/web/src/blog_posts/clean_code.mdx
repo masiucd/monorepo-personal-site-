@@ -1,0 +1,135 @@
+---
+title: "Clean code"
+description: "As an experienced software developer or even if you are a junior developer you have sometimes heard the term clean code and that we should aim to write clean code when we develop. What is clean code and why is it important to write clean code? Do developers follow all their rules from the famous book Clean code by Robert C. Martin. In this article, I will write about my thoughts what are clean code and my experience is what other developers think about clean code."
+date: "2023-01-15"
+updated: "2023-12-15"
+time: "8min"
+tags: ["software-development"]
+author:
+  name: Marcell Ciszek Druzynski
+---
+
+As an experienced software developer or even if you are a junior developer you have sometimes heard the term _clean code_ and that we should aim to write clean code when we develop.
+What is clean code and why is it important to write clean code?
+Do developers follow all their rules from the famous book [Clean code](https://www.oreilly.com/library/view/clean-code-a/9780136083238/) by _Robert C. Martin_.
+In this article, I will write about my thoughts
+what are clean code and my experience is what other developers think about clean code.
+
+### What do we mean by clean code?
+
+Clean code is code that is easy to read, understand, and maintain. It follows a set of best practices and conventions that make it easier for other developers to work with. Some characteristics of clean code include:
+
+- It is a clear and compact structure, and descriptive names for friable, functions, and other elements.
+
+- The style guide is consistent with a paper indentation and consistent use of whitespace.
+  The code is clear to read, it has its purpose that explains the logic within every code block in a reasonable way.
+
+- The code is well-organized, with logically separated code blocks and a clear separation of responsibilities between different parts of the code.
+
+- Easy to test the code, aiming to write pure functions where the same input will always produce the same output and a clear separation of concerns.
+- Perhaps the most important part is that clean code is written to be easy to understand and maintain, even by developers who are not familiar with it.
+
+### Clean code from a divergent perspective
+
+**functional programming perspective**
+In functional programming, clean code often has the following characteristics:
+
+- The code is Pure and does not have any side effects and doe snot depend on any external state. state. This makes the code easier to reason about and test because the same input will always produce the same output.
+- The code is declarative, where it describes what should be done rather than how it should be done. This makes the code easier to read and understand, the focus is on the problem being solved rather than the implementation details.
+- The code is composable, where we start from a small piece, and reusable functions can be combined in different ways to solve more complex problems. The code will be more flexible and easier to maintain, cause the code is easier to scale.
+- Overall, the goal of clean code in functional programming is to write code that is easy to understand, easy to test, and easy to modify, by adhering to the principles of functional programming such as purity, declaratively, and composability.
+
+  **object-oriented programming perspective**
+  In OOP*(object oriented programming)*, clean code has the following characteristics:
+
+- Clean code is code that is easy to read, understand, and modify.
+- Encapsulation, is a way to protect the data in an object from accidental or intentional modification. Examples to achieve encapsulation are when we use `private` and `protected` keywords, where we control the visibility and accessibility of the object.
+- Inheritance, A way to create a new `class` that is a new/modified version of an existing class, without having to rewrite all of the code in the new `class`. The new `class` is called a subclass and the parent/existing `class` is called the `superclass`.
+- Polymorphism, an object can take on many forms, depending on the context in which it is used. This allows the same object to behave differently in different situations while maintaining a consistent interface.
+- Reusable objects where each object has a single and well-defined responsibility.
+- Easy to extend and modify as the objects can be used in different combinations to achieve different results.
+
+### Clean functions
+
+Clean code is code that is easy to read, understand, and maintain. When it comes to functions, clean code follows some principles:
+
+- Single Responsibility Principle: Each function should have a single, well-defined purpose.
+- Functions should be small and focused, with a single level of abstraction, the functions should not do multiple things at once.
+- Naming functions should be clear and easy to understand the purpose of the function and what it does.
+- If adding comments, they should provide additional context or clarification, but should not be necessary to understand the code itself.
+- Function needs to handle possible errors.
+- Functions should be easy to test, using pure functions make it much easier to test.
+
+### Clean variables
+
+When we are talking about clean variables we can follow some common standards:
+
+- Variables should have meaningful names, they should describe the purpose or contents of the variable.
+- Comments should provide additional context or clarification, but should not be necessary to understand the code itself.
+- Variables should be initialized before they are used, with a correct default value.
+- No magic values, Instead of using "magic values" (numbers or strings that have a special meaning in the code but are not otherwise explained), use named constants or enums to make the code more self-explanatory, easy to read, and understandable.
+
+### Clean error handling
+
+- Use exceptions for error handling: Exceptions are a mechanism for signaling that something unexpected has occurred in the program. They should be used to signal errors that cannot be handled at the point where they occur, such as when a required file cannot be found. Newest languages like `Rust` or `Go` don’t have exceptions and you are forced to handle them right away. In `Rust`, errors are handled through the use of the Result type, which can be either [Ok]() or an `Err` variant. The `Ok` variant indicates that the operation succeeded and contains the expected result, while the `Err` variant indicates that an error occurred and contains information about the error.
+
+- Use error codes for expected errors: Error codes can be used to signal expected errors that can be handled at the point where they occur, for example when a user provided wrong invalid information into an input field.
+
+- Use consistent conventions for error handling: It is important to use a consistent approach to error handling throughout the codebase. This can make it easier to understand and maintain the code.
+
+- Error messages have to be useful to the other developers, they should be clear and informative and should provide enough information to help the developers to understand what went wrong.
+
+### Clean TDD
+
+Code without any tests would take out all the possibilities to mark the code as clean. Of course, it depends on who you ask but in my experience, most developers that I have worked with could not imagine software without any tests.
+There are a few principles that can help us achieve clean code in our tests:
+
+- Use descriptive and meaningful names: Make it clear what the test is testing and what we should expect from the test.
+
+- Keep tests short and focused: Each test should test one specific thing. If we test multiple things at once it can be hard to understand the test and to maintain the test overall.
+
+- Use a consistent style: Use a consistent style for writing tests, including indentation and naming.
+
+- Avoid duplication: Avoid duplicating code in your tests. It is common to test things twice or more without knowing it. Try to use helper functions in the tests to avoid duplications.
+
+- Use appropriate assertions: Use the appropriate assertions for the task at hand. For example, if you are testing that a function returns the correct output, use an assertion that compares the actual output to the expected output.
+
+### Snippets
+
+Error handling in `Rust`:
+
+```rust
+fn read_file(filename: &str) -> Result<String, std::io::Error> {
+    let contents = std::fs::read_to_string(filename)?;
+    Ok(contents)
+}
+
+let contents = match read_file("file.txt") {
+    Ok(contents) => contents,
+    Err(e) => {
+        println!("Error: {}", e);
+        return;
+    }
+};
+```
+
+In this example, the `read_file` function returns a `Result` type, which can either be `Ok` containing the contents of the file or an `Err` containing an error. The `?` operator is used to simplify error handling, returning an `Err` variant if the `read_to_string` function returns an error.
+Then we handle the error when we match on the `read_file` function.
+
+### Summary
+
+When we aim to write clean code the most important part is that we write readable and easy-understanding code.
+Clean code aims to set standards and good conventions that help us write more readability, understandability, and maintainability code.
+
+A few key principles to think about when we want to write clean code are:
+
+- Using meaningful and descriptive variable and function names
+- Using clear and consistent indentation and spacing
+- Keeping functions and methods short and focused
+- Avoiding code duplication
+- Using clear and well-organized code structures
+- Writing comments and documentation to provide context and clarify the purpose of the code
+- Following established coding standards and conventions
+- Avoiding unnecessary complexity
+
+Hope you found this post useful and that you learned something new or at least got some repetitions.
