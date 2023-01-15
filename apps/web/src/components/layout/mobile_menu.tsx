@@ -5,7 +5,7 @@ import {useEffect} from "react"
 import {Menu} from "ui"
 
 import NavLink from "~/components/common/nav_link"
-import navLinks from "~/static_data/nav_links.json"
+import navLinks from "~/config/nav_links.json"
 
 const itemVariants = {
   closed: {

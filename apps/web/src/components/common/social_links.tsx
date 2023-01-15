@@ -1,5 +1,5 @@
+import socialData from "~/config/social.json"
 import {cn} from "~/lib/utils"
-import socialData from "~/static_data/social.json"
 
 interface Props {
   styles?: string
