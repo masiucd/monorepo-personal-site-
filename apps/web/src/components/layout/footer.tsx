@@ -10,7 +10,7 @@ function Footer() {
             <a
               className="font-mono text-blue-500"
               target="_blank"
-              href={me.twitterUserName}
+              href={me.twitterUrl}
               rel="noreferrer"
             >
               {me.twitterUserName}
