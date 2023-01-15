@@ -1,73 +1,17 @@
-# Turborepo starter
+# Marcell.CD.com
 
-This is an official pnpm starter turborepo.
+Welcome to my personal site!
 
-## What's inside?
+This site is built using `Next.js`, a popular framework for building server-rendered React applications. It allows for efficient development and deployment of web pages, and is optimized for performance and **SEO**.
 
-This turborepo uses [pnpm](https://pnpm.io) as a package manager. It includes the following packages/apps:
+The site is designed to be simple and easy to navigate. It includes pages for my professional background, my personal interests, and a contact page for anyone who wishes to get in touch with me.
 
-### Apps and Packages
+To run the site locally, you will need to have Node.js and `npm`,`pnpm` (or `yarn`) installed on your machine. Once you have cloned the repository, navigate to the project directory in your terminal and run the following commands:
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `ui`: a stub React component library shared by both `web` and `docs` applications
-- `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `tsconfig`: `tsconfig.json`s used throughout the monorepo
+`npm` install or `yarn`|`pnpm` install to install the required dependencies
+`npm` run dev or `yarn`|`pnpm` dev to start a development server
+The site will then be available at http://localhost:3000.
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+To build and deploy the site for production, run the command `npm`,`pnpm` run build or `yarn` build followed by `npm`,`pnpm` start or `yarn` start.
 
-### Utilities
-
-This turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm run build
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm run dev
-```
-
-### Remote Caching
-
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
-
-```
-cd my-turborepo
-pnpm dlx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your turborepo:
-
-```
-pnpm dlx turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Pipelines](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+Please feel free to reach out to me if you have any questions or feedback on the site. Thank you for visiting!
