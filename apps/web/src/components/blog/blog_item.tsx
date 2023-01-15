@@ -33,7 +33,7 @@ function BlogItem({post, styles = ""}: Props) {
               <>{formatDate(date)}</>
             ) : (
               <>
-                <span className="font-extrabold">Created:</span>
+                <span className="font-extrabold">Created:</span>{" "}
                 {formatDate(date)}
               </>
             )}
