@@ -5,7 +5,7 @@ import {cn} from "~/lib/utils"
 
 import Link from "../common/link"
 
-type Props = {
+interface Props {
   post: Post
   styles?: string
 }

@@ -1,7 +1,7 @@
 import {cn} from "~/lib/utils"
 import socialData from "~/static_data/social.json"
 
-type Props = {
+interface Props {
   styles?: string
 }
 

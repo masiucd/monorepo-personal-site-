@@ -8,7 +8,7 @@ import Layout from "~/components/layout"
 import {getAllPosts} from "~/lib/blog"
 import {OnlyPostTagsSchema} from "~/lib/schemas"
 
-type Props = {
+interface Props {
   tags: string[]
 }
 

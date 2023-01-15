@@ -26,7 +26,7 @@ export const getStaticProps: GetStaticProps = () => ({
   },
 })
 
-type Props = {
+interface Props {
   posts: AllPosts
 }
 

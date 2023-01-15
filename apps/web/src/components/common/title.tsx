@@ -2,7 +2,7 @@ import {ReactNode} from "react"
 
 import {cn} from "~/lib/utils"
 
-type Props = {
+interface Props {
   title?: string | null
   children?: ReactNode | null
   styles?: string

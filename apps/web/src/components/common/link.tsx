@@ -2,7 +2,7 @@ import NextLink from "next/link"
 
 import {cn} from "~/lib/utils"
 
-type Props = {
+interface Props {
   children: React.ReactNode
   href: string
   styles?: string

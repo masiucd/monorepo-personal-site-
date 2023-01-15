@@ -5,7 +5,7 @@ import {PostsType} from "~/lib/types"
 
 import Link from "../common/link"
 
-type Props = {
+interface Props {
   post: PostsType
 }
 
