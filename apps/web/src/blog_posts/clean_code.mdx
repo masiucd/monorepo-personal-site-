@@ -1,6 +1,6 @@
 ---
 title: "Clean code"
-description: "As an experienced software developer or even if you are a junior developer you have sometimes heard the term clean code and that we should aim to write clean code when we develop. What is clean code and why is it important to write clean code? Do developers follow all their rules from the famous book Clean code by Robert C. Martin. In this article, I will write about my thoughts what are clean code and my experience is what other developers think about clean code."
+description: "Clean code is code that is easy to read, understand, and maintain. It follows a consistent style, is well-organized, and has clear and meaningful variable and function names. Clean code also has minimal complexity and follows best practices and design patterns. It is also free of errors and unnecessary or redundant code."
 date: "2023-01-15"
 updated: "2023-01-15"
 time: "8min"
@@ -9,11 +9,10 @@ author:
   name: Marcell Ciszek Druzynski
 ---
 
-As an experienced software developer or even if you are a junior developer you have sometimes heard the term _clean code_ and that we should aim to write clean code when we develop.
-What is clean code and why is it important to write clean code?
-Do developers follow all their rules from the famous book [Clean code](https://www.oreilly.com/library/view/clean-code-a/9780136083238/) by _Robert C. Martin_.
-In this article, I will write about my thoughts
-what are clean code and my experience is what other developers think about clean code.
+## Intro
+
+As an software developer you problably have heard the term _clean code_ and that we should aim to write readable and usefule code when we develop.
+What is _clean code_ and why is it important to us devlopers, what is the big deal?
 
 ### What do we mean by clean code?
 
@@ -116,6 +115,15 @@ let contents = match read_file("file.txt") {
 In this example, the `read_file` function returns a `Result` type, which can either be `Ok` containing the contents of the file or an `Err` containing an error. The `?` operator is used to simplify error handling, returning an `Err` variant if the `read_to_string` function returns an error.
 Then we handle the error when we match on the `read_file` function.
 
+### Quotes
+
+- > "Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live." - John Woods
+- > "Clean code always looks like it was written by someone who cares." - Michael Feathers
+- > "A well-written program is its own heaven; a poorly-written program is its own hell." - Tao of Programming
+- > "It is not the job of the code to make the programmer look good." - Robert C. Martin
+- > "Don't comment bad code – rewrite it." - Brian W. Kernighan
+- > "Good code is its own best documentation." - Steve McConnell
+
 ### Summary
 
 When we aim to write clean code the most important part is that we write readable and easy-understanding code.
@@ -133,3 +141,7 @@ A few key principles to think about when we want to write clean code are:
 - Avoiding unnecessary complexity
 
 Hope you found this post useful and that you learned something new or at least got some repetitions.
+
+# Resources
+
+- [Clean code](https://www.oreilly.com/library/view/clean-code-a/9780136083238/) by _Robert C. Martin_.
