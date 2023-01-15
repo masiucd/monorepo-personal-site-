@@ -1,4 +1,4 @@
-import {formatDate} from "lib"
+import {firstLetterUppercase, formatDate} from "lib"
 
 import {Post} from "~/lib/types"
 import {cn} from "~/lib/utils"
@@ -50,8 +50,8 @@ function BlogItem({post, styles = ""}: Props) {
         <p className="opacity-80">{description}</p>
         <ul className="flex gap-5 justify-end">
           {tags.map((tag) => (
-            <li key={tag} className="capitalize">
-              <Link href={`/tags/${tag}`}>{tag}</Link>
+            <li key={tag}>
+              <Link href={`/tags/${tag}`}>{firstLetterUppercase(tag)}</Link>
             </li>
           ))}
         </ul>
