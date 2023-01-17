@@ -3,75 +3,37 @@ title: "Imperative and Declarative"
 description: "Two common and known paradigms that can be good to know the differences between them are. When and why are we using them and what are the pros vs the cons.
 Where the other is not netter over the other, it all depends."
 date: "2022-12-24"
-updated: "2022-12-24"
+updated: "2023-01-17"
 time: "7min"
 tags: ["software-development"]
 author:
   name: Marcell Ciszek Druzynski
 ---
 
-## About
+## Intro
 
 Declarative and imperative are known paradigms in computer science.
 They both have their pros and cons, and there is no one there is better than the other.
 There are developers that might prefer one paradigm, move the other.
 A common trend is to market new libraries/frameworks with a declarative API.
 
-### What are the differences
+### Imperative
 
-_Imperative programming_ is an old and basic paradigm.
-When we write code in an imperative way, the code describes step-by-step for the program execution.
-It is common that beginners think that it is easier to write programs in an imperative way, by follow along with the steps and what is going on in the program.
-We as developers are more interested in how the program runs.
+Imperative programming is a programming paradigm in which the program specifies a sequence of commands for the computer to perform. In imperative programming, the focus is on describing how a program operates.
 
-There are languages that by the core are classed as imperative, but most of them has been modernized and have declarative API’s as well, but just if we go back when the languages were created they are labeled as imperative programming languages, and they are:
+### Declarative
 
-- Java
-- C
-- Ruby
-- PHP
-- C++
+Declarative programming, on the other hand, is a programming paradigm in which the program specifies a desired outcome and the system figures out how to achieve it. In declarative programming, the focus is on describing what the program should accomplish, rather than how it should accomplish it. The implementations details are not important.
 
-When we write declarative programs, you write _what the program should achieve_ instead of how it should run.
-We describe the result the program should accomplish without focusing on its control flow.
+In simpler terms, imperative programming tells the computer what to do step by step and line by line, while declarative programming tells the computer what the desired outcome is, what we expect and let the computer decide the best way to achieve the final result.
 
-Programming languages and libraries have different APIs how to achieve this.
-It is like you are asking the program on what you **want** out of the program and not the **what**.
-
-Take **SQL** for example, where we describe what we want.
-We are not focused on how the SQL does it under the hood.
-A simple SQL query.
-`SELECT u.id, u.name from users u WHERE u.id = 25`
-
-Example of declarative languages are:
-
-- SQL
-- CSS
-- Haskell
-- Lisp
-- Scala
-
-> **Declarative programming** express the final result without going into the details of the api.
-> **Imperative programming** focus on changing the programs state with using statements.
-
-How can we express these two paradigms in the daily life.
-With a simple example, it could look like this.
-
-**Declarative:**
-You have cravings for a pizza, you are telling your friend to get you a pizza, you don’t care if he does it by himself or order it, even what type of pizza it is, the only thing you care about is to get your pizza.
-You want the final result which is the pizza, nothing else matters.
-
-**Imperative**
-You once again want a pizza, but this time you do not trust your friend, and you want him to make the pizza himself from scratch.
-You want to help him, so you go into the kitchen and show hem step by step what and how he should do the pizza.
-
-### How can we define the two paradigms in code?
+### How can we define these two paradigms in code?
 
 First an imperative approach toggle the theme between dark and light using vanilla JavaScript where we manipulate the _DOM_.
 
 **Imperative approach**
 
-```js
+```
 const darkBtn = document.querySelector(".dark-btn")
 const lightBtn = document.querySelector(".light-btn")
 
@@ -109,11 +71,11 @@ _If you want to check out the [codepen](https://codepen.io/legionista1994/pen/yL
 **Declarative approach**
 Here we are doing the same thing, but using [React](https://reactjs.org/) to toggle theme between dark and light.
 
-```tsx
-import {useTheme} from "theme"
+```
+import { useTheme } from "theme"
 
 const ThemeChanger = () => {
-  const {theme, setTheme} = useTheme()
+  const { theme, setTheme } = useTheme()
 
   return (
     <div>
@@ -126,14 +88,14 @@ const ThemeChanger = () => {
 ```
 
 We are focusing here more on what we want as the result and not on the implementation details compared to how the imperative example looked like.
-The declarative example never touches any element at all, it describes how the UI should look like and work and let the React handle the rest. We do not manipulate the _DOM_.
+The declarative example never touches any element at all, it describes how the UI should look and work and lets React handle the rest. We do not manipulate the _DOM_.
 
-This is one of the philosophy’s of React, to not think how things should be done, instead how should the UI look like when the new state is calculated.
+This is one of the philosophies of React, to not think how things should be done, but instead, how should the UI look when the new state is calculated.
 
-Let’s go with another example where we have a list of numbers and where we ant to get a new list with only even numbers.
-Here two examples where the first is a imperative approach and the second is the declarative way.
+Let’s go with another example where we have a list of numbers and where we want to get a new list with only even numbers.
+An imperative solution could look like this.
 
-```rust
+```
 fn only_even_nums(xs: &Vec<i32>) -> Vec<i32> {
     let mut res = Vec::new();
     for &x in xs.into_iter() {
@@ -145,7 +107,9 @@ fn only_even_nums(xs: &Vec<i32>) -> Vec<i32> {
 }
 ```
 
-```rust
+And the declarative approach would look like this:
+
+```
 fn only_even_nums(xs: &Vec<i32>) -> Vec<&i32> {
      xs.into_iter().filter(|&&x| x % 2 == 0).collect::<Vec<&i32>>()
 }
@@ -155,6 +119,6 @@ fn only_even_nums(xs: &Vec<i32>) -> Vec<&i32> {
 
 No paradigm is better over the other, they both have their pros and cons.
 While the imperative paradigm focusing more on the step-by-step instructions for how an executed program achieves the desired results.
-The declarative paradigm focusing more hon **what** we want and not on how things should be done.
+The declarative paradigm focusing more on what the computer should accomplish for us, the implementation details are not so important.
 
 There are favor of preference, while imperative is easier to getting start with and declarative paradigm is a more natural way to write programs the more experience you get, that is what I have experienced.
