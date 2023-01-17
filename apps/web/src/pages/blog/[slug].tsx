@@ -19,7 +19,7 @@ interface Params extends ParsedUrlQuery {
   slug: string
 }
 
-type Props = {
+interface Props {
   post: PostsType
   source: MDXRemoteSerializeResult<
     Record<string, unknown>,

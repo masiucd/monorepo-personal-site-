@@ -19,7 +19,7 @@ const stuffAboutMe = Object.freeze([
   {id: 6, title: "Football supporter ⚽"},
 ])
 
-type Props = {
+interface Props {
   text: string
 }
 function Span({text}: Props) {

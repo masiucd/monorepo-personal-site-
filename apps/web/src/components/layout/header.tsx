@@ -3,7 +3,7 @@ import {useTheme} from "next-themes"
 import {Moon, Sun} from "ui"
 
 import NavLink from "~/components/common/nav_link"
-import navLinks from "~/static_data/nav_links.json"
+import navLinks from "~/config/nav_links.json"
 
 import MobileMenu from "./mobile_menu"
 

@@ -2,7 +2,7 @@ import Link from "next/link"
 import {useRouter} from "next/router"
 import {ReactNode} from "react"
 
-type Props = {
+interface Props {
   href: string
   children: ReactNode
   className?: string

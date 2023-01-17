@@ -26,7 +26,7 @@ export const getStaticProps: GetStaticProps = () => ({
   },
 })
 
-type Props = {
+interface Props {
   posts: AllPosts
 }
 
@@ -81,7 +81,7 @@ function TagsFilter({
 function renderBlogItems(tags: string[], posts: AllPosts) {
   if (tags.length > 0) {
     return posts
-      .filter((p) => tags.every((t) => p.tags.includes(t)))
+      .filter((p) => tags.some((t) => p.tags.includes(t)))
       .map((p) => <BlogItem key={p.slug} post={p} />)
   }
   return posts.map((p) => <BlogItem key={p.slug} post={p} />)
