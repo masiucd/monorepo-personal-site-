@@ -14,7 +14,7 @@ describe("Title", () => {
   test("Title renders with props  as expected", () => {
     const children = "children"
     render(<Title title={children} />)
-    screen.debug()
+
     expect(screen.getByText("children")).toBeDefined()
   })
 })
