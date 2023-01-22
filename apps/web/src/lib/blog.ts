@@ -37,5 +37,5 @@ export function getPostBySlug(file: string, fields: string[]) {
 export function getAllPosts(fields: string[] = []) {
   return getPostSlugs()
     .map((slug) => getPostBySlug(slug, fields))
-    .sort((a, b) => (a.date > b.date ? -1 : 1))
+    .sort((a, b) => (a.updated > b.updated ? -1 : 1))
 }
