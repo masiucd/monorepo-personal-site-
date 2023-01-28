@@ -56,19 +56,15 @@ export default function Page({
         <meta name="twitter:description" content={meta.description} />
         <meta name="twitter:image" content={meta.image} />
       </Head>
-      <div className={cn("m-auto max-w-3xl", mergedStyles(fluid, styles))}>
+      <div
+        className={cn(
+          "m-auto flex-1",
+          fluid ? "max-w-full w-full" : "max-w-4xl  w-full",
+          styles
+        )}
+      >
         {children}
       </div>
     </>
   )
-}
-
-function mergedStyles(fluid: boolean, styles: string) {
-  return cn(applyFluidStyles(fluid), styles)
-}
-function applyFluidStyles(fluid: boolean): string {
-  if (fluid) {
-    return " max-w-[100%] "
-  }
-  return ""
 }
