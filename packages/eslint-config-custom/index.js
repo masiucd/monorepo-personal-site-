@@ -1,5 +1,11 @@
 module.exports = {
-  extends: ["next", "turbo", "prettier", "plugin:react-hooks/recommended"],
+  extends: [
+    "next",
+    "turbo",
+    "prettier",
+    "plugin:react-hooks/recommended",
+    "plugin:tailwindcss/recommended",
+  ],
   plugins: ["prettier", "simple-import-sort"],
   rules: {
     "@next/next/no-html-link-for-pages": "off",
