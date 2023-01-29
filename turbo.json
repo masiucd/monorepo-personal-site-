@@ -5,18 +5,14 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**"]
     },
-    "test": {
-      "outputs": []
-    },
+
+    "test": {},
     "test:watch": {
       "cache": false
     },
-    "lint": {
-      "outputs": []
-    },
+    "lint": {},
     "deploy": {
-      "dependsOn": ["build", "test", "lint"],
-      "outputs": []
+      "dependsOn": ["build", "test", "lint"]
     },
     "dev": {
       "cache": false
