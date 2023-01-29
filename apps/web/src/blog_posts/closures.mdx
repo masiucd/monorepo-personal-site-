@@ -11,9 +11,6 @@ author:
 
 ## Intro
 
-Working as a Javascript developer you are using closures even if you do not know what they are.
-In this post we will go trough what is a closure and how we use them in Javascript.
-
 A closure in Javascript is a function that has access to variables in its parent scope, even when the parent function is done/returned.
 This means that the inner function can refer to and change/manipulate the variables from the parent scope even after the parent has been executed.
 Closures are used in different scenarios one common scenario is to make private variables and methods using closures and to create function factories.
@@ -41,17 +38,16 @@ A variable defined in a function is accessible within that function, while a var
 
 For example,
 
-```
-let x = 100;  // global scope
+```js
+let x = 100 // global scope
 
-function myFunc() {
-  let y = 200;  // local scope
+function fn() {
+  let y = 200 // local scope
 }
-
 ```
 
-Here, the variable x is in the global scope and can be accessed from anywhere in the code, but the variable y is in the local scope and can only be accessed within the `myFunc` function.
-We can access the `x` variable from the `myFunc` function.
+Here, the variable x is in the global scope and can be accessed from anywhere in the code, but the variable y is in the local scope and can only be accessed within the `fn` function.
+We can access the `x` variable from the `fn` function.
 
 It's important to understand scope in JavaScript, because if you try to access a variable that is not in the current scope, it will cause an error.
 
@@ -98,7 +94,6 @@ To summarize:
 
 ### Why do we use closures?
 
-**TODO**
 We know that with help of lexical scoping we can access variables defined in the outer scopes, that is important to know about how closures works.
 
 Let's try something out.
@@ -139,7 +134,7 @@ A closure is a function that remembers, captures its lexical, even when our func
 A good pattern to recognize a closure is when we see a variable used in a function body, but we can't see where it's defined, then that function is a closure that
 Captures the lexical scope, cause, of the variable that was used.
 
-```
+```js
 const fullName = "Marcell"
 function funcOuter() {
   return fullName + "Ciszek Druzynski"
@@ -149,29 +144,28 @@ const run = funcOuter()
 
 > Closure is when a function is able to remember and access its lexical scope even when that function is executing outside its lexical scope.
 >
-> > By Kyle Simpson
+> _By Kyle Simpson_
 
 ### More examples
 
-**TODO**
 **Private variables**
 
-```
+```js
 function createCounter() {
-    let count = 0;
-    return {
-        increment() {
-            count++;
-        },
-        getCount() {
-            return count;
-        }
-    }
+  let count = 0
+  return {
+    increment() {
+      count++
+    },
+    getCount() {
+      return count
+    },
+  }
 }
 
-let counter = createCounter();
-counter.increment();
-console.log(counter.getCount()); // 1
+let counter = createCounter()
+counter.increment()
+console.log(counter.getCount()) // 1
 ```
 
 In this example, the `createCounter` function returns an object with two methods, `increment` and `getCount`. The increment method increments the count variable, which is only accessible within the closure.
@@ -179,15 +173,14 @@ The `count` variable is private we can’t directly access it outside the functi
 
 **Function factories**
 
-```
-function createMultiplier(x:number) {
-    return function(y:number) {
-        return x * y;
-    }
+```js
+function createMultiplier(x: number) {
+  return function (y: number) {
+    return x * y
+  }
 }
-let double = createMultiplier(2);
-console.log(double(5)); // 10
-
+let double = createMultiplier(2)
+console.log(double(5)) // 10
 ```
 
 Here the `createMultiplier` function takes in a parameter `x` and returns a new function that takes in another parameter `y` and multiplies it with `x`.
@@ -213,18 +206,17 @@ attach click event listeners to each of them. Without closures, when the event i
 
 **Currying**
 
-```
+```js
 function multiply(a) {
-    return function(b) {
-        return function(c) {
-            return a * b * c;
-        }
+  return function (b) {
+    return function (c) {
+      return a * b * c
     }
+  }
 }
-let multiplyBy2 = multiply(2);
-let multiplyBy2And3 = multiplyBy2(3);
-console.log(multiplyBy2And3(4)); // 24
-
+let multiplyBy2 = multiply(2)
+let multiplyBy2And3 = multiplyBy2(3)
+console.log(multiplyBy2And3(4)) // 24
 ```
 
 In this example, we are returning a function from the multiply function, which in turn returns another function. Each function takes one argument, the last function takes a final argument and return the final result.
@@ -279,7 +271,7 @@ For example, `Rust` is a low-level language that supports closures.
 To use closures in `Rust` there is a special syntax for that where we have to be explicit to tell the compiler that we are using a closure.
 For example when mapping over a vector in `Russt`.
 
-```
+```rust
 let nums = vec![1, 2, 3, 4, 5];
 let double_nums = nums.iter().map(|x| x * 2).collect::<Vec<_>>();
 ```
@@ -298,3 +290,7 @@ Closures allow for data privacy and can be useful for creating function factorie
 - A closure is a function that remembers from its lexical scope. It remembers the variable even when the function is executed in another executing context, outside its lexical scope.
 
 - Closures are common in functional programming, an example when using the Currying pattern from the example above.
+
+### References
+
+- [scope and closures by Kyle Simpson](https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/scope-closures/ch7.md)
