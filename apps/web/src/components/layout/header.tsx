@@ -14,12 +14,11 @@ export default function Header() {
 
   return (
     <header className="relative pb-12">
-      <div className=" mx-auto flex justify-between py-3 fixed top-0 z-50 w-full transition-all bg-slate-50 dark:bg-black">
-        <div className="max-w-4xl mx-auto flex justify-between w-full  dark:bg-black bg-slate-50 shadow-sm pb-2">
-          {/* <nav className="fixed border border-red-500 top-0 left-1/2 transform translate-x-2/4 z-50 flex justify-around w-full"> */}
+      <div className="fixed top-0 z-50 mx-auto flex w-full justify-between bg-transparent py-3 backdrop-blur-sm transition-all ">
+        <div className="mx-auto flex w-full max-w-4xl justify-between p-2 backdrop-blur-sm ">
           <nav>
             {matches ? (
-              <ul className="flex gap-5 h-full items-center">
+              <ul className="flex h-full items-center gap-5">
                 {navLinks.map(({name, path}) => (
                   <li key={name}>
                     <NavLink href={path}>{name}</NavLink>
@@ -30,7 +29,7 @@ export default function Header() {
               <MobileMenu />
             )}
           </nav>
-          <div className="border-2 border-slate-900 rounded-full flex items-center justify-center w-10 h-10 bg-zinc-900 dark:bg-zinc-50 shadow-sm mr-2 md:mr-0 z-20">
+          <div className="z-20 mr-2 flex h-10 w-10 items-center justify-center rounded-full border-2 border-slate-900 bg-zinc-900 shadow-sm dark:bg-zinc-50 md:mr-0">
             {mounted && (
               <button
                 type="button"
