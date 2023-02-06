@@ -1,9 +1,9 @@
 ---
 title: "Closures"
 description: "Working as a Javascript developer you are using closures even if you do not know what they are. In this post we will go trough what is a closure and how we use them in Javascript."
-date: "2023-01-29"
-updated: "2023-01-29"
-time: "13min"
+date: "2023-02-06"
+updated: "2023-02-06"
+time: "12min"
 tags: ["software-development", "js"]
 author:
   name: Marcell Ciszek Druzynski
@@ -11,6 +11,330 @@ author:
 
 ## Intro
 
-A closure in Javascript is a function that has access to variables in its parent scope, even when the parent function is done/returned.
+A closure in JavaScript is a function that has access to variables in its parent scope, even when the parent function is done/returned.
 This means that the inner function can refer to and change/manipulate the variables from the parent scope even after the parent has been executed.
-Closures are used in different scenarios one common scenario is to make private variables and methods using closures and to create function factories.
+Closures are used in different scenarios, one common scenario is to make private variables and methods using closures and to create function factories.
+
+
+
+### scope
+To understand closures we need to go through what is scope and how scope works.
+How we can access different variables from where we are in the program.
+
+The JavaScript engine provides us three type of different scope.
+- *Global scope*
+- *Block scope*
+- *Function scope*
+
+The global scope is the most outer layer in our program, it is here where we can access our global variables from anywhere in the program, without being restricted to a specific block of code or a function.
+Variables that we define outside any scope will be a global variable.
+In a browser environment, the global object is the `window` object, so global variables are properties of the `window` object.
+
+```ts
+	let iaAmGlobal = "just a string"
+
+	function fn(){
+		let local = "I am a local variable"		
+	}
+```
+
+In the example above the variable `iAmGlobal` is the global variable and will be accessible throughout the whole program, while the `local` variable is local and defined within the function will only be accessible within that scope.
+
+Every code block defined within a block `({})` are blocked scoped.
+For example, a `if` statement where variables are defined within the `if` body are defined within a block.
+Variables outside this block can’t access the variables.
+
+```ts
+	if (someCondition){
+		// it's own scope
+		let x = 10
+	}
+```
+
+Notice to make this to work we need to keep using `let` and `const` keywords when defining new variables since they are blocked scope. Using `var` here would lead to the global scope accessibility right in the `if` statement.
+My recommendation is to use `let` and `const` since they are blocked scope and make the code easier to read and understand.
+
+Function scope is the block that is within the function itself.
+
+```ts
+function fn(){
+	// function scope
+	let x = 10
+}
+```
+
+We have defined a new function `fn` that has its own scope where `x` has been created. `x` is only accessible within the `fn` function.
+
+
+### lexical scope
+
+JavaScript has the mechanism of lexical scoping, even called static scoping.
+
+The term *lexical scope* refers to the way in which the source code is arranged, and how this arrangement affects the visibility and accessibility of variables and functions. In the context of JavaScript, it refers to the relationship between the source code text and the variables and functions declared within that block.
+
+So a variable that has to be defined in an outer scope will be accessible in an inner scope, like a child can ask for its parent but the parent’s can not ask for helot its children.
+Where the parent is the outer scope and the children is the inner scope.
+
+```ts
+	let parent = "Bob"
+	
+	function fn() {
+		let child = "Pia"
+		let sentence = `${child} asking ${parent} for help!`
+		return sentence
+	}
+```
+
+Here the `child` variable is a local variable that has access to the outer scope, in this example the global scope where the `parent` ID defined.
+
+The same principle works with a function with multiple scopes, aka nested scopes.
+
+```ts
+let a = 10
+function math() {
+  let b = 5
+  function inner() {
+    let c = 2
+    return a + b + c
+  }
+
+  return inner
+}
+
+const result = math()
+console.log(result()) // 17
+```
+
+We can see that `inner` function has accesses to all of its parent scopes thanks to lexical scoping.
+
+The lexical scope in this code defines the scope chain as follows:
+
+The `inner()` function has access to its own `c` variable, as well as to the `b` variable in the outer `math()` function scope.
+The `math()` function has access to its own `b` variable, as well as to the global a variable.
+
+We can think of a person named _Bob_ searching for his dog in a building, _Bob_ starts at the first floor and go floor by floor until he finds his dog.
+The first floor represents the current scope that we start in, like a nested scope.
+When we are accessing a variable from the current scope and can't find it, we go up one level to check if it in that scope.
+We're going up level by level until we find it.
+If we do not find the variable we try to refer to, we would get a reference error!
+
+> Lexical scope is the ability for a function scope to access variables from the parent scope.
+> We call the child function to be lexically bound to its parent scope.
+
+
+### Closures
+
+So now when we know what is scope and lexical scope, let’s dig into the main topic, closures!
+We know that with help of lexical scoping we can access variables defined in the outer scopes, that is important to know about how closures works.
+
+Let's try something out!
+
+An inner function that uses the variable from the outer scope, while returning its own data. Then return the inner function from the outer scopes function body.
+
+Could we access the inner function outside the outer function scope, for example in the global environment, and could we get the data returned from the inner function?
+
+Let's find out!
+
+```js
+function outer() {
+  const a = 100
+  function inner() {
+    const b = 10
+    const result = a + b
+    return {a, b, result}
+  }
+  return inner
+}
+
+const fn = outer()
+console.log(fn()) // { a: 100, b: 10, result: 110 }
+const {a, b, result} = fn()
+console.log({a, b, result}) // { a: 100, b: 10, result: 110 }
+```
+
+This is useful, not only can we get back the result that gets returned from the function but we can access data from a nested function, we return an object from the inner function that uses both its parent scope variable `(a)` to calculate the result from its own scope.
+We then have access to those from the global scope, from the returned value we receive from the `outer` function.
+
+We have the power to decide what will be exposed or not from our function, we can make variables *private* and *public*.
+
+A closure in JavaScript is a function that has access to its outer function's variables and retains their values even after the outer function has returned. It allows the inner function to remember and continue to access the variables from its outer scope.
+
+A good pattern to recognize a closure is when we see a variable used in a function body, but we can't see where it's defined, then that function is a closure that
+Captures/closes the lexical scope, cause, of the variable that was used.
+
+Remember the previous metaphor about lexical scoping, where we went from the bottom floor in the building up to the top to find what variable we refer to.
+
+> Closure is when a function is able to remember and access its lexical scope even when that function is executing outside its lexical scope.
+>> By Kyle Simpson
+
+
+
+### Closure examples
+
+* We know that functions can access variables from the lexical scope.
+* We can close over the variable/variables and remember them later on.
+
+Closure in Javascript care common in these cases:
+
+- Encapsulating private data and methods.
+- Creating function factories.
+- Event handlers.
+- Implementing JavaScript modules.
+- Implementing partial function application or currying.
+
+
+1. Encapsulating private data and methods:
+
+```js
+function person() {
+  let firstName = "Bob"
+  let lastName = "Smith"
+  let age = 34
+
+  return {
+    getName() {
+      return firstName + " " + lastName
+    },
+    getAge() {
+      return age
+    },
+
+    birthday() {
+      return age++
+    },
+  }
+}
+
+const p = person()
+
+console.log(p.getName()) // Bob Smith
+console.log(p.getAge()) // 34
+p.birthday()
+console.log(p.getAge()) // 35
+
+
+```
+
+Encapsulating private data and methods: A closure is used to hide the implementation details of an object by encapsulating its private data and methods within the closure.
+We can never access directly `firstName`, `lastName` and `age`
+Since they are private.
+
+
+2. Creating function factories:
+```js
+function createMultiplier(multiplier) {
+  return function(x) {
+    return x * multiplier;
+  }
+}
+
+const double = createMultiplier(2);
+console.log(double(5)); // 10
+
+```
+
+Creating function factories: A closure is used to create multiple instances of a function, each with a different set of parameters or environment. The `createMultiplier` is dynamic, next time we would perhaps want to create a triple function with our `‌createMultiplier` function.
+`const tripple = createMultiplier(3)`.
+
+3. Event handlers:
+```js
+const button = document.querySelector("#myButton")
+
+let count = 0
+button.addEventListener("click", () => {
+  count += 1
+  console.log("Button has been clicked " + count + " time(s)")
+})
+
+```
+
+ The event handler is an anonymous function (often referred to as a *callback*) that is passed as an argument to addEventListener.
+
+This anonymous function has access to the count variable defined in its outer scope, creating a closure. Every time the button is clicked, the closure is executed and the count variable is updated, so the message displayed in the console changes to reflect the new value of count.
+
+
+4. Implementing JavaScript modules:
+
+```js
+const module = (function() {
+  let privateData = {};
+  
+  function privateMethod() {
+    // ...
+  }
+  
+  return {
+    publicMethod: function() {
+      // ...
+    }
+  };
+})();
+
+module.publicMethod();
+
+```
+
+Implementing JavaScript modules: A closure is used to implement the module pattern, a way to organize and encapsulate code within a single function or module.
+Here a closure is used to implement [the module pattern](https://www.digitalocean.com/community/conceptual-articles/module-design-pattern-in-javascript)
+
+5. Implementing partial function application or currying:
+
+```js
+const curriedSum = (a) => (b) => (c) => a + b + c;
+
+const sum = curriedSum(1)(2)(3);
+console.log(sum); // 6
+```
+
+The `curriedSum` is a function that takes an argument `a` and returns a new function that takes an argument `b`. That returned function then takes an argument `c` and returns the sum of `a`, `b`, and `c`. By using multiple function calls, the arguments can be supplied to the function one at a time, which is called currying.
+It might be confusing if you don't usually work with curried functions before. I have normally not used much curried function in my daily work, but they are common when writing code in a functional programming paradigm, which you can do in JavaScript.
+If you are invested in writing code more in the functional   programming way, I recommend to check out libraries like:
+
+
+- [Ramda](https://ramdajs.com/)
+- [Fp Ts](https://gcanti.github.io/fp-ts/)
+- [lazy js](https://danieltao.com/lazy.js/)
+
+## Performance
+Something good to know that not all programming languages support closures.
+
+For example, the `C` programming language does not support Closures.
+
+Closures are powerful, but could be costly. When working with more low level languages, we want to avoid that and focus on performance as much as we can.
+
+The machine needs to store, remember what it has closed over, right?
+
+The closure makes the machine to keep the outer variable around even after we have called our function.
+It has to be stored in memory.
+
+It can be a performance concern for the low-level languages, like C.
+
+But there are new low level languages that have closures built into the language.
+For example, Rust is a low level language that support Closures.
+
+To use closures in Rust, there is a special syntax for that, where we have to be explicit to tell the compiler that we are using a closure.
+For example, when mapping over a vector in #Rust.
+
+```
+let nums = vec![1, 2, 3, 4, 5];
+let double_nums = nums.iter().map(|x| x * 2).collect::<Vec<_>>();
+```
+The `x` inside the two pipes tells the Rust compiler that we are using a closure.
+
+## Wrap it up
+* The accessibility of a variable is decided by the scope, either function scope or block scope.
+
+* Thanks to lexical scope, we can access the variables from the outside scopes.
+
+* A closure is a function that remembers from its lexical scope. It remembers the variable even when the function is executed in another executing context, outside its lexical scope.
+
+* Closures are common in functional programming, an example when using the Currying pattern from the example above.
+
+* We can access the variable defined within its own function body or even global variables, but we will never have the functionality to access a parent function's local variables.
+
+
+### References
+
+- [scope and closures by Kyle Simpson](https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/scope-closures/ch7.md)
+- [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
+- [Dimitri Pavlutin](https://dmitripavlutin.com/javascript-closure/)
