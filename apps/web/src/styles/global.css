@@ -73,7 +73,7 @@ pre {
 }
 
 #blog_article pre code {
-  @apply rounded-md border-2 border-blue-500 dark:border-blue-500;
+  @apply rounded-md border-2 border-blue-500 dark:border-blue-500 bg-black;
 }
 
 /* .rehype-code-title {
@@ -97,5 +97,5 @@ blockquote {
 }
 
 code {
-  @apply font-mono;
+  @apply font-mono bg-slate-200 dark:bg-slate-800 p-[2px] rounded-md;
 }
