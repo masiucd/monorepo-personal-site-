@@ -11,17 +11,17 @@ interface Props {
 
 export default function PostHero({post}: Props) {
   return (
-    <div className="bg-gray-900 dark:bg-slate-100 text-white dark:text-gray-900 p-4 py-20">
+    <div className="bg-gray-900 p-4 py-20 text-white dark:bg-slate-100 dark:text-gray-900">
       <div
-        className={`max-w-4xl m-auto px-5 py-5 ${SecondaryFont.className} border-slate-100 dark:border-gray-900  relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-full md:after:w-2/4 after:h-2 after:bg-slate-100 dark:after:bg-gray-900  
-            before:content-[''] before:absolute before:left-0 before:top-0 before:w-full md:before:w-2/3 before:h-2 before:bg-slate-100 dark:before:bg-gray-900`}
+        className={`m-auto max-w-4xl p-5${SecondaryFont.className} relative border-slate-100  before:absolute before:left-0 before:top-0 before:h-2 before:w-full before:bg-slate-100 before:content-[''] after:absolute after:left-0 after:bottom-0  
+            after:h-2 after:w-full after:bg-slate-100 after:content-[''] dark:border-gray-900 dark:before:bg-gray-900 dark:after:bg-gray-900 md:before:w-2/3 md:after:w-2/4`}
       >
         <h1
           className={`text-2xl md:text-4xl lg:text-6xl ${MainFont.className}`}
         >
           {post.title}
         </h1>
-        <p className="md:text-xl mb-5">{post.description}</p>
+        <p className="mb-5 md:text-xl">{post.description}</p>
         <Bottom tags={post.tags} created={post.date} updated={post.updated} />
       </div>
     </div>
